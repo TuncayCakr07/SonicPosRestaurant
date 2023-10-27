@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back-End", "Back-End", "{03CBE650-EA08-4C0D-A299-F1F4652A2507}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front-End", "Front-End", "{F42F96FD-6C04-417C-BC92-45A63668395F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.Entities", "SonicPosRestaurant.Entities\SonicPosRestaurant.Entities.csproj", "{2A932C29-453A-429C-AC94-5512C6926226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.DataAccess", "SonicPosRestaurant.DataAccess\SonicPosRestaurant.DataAccess.csproj", "{EFD4821B-0AA4-4E37-B586-254A7243FE45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.Business", "SonicPosRestaurant.Business\SonicPosRestaurant.Business.csproj", "{29940298-0A06-4806-9E73-58DE84F9E88C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.Core", "SonicPosRestaurant.Core\SonicPosRestaurant.Core.csproj", "{A5CC06FC-BE85-4DB6-866D-95114D415510}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A932C29-453A-429C-AC94-5512C6926226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A932C29-453A-429C-AC94-5512C6926226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A932C29-453A-429C-AC94-5512C6926226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A932C29-453A-429C-AC94-5512C6926226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD4821B-0AA4-4E37-B586-254A7243FE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD4821B-0AA4-4E37-B586-254A7243FE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD4821B-0AA4-4E37-B586-254A7243FE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD4821B-0AA4-4E37-B586-254A7243FE45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29940298-0A06-4806-9E73-58DE84F9E88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29940298-0A06-4806-9E73-58DE84F9E88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29940298-0A06-4806-9E73-58DE84F9E88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29940298-0A06-4806-9E73-58DE84F9E88C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A932C29-453A-429C-AC94-5512C6926226} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
+		{EFD4821B-0AA4-4E37-B586-254A7243FE45} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
+		{29940298-0A06-4806-9E73-58DE84F9E88C} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
+		{A5CC06FC-BE85-4DB6-866D-95114D415510} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9DA2DDE-3C85-4A92-BFB3-EACCC30620C4}
+	EndGlobalSection
+EndGlobal
