@@ -51,7 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Contexts\Base\BaseContext.cs" />
+    <Compile Include="Contexts\Restaurant\RestaurantConfiguration.cs" />
+    <Compile Include="Contexts\Restaurant\RestaurantContext.cs" />
+    <Compile Include="Dals\Base\Repository.cs" />
+    <Compile Include="Dals\EkMalzemeDal.cs" />
+    <Compile Include="Dals\PorsiyonDal.cs" />
+    <Compile Include="Dals\TanimDal.cs" />
+    <Compile Include="Dals\UrunDal.cs" />
+    <Compile Include="Interfaces\Base\IRepository.cs" />
+    <Compile Include="Interfaces\IEkMalzemeDal.cs" />
+    <Compile Include="Interfaces\IPorsiyonDal.cs" />
+    <Compile Include="Interfaces\ITanimDal.cs" />
+    <Compile Include="Interfaces\IUrunDal.cs" />
     <Compile Include="Mappings\EkMalzemeMap.cs" />
     <Compile Include="Mappings\PorsiyonMap.cs" />
     <Compile Include="Mappings\TanimMap.cs" />
@@ -64,6 +76,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\SonicPosRestaurant.Core\SonicPosRestaurant.Core.csproj">
+      <Project>{a5cc06fc-be85-4db6-866d-95114d415510}</Project>
+      <Name>SonicPosRestaurant.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SonicPosRestaurant.Entities\SonicPosRestaurant.Entities.csproj">
       <Project>{2A932C29-453A-429C-AC94-5512C6926226}</Project>
       <Name>SonicPosRestaurant.Entities</Name>
