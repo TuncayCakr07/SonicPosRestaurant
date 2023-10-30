@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +60,8 @@
     <Compile Include="Dals\PorsiyonDal.cs" />
     <Compile Include="Dals\TanimDal.cs" />
     <Compile Include="Dals\UrunDal.cs" />
+    <Compile Include="Functions\EntityBaseInfo.cs" />
+    <Compile Include="Functions\ConnectionStringInfo.cs" />
     <Compile Include="Interfaces\Base\IRepository.cs" />
     <Compile Include="Interfaces\IEkMalzemeDal.cs" />
     <Compile Include="Interfaces\IPorsiyonDal.cs" />
@@ -69,6 +72,9 @@
     <Compile Include="Mappings\TanimMap.cs" />
     <Compile Include="Mappings\UrunMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\RestaurantUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\RestaurantUnitOfWorkBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

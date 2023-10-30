@@ -13,7 +13,7 @@ namespace SonicPosRestaurant.Entities.Tables.Base
         public string Ekleyen { get; set; }
         public DateTime EklenmeTarihi { get; set; }
         public string Duzenleyen { get; set; }
-        public DateTime DuzenlenmeTarihi { get; set; }
+        public DateTime? DuzenlenmeTarihi { get; set; }
         public string Aciklama { get; set; }
     }
 }

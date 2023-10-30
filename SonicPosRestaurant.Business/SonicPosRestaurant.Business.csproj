@@ -51,11 +51,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\Base\BaseManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Base\IBaseService.cs" />
+    <Compile Include="Services\IEkMalzemeService.cs" />
+    <Compile Include="Services\IPorsiyonService.cs" />
+    <Compile Include="Services\ITanimService.cs" />
+    <Compile Include="Services\IUrunService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SonicPosRestaurant.DataAccess\SonicPosRestaurant.DataAccess.csproj">
+      <Project>{efd4821b-0aa4-4e37-b586-254a7243fe45}</Project>
+      <Name>SonicPosRestaurant.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SonicPosRestaurant.Entities\SonicPosRestaurant.Entities.csproj">
+      <Project>{2a932c29-453a-429c-ac94-5512c6926226}</Project>
+      <Name>SonicPosRestaurant.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
