@@ -1,4 +1,5 @@
-﻿using SonicPosRestaurant.DataAccess.Contexts.Restaurant;
+﻿using SonicPosRestaurant.Core.Functions;
+using SonicPosRestaurant.DataAccess.Contexts.Restaurant;
 using SonicPosRestaurant.DataAccess.Dals;
 using SonicPosRestaurant.DataAccess.Dals.Base;
 using SonicPosRestaurant.DataAccess.Functions;
@@ -26,7 +27,7 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
                 _context = new RestaurantContext(ConnectionStringInfo.Get());
             }
             else
-            {
+            { 
                 _context = new RestaurantContext(connectionString);
             }
             UrunDal = new UrunDal(_context);

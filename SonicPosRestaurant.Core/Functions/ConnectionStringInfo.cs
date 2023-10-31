@@ -23,11 +23,16 @@ namespace SonicPosRestaurant.Core.Functions
         }
         public static void Set(string connectionString)
         {
+            if (!Directory.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\{Application.CompanyName}"))
+            {
+                Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\{Application.CompanyName}");
+            }
             File.WriteAllText(FilePath, connectionString);
         }
         public static bool Check(string connectionString=null)
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder(connectionString?? Get());
+            connectionStringBuilder.InitialCatalog = "master";
             using (SqlConnection connection=new SqlConnection(connectionStringBuilder.ConnectionString))
             {
                 try

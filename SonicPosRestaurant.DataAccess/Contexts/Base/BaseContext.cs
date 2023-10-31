@@ -9,7 +9,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Base
 {
     public class BaseContext<TContext>:DbContext where TContext : DbContext,new()
     {
-        private static string Connectionstring = "";
+        private static string Connectionstring = "Tuncay";
         public BaseContext():base(Connectionstring)
         {
             
@@ -17,6 +17,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Base
         public BaseContext(string connectionString):base(connectionString)
         {
             Configuration.LazyLoadingEnabled = false;
+            Connectionstring = connectionString;
         }
     }
 }
