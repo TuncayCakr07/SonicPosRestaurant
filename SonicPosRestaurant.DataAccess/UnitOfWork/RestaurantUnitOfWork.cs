@@ -5,35 +5,34 @@ using SonicPosRestaurant.DataAccess.Functions;
 using SonicPosRestaurant.DataAccess.Interfaces;
 using SonicPosRestaurant.DataAccess.Interfaces.Base;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SonicPosRestaurant.DataAccess.UnitOfWork
 {
     public class RestaurantUnitOfWork : IUnitOfWork
     {
-       private readonly RestaurantContext _context;
+        private readonly RestaurantContext _context;
+        private bool disposedValue;
+
         public IUrunDal UrunDal { get; set; }
         public ITanimDal TanimDal { get; set; }
         public IPorsiyonDal PorsiyonDal { get; set; }
         public IEkMalzemeDal EkMalzemeDal { get; set; }
 
-        public RestaurantUnitOfWork(string connectionString=null)
+        public RestaurantUnitOfWork(string connectionString = null)
         {
-            if (connectionString==null)
+            if (connectionString == null)
             {
-                _context=new RestaurantContext(ConnectionStringInfo.Get());
+                _context = new RestaurantContext(ConnectionStringInfo.Get());
             }
             else
             {
                 _context = new RestaurantContext(connectionString);
             }
-            UrunDal=new UrunDal(_context);
-            TanimDal=new TanimDal(_context);
-            PorsiyonDal=new PorsiyonDal(_context);
-            EkMalzemeDal=new EkMalzemeDal(_context);
+            UrunDal = new UrunDal(_context);
+            TanimDal = new TanimDal(_context);
+            PorsiyonDal = new PorsiyonDal(_context);
+            EkMalzemeDal = new EkMalzemeDal(_context);
         }
 
         public bool Commit()
@@ -48,17 +47,17 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
             {
                 throw e;
             }
-          
+
         }
 
         public void DetectChanges()
         {
-           _context.ChangeTracker.DetectChanges();
+            _context.ChangeTracker.DetectChanges();
         }
 
         public bool HasChanges()
         {
-           return _context.ChangeTracker.HasChanges();
+            return _context.ChangeTracker.HasChanges();
         }
 
         IRepository<TEntity> IUnitOfWork.Dal<TEntity>()
@@ -94,5 +93,14 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~RestaurantUnitOfWork()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
     }
 }

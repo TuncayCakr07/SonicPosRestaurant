@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.Business
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.Core", "SonicPosRestaurant.Core\SonicPosRestaurant.Core.csproj", "{A5CC06FC-BE85-4DB6-866D-95114D415510}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UI.BackOffice", "SonicPosRestaurant.UI.BackOffice\SonicPosRestaurant.UI.BackOffice.csproj", "{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UI.FrontOffice", "SonicPosRestaurant.UI.FrontOffice\SonicPosRestaurant.UI.FrontOffice.csproj", "{2D939816-26A2-4DCC-A96F-BCF44EC218AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5CC06FC-BE85-4DB6-866D-95114D415510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{EFD4821B-0AA4-4E37-B586-254A7243FE45} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
 		{29940298-0A06-4806-9E73-58DE84F9E88C} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
 		{A5CC06FC-BE85-4DB6-866D-95114D415510} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
+		{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E} = {F42F96FD-6C04-417C-BC92-45A63668395F}
+		{2D939816-26A2-4DCC-A96F-BCF44EC218AB} = {F42F96FD-6C04-417C-BC92-45A63668395F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9DA2DDE-3C85-4A92-BFB3-EACCC30620C4}

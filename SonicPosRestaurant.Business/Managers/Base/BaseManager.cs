@@ -39,7 +39,15 @@ namespace SonicPosRestaurant.Business.Managers.Base
         {
             _uow.Dal<TEntity>().AddOrUpdate(entities);
         }
+        public virtual void Update(TEntity entity)
+        {
+            _uow.Dal<TEntity>().Update(entity);
+        }
 
+        public virtual void Update(IEnumerable<TEntity> entities)
+        {
+            _uow.Dal<TEntity>().Update(entities);
+        }
         public virtual BindingList<TEntity> BindingList()
         {
           return _uow.Dal<TEntity>().BindingList();
@@ -82,28 +90,20 @@ namespace SonicPosRestaurant.Business.Managers.Base
 
         public virtual void Load(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes)
         {
-            throw new NotImplementedException();
+            _uow.Dal<TEntity>().Load(filter, includes);
         }
 
         public virtual IQueryable<TEntity> Select(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TEntity>> selector, params Expression<Func<TEntity, object>>[] includes)
         {
-            throw new NotImplementedException();
+           return _uow.Dal<TEntity>().Select(filter, selector, includes);
         }
 
         public virtual IQueryable<TResult> Select<TResult>(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TResult>> selector, params Expression<Func<TEntity, object>>[] includes)
         {
-            throw new NotImplementedException();
+            return _uow.Dal<TEntity>().Select(filter, selector, includes);
         }
 
-        public virtual void Update(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public virtual void Update(IEnumerable<TEntity> entities)
-        {
-            throw new NotImplementedException();
-        }
 
         protected virtual void Dispose(bool disposing)
         {
