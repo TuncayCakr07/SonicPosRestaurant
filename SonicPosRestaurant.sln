@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UI.BackO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UI.FrontOffice", "SonicPosRestaurant.UI.FrontOffice\SonicPosRestaurant.UI.FrontOffice.csproj", "{2D939816-26A2-4DCC-A96F-BCF44EC218AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UserControls", "SonicPosRestaurant.UserControls\SonicPosRestaurant.UserControls.csproj", "{72A23A76-5F39-402C-8E12-9A0076949D62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D939816-26A2-4DCC-A96F-BCF44EC218AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A23A76-5F39-402C-8E12-9A0076949D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A23A76-5F39-402C-8E12-9A0076949D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A23A76-5F39-402C-8E12-9A0076949D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A23A76-5F39-402C-8E12-9A0076949D62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{A5CC06FC-BE85-4DB6-866D-95114D415510} = {03CBE650-EA08-4C0D-A299-F1F4652A2507}
 		{FF6B791C-0EE0-4B8C-A5F7-DE68AF66740E} = {F42F96FD-6C04-417C-BC92-45A63668395F}
 		{2D939816-26A2-4DCC-A96F-BCF44EC218AB} = {F42F96FD-6C04-417C-BC92-45A63668395F}
+		{72A23A76-5F39-402C-8E12-9A0076949D62} = {F42F96FD-6C04-417C-BC92-45A63668395F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9DA2DDE-3C85-4A92-BFB3-EACCC30620C4}

@@ -132,6 +132,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(146, 65);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Ekle";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // gridControlUrunler
             // 

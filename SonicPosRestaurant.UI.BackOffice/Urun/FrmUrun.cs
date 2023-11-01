@@ -20,5 +20,11 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
             InitializeComponent();
             gridControlUrunler.DataSource = worker.UrunService.GetList(filter: null, c => c.UrunGrup);
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FrmUrunIslem frm = new FrmUrunIslem(new Entities.Tables.Urun());
+            frm.ShowDialog();   
+        }
     }
 }
