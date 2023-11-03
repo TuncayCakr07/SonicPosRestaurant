@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using SonicPosRestaurant.Business.Workers;
+using SonicPosRestaurant.Entities.Enums;
 using SonicPosRestaurant.Entities.Tables;
+using SonicPosRestaurant.UI.BackOffice.Tanim;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,8 +107,10 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            worker.Commit();
-            Close();
+                worker.UrunService.AddOrUpdate(_urunEntity);
+                worker.Commit();
+                MessageBox.Show("Ürün başarıyla kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close(); // Formu kapat
         }
 
         private void controlMenuEkMalzeme_EkleClick(object sender, EventArgs e)
@@ -114,7 +118,7 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
             controlMenuEkMalzeme.KayıtAc = true;
             groupEkMalzeme.Visible = true;
             _ekMalzemeEntity=new EkMalzeme();
-            _ekMalzemeEntity.Id=_urunEntity.Id;
+            _ekMalzemeEntity.UrunId=_urunEntity.Id;
             EkMalzemeBinding();
         }
 
@@ -145,6 +149,28 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
         {
             controlMenuEkMalzeme.KayıtAc = false;
             groupEkMalzeme.Visible = false;
+        }
+
+        private void TxtKategori_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FrmTanim frm=new FrmTanim(TanimTip.UrunGrup);
+            frm.ShowDialog();
+            if (frm.Secildi)
+            {
+                TxtKategori.Text = frm.tanimEntity.Adi;
+                _urunEntity.UrunGrupId = frm.tanimEntity.Id;
+            }
+        }
+
+        private void TxtBirim_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            FrmTanim frm = new FrmTanim(TanimTip.Birim);
+            frm.ShowDialog();
+            if (frm.Secildi)
+            {
+                TxtBirim.Text = frm.tanimEntity.Adi;
+                _porsiyonEntity.BirimId = frm.tanimEntity.Id;
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace SonicPosRestaurant.DataAccess.Functions
     {
         public static void Add(DbContext context) 
         {
+            var a = context.ChangeTracker.Entries();
             foreach (var entry in context.ChangeTracker.Entries())
             {
                 EntityBase changingEntity=(EntityBase)entry.Entity;
@@ -27,8 +28,8 @@ namespace SonicPosRestaurant.DataAccess.Functions
                         break;
 
                         case EntityState.Modified:
-                        changingEntity.DuzenlenmeTarihi = DateTime.Now;
-                        changingEntity.Duzenleyen = "Tuncay Çakıroğlu";
+                            changingEntity.DuzenlenmeTarihi = DateTime.Now;
+                            changingEntity.Duzenleyen = "Tuncay Çakıroğlu";
                         break;
                 }
             }

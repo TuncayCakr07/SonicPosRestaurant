@@ -262,8 +262,10 @@
             this.TxtKategori.Name = "TxtKategori";
             this.TxtKategori.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.TxtKategori.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.TxtKategori.Size = new System.Drawing.Size(642, 22);
             this.TxtKategori.TabIndex = 2;
+            this.TxtKategori.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TxtKategori_ButtonClick);
             // 
             // TxtUrunAdi
             // 
@@ -463,8 +465,10 @@
             this.TxtBirim.Name = "TxtBirim";
             this.TxtBirim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.TxtBirim.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.TxtBirim.Size = new System.Drawing.Size(642, 22);
             this.TxtBirim.TabIndex = 7;
+            this.TxtBirim.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TxtBirim_ButtonClick);
             // 
             // labelControl10
             // 

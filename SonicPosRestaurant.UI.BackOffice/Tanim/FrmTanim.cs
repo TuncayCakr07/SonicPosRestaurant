@@ -19,12 +19,13 @@ namespace SonicPosRestaurant.UI.BackOffice.Tanim
         RestaurantWorker worker = new RestaurantWorker();
         public Entities.Tables.Tanim tanimEntity;
         public bool Secildi=false;
+        private TanimTip _tanimTip;
         public FrmTanim(TanimTip tanimTip)
         {
             InitializeComponent();
+            _tanimTip = tanimTip;
             worker.TanimService.Load(c=> c.TanimTipi==tanimTip);
             gridControlTanim.DataSource = worker.TanimService.BindingList();
-            TanimBinding();
         }
         void TanimBinding()
         {
@@ -55,6 +56,7 @@ namespace SonicPosRestaurant.UI.BackOffice.Tanim
             controlMenuKayit.KayıtAc = true;
             groupTanimBilgi.Visible = true;
             tanimEntity =(Entities.Tables.Tanim)gridTanim.GetFocusedRow();
+            TanimBinding();
         }
 
         private void controlMenuKayit_SilClick(object sender, EventArgs e)
@@ -69,7 +71,9 @@ namespace SonicPosRestaurant.UI.BackOffice.Tanim
         {
             controlMenuKayit.KayıtAc = false;
             groupTanimBilgi.Visible = false;
+            tanimEntity.TanimTipi = _tanimTip;
             worker.TanimService.AddOrUpdate(tanimEntity);
+            worker.Commit();
         }
 
         private void controlMenuKayit_VazgecClick(object sender, EventArgs e)

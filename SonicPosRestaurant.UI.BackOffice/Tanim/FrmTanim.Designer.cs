@@ -64,7 +64,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(717, 75);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Ürünler";
+            this.labelControl1.Text = "Tanım İşlemleri";
             // 
             // groupTanimBilgi
             // 
@@ -142,7 +142,6 @@
             this.controlMenuKayit.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             this.controlMenuKayit.Size = new System.Drawing.Size(713, 70);
             this.controlMenuKayit.TabIndex = 0;
-            this.controlMenuKayit.Visible = false;
             this.controlMenuKayit.SecClick += new System.EventHandler(this.controlMenuKayit_SecClick);
             this.controlMenuKayit.EkleClick += new System.EventHandler(this.controlMenuKayit_EkleClick);
             this.controlMenuKayit.DuzenleClick += new System.EventHandler(this.controlMenuKayit_DuzenleClick);

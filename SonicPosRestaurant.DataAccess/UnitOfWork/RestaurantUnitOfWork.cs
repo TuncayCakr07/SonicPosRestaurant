@@ -46,7 +46,9 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine($"Hata oluştu: {e.Message}");
+                return false; 
+                
             }
 
         }
