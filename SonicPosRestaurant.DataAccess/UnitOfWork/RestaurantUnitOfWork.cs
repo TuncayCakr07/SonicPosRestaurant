@@ -19,7 +19,9 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
         public ITanimDal TanimDal { get; set; }
         public IPorsiyonDal PorsiyonDal { get; set; }
         public IEkMalzemeDal EkMalzemeDal { get; set; }
-
+        public IMusteriDal MusteriDal { get; set; }
+        public ITelefonDal TelefonDal  { get; set; }
+        public IAdresDal AdresDal { get; set; }
         public RestaurantUnitOfWork(string connectionString = null)
         {
             if (connectionString == null)
@@ -34,6 +36,9 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
             TanimDal = new TanimDal(_context);
             PorsiyonDal = new PorsiyonDal(_context);
             EkMalzemeDal = new EkMalzemeDal(_context);
+            MusteriDal = new MusteriDal(_context);
+            TelefonDal = new TelefonDal(_context);
+            AdresDal = new AdresDal(_context);
         }
 
         public bool Commit()

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using SonicPosRestaurant.Business.Workers;
+using SonicPosRestaurant.Entities.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,12 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
         {
             FrmUrunIslem frm = new FrmUrunIslem(new Entities.Tables.Urun());
             frm.ShowDialog();   
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            FrmUrunIslem form = new FrmUrunIslem((Entities.Tables.Urun)gridUrun.GetFocusedRow());
+            form.ShowDialog();
         }
     }
 }
