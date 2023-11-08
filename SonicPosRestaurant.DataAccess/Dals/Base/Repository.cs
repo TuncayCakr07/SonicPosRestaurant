@@ -103,11 +103,11 @@ namespace SonicPosRestaurant.DataAccess.Dals.Base
         {
             if (filter==null)
             {
-                _context.Set<TEntity>().Load();
+                _context.Set<TEntity>().MultipleInclude(includes).Load();
             }
             else
             {
-                _context.Set<TEntity>().Where(filter).Load();
+                _context.Set<TEntity>().MultipleInclude(includes).Where(filter).Load();
             }
            
         }

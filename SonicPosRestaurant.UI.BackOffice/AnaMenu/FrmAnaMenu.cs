@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data.Entity;
 using SonicPosRestaurant.Core.Functions;
+using SonicPosRestaurant.UI.BackOffice.Musteri;
 using SonicPosRestaurant.UI.BackOffice.Urun;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,13 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
             FrmUrun frm=new FrmUrun();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmMusteri form= new FrmMusteri();
+            form.MdiParent= this;
+            form.Show();
         }
     }
 }

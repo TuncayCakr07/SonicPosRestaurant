@@ -18,5 +18,6 @@ namespace SonicPosRestaurant.Entities.Tables
         public ICollection<EkMalzeme> EkMalzemeler { get; set; }
         public Guid UrunGrupId { get; set; }
         public virtual Tanim UrunGrup { get; set; }
+        public virtual ICollection<UrunHareket> UrunHareketleri{ get; set; }
     }
 }

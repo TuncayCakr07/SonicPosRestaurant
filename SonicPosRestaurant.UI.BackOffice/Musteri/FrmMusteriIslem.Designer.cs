@@ -53,7 +53,7 @@
             this.groupTelefonMenu = new DevExpress.XtraEditors.GroupControl();
             this.controlMenuTelefon = new SonicPosRestaurant.UserControls.ControlMenuKayit();
             this.groupTelefonBilgi = new DevExpress.XtraEditors.GroupControl();
-            this.cmbTelefonTip = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lookTelefonTip = new DevExpress.XtraEditors.LookUpEdit();
             this.TxtTelefonAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.TxtTelefonNumarasi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -70,7 +70,6 @@
             this.colSemt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdres = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupAdresBilgi = new DevExpress.XtraEditors.GroupControl();
-            this.cmbAdresTip = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.TxtAdres = new DevExpress.XtraEditors.MemoEdit();
             this.TxtIlce = new DevExpress.XtraEditors.TextEdit();
@@ -80,6 +79,7 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.lookAdresTip = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -98,7 +98,7 @@
             this.groupTelefonMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupTelefonBilgi)).BeginInit();
             this.groupTelefonBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTelefonTip.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtTelefonAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtTelefonNumarasi.Properties)).BeginInit();
             this.tabAdres.SuspendLayout();
@@ -108,11 +108,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridAdres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAdresBilgi)).BeginInit();
             this.groupAdresBilgi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAdresTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAdres.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtIlce.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtSemt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtIl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookAdresTip.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupAltMenu
@@ -137,6 +137,7 @@
             this.BtnKaydet.Size = new System.Drawing.Size(117, 97);
             this.BtnKaydet.TabIndex = 0;
             this.BtnKaydet.Text = "Kaydet";
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // BtnKapat
             // 
@@ -147,8 +148,9 @@
             this.BtnKapat.Location = new System.Drawing.Point(675, 28);
             this.BtnKapat.Name = "BtnKapat";
             this.BtnKapat.Size = new System.Drawing.Size(117, 97);
-            this.BtnKapat.TabIndex = 0;
+            this.BtnKapat.TabIndex = 1;
             this.BtnKapat.Text = "Kapat";
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // labelControl1
             // 
@@ -184,7 +186,7 @@
             this.tabPane1.RegularSize = new System.Drawing.Size(794, 541);
             this.tabPane1.SelectedPage = this.tabMusteriBilgileri;
             this.tabPane1.Size = new System.Drawing.Size(794, 541);
-            this.tabPane1.TabIndex = 5;
+            this.tabPane1.TabIndex = 2;
             this.tabPane1.Text = "tabPane1";
             // 
             // tabMusteriBilgileri
@@ -217,7 +219,7 @@
             this.TxtMusteriAciklama.Location = new System.Drawing.Point(122, 150);
             this.TxtMusteriAciklama.Name = "TxtMusteriAciklama";
             this.TxtMusteriAciklama.Size = new System.Drawing.Size(642, 315);
-            this.TxtMusteriAciklama.TabIndex = 4;
+            this.TxtMusteriAciklama.TabIndex = 3;
             // 
             // TxtSirketAdi
             // 
@@ -226,7 +228,7 @@
             this.TxtSirketAdi.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtSirketAdi.Properties.Appearance.Options.UseFont = true;
             this.TxtSirketAdi.Size = new System.Drawing.Size(644, 24);
-            this.TxtSirketAdi.TabIndex = 1;
+            this.TxtSirketAdi.TabIndex = 2;
             // 
             // TxtMusteriSoyadi
             // 
@@ -244,7 +246,7 @@
             this.TxtMusteriAdi.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtMusteriAdi.Properties.Appearance.Options.UseFont = true;
             this.TxtMusteriAdi.Size = new System.Drawing.Size(644, 24);
-            this.TxtMusteriAdi.TabIndex = 1;
+            this.TxtMusteriAdi.TabIndex = 0;
             // 
             // labelControl4
             // 
@@ -394,7 +396,7 @@
             // 
             // groupTelefonBilgi
             // 
-            this.groupTelefonBilgi.Controls.Add(this.cmbTelefonTip);
+            this.groupTelefonBilgi.Controls.Add(this.lookTelefonTip);
             this.groupTelefonBilgi.Controls.Add(this.TxtTelefonAciklama);
             this.groupTelefonBilgi.Controls.Add(this.TxtTelefonNumarasi);
             this.groupTelefonBilgi.Controls.Add(this.labelControl9);
@@ -406,23 +408,24 @@
             this.groupTelefonBilgi.Size = new System.Drawing.Size(794, 183);
             this.groupTelefonBilgi.TabIndex = 1;
             this.groupTelefonBilgi.Text = "Telefon Bilgisi";
-            this.groupTelefonBilgi.Visible = false;
             // 
-            // cmbTelefonTip
+            // lookTelefonTip
             // 
-            this.cmbTelefonTip.Location = new System.Drawing.Point(153, 40);
-            this.cmbTelefonTip.Name = "cmbTelefonTip";
-            this.cmbTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lookTelefonTip.Location = new System.Drawing.Point(153, 41);
+            this.lookTelefonTip.Name = "lookTelefonTip";
+            this.lookTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbTelefonTip.Size = new System.Drawing.Size(600, 22);
-            this.cmbTelefonTip.TabIndex = 6;
+            this.lookTelefonTip.Properties.NullText = "Lütfen Bir Telefon Tipi Seçiniz..";
+            this.lookTelefonTip.Properties.ShowFooter = false;
+            this.lookTelefonTip.Size = new System.Drawing.Size(600, 22);
+            this.lookTelefonTip.TabIndex = 0;
             // 
             // TxtTelefonAciklama
             // 
             this.TxtTelefonAciklama.Location = new System.Drawing.Point(152, 125);
             this.TxtTelefonAciklama.Name = "TxtTelefonAciklama";
             this.TxtTelefonAciklama.Size = new System.Drawing.Size(637, 52);
-            this.TxtTelefonAciklama.TabIndex = 5;
+            this.TxtTelefonAciklama.TabIndex = 2;
             // 
             // TxtTelefonNumarasi
             // 
@@ -433,7 +436,7 @@
             this.TxtTelefonNumarasi.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
             this.TxtTelefonNumarasi.Properties.MaskSettings.Set("mask", "(\\d\\d\\d) \\d\\d\\d-\\d\\d\\d\\d");
             this.TxtTelefonNumarasi.Size = new System.Drawing.Size(601, 24);
-            this.TxtTelefonNumarasi.TabIndex = 3;
+            this.TxtTelefonNumarasi.TabIndex = 1;
             // 
             // labelControl9
             // 
@@ -587,7 +590,6 @@
             // 
             // groupAdresBilgi
             // 
-            this.groupAdresBilgi.Controls.Add(this.cmbAdresTip);
             this.groupAdresBilgi.Controls.Add(this.labelControl12);
             this.groupAdresBilgi.Controls.Add(this.TxtAdres);
             this.groupAdresBilgi.Controls.Add(this.TxtIlce);
@@ -597,6 +599,7 @@
             this.groupAdresBilgi.Controls.Add(this.labelControl10);
             this.groupAdresBilgi.Controls.Add(this.labelControl8);
             this.groupAdresBilgi.Controls.Add(this.labelControl13);
+            this.groupAdresBilgi.Controls.Add(this.lookAdresTip);
             this.groupAdresBilgi.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupAdresBilgi.Location = new System.Drawing.Point(0, 0);
             this.groupAdresBilgi.Name = "groupAdresBilgi";
@@ -604,15 +607,6 @@
             this.groupAdresBilgi.TabIndex = 4;
             this.groupAdresBilgi.Text = "Adres Bilgisi";
             this.groupAdresBilgi.Visible = false;
-            // 
-            // cmbAdresTip
-            // 
-            this.cmbAdresTip.Location = new System.Drawing.Point(120, 35);
-            this.cmbAdresTip.Name = "cmbAdresTip";
-            this.cmbAdresTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAdresTip.Size = new System.Drawing.Size(308, 22);
-            this.cmbAdresTip.TabIndex = 8;
             // 
             // labelControl12
             // 
@@ -633,7 +627,7 @@
             this.TxtAdres.Location = new System.Drawing.Point(120, 89);
             this.TxtAdres.Name = "TxtAdres";
             this.TxtAdres.Size = new System.Drawing.Size(669, 67);
-            this.TxtAdres.TabIndex = 5;
+            this.TxtAdres.TabIndex = 4;
             // 
             // TxtIlce
             // 
@@ -642,7 +636,7 @@
             this.TxtIlce.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtIlce.Properties.Appearance.Options.UseFont = true;
             this.TxtIlce.Size = new System.Drawing.Size(233, 24);
-            this.TxtIlce.TabIndex = 3;
+            this.TxtIlce.TabIndex = 2;
             // 
             // TxtSemt
             // 
@@ -660,7 +654,7 @@
             this.TxtIl.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtIl.Properties.Appearance.Options.UseFont = true;
             this.TxtIl.Size = new System.Drawing.Size(233, 24);
-            this.TxtIl.TabIndex = 3;
+            this.TxtIl.TabIndex = 1;
             // 
             // labelControl11
             // 
@@ -718,6 +712,18 @@
             this.labelControl13.TabIndex = 2;
             this.labelControl13.Text = "İL:";
             // 
+            // lookAdresTip
+            // 
+            this.lookAdresTip.Location = new System.Drawing.Point(120, 35);
+            this.lookAdresTip.Name = "lookAdresTip";
+            this.lookAdresTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookAdresTip.Properties.NullText = "Lütfen Bir Adres Tipi Seçiniz..";
+            this.lookAdresTip.Properties.PopupSizeable = false;
+            this.lookAdresTip.Properties.ShowFooter = false;
+            this.lookAdresTip.Size = new System.Drawing.Size(308, 22);
+            this.lookAdresTip.TabIndex = 0;
+            // 
             // FrmMusteriIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -728,7 +734,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "FrmMusteriIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMusteriIslem";
+            this.Text = "Müşteri İşlemleri ";
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();
@@ -747,7 +753,7 @@
             this.groupTelefonMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupTelefonBilgi)).EndInit();
             this.groupTelefonBilgi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbTelefonTip.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtTelefonAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtTelefonNumarasi.Properties)).EndInit();
             this.tabAdres.ResumeLayout(false);
@@ -757,11 +763,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridAdres)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAdresBilgi)).EndInit();
             this.groupAdresBilgi.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAdresTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAdres.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtIlce.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtSemt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtIl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookAdresTip.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -803,11 +809,9 @@
         private DevExpress.XtraEditors.TextEdit TxtIl;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbTelefonTip;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit TxtIlce;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbAdresTip;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.TextEdit TxtSemt;
         private DevExpress.XtraEditors.LabelControl labelControl10;
@@ -819,5 +823,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIlce;
         private DevExpress.XtraGrid.Columns.GridColumn colSemt;
         private DevExpress.XtraGrid.Columns.GridColumn colAdres;
+        private DevExpress.XtraEditors.LookUpEdit lookTelefonTip;
+        private DevExpress.XtraEditors.LookUpEdit lookAdresTip;
     }
 }

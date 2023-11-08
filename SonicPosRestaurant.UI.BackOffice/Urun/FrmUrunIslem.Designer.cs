@@ -170,6 +170,7 @@
             this.BtnKapat.Size = new System.Drawing.Size(117, 97);
             this.BtnKapat.TabIndex = 0;
             this.BtnKapat.Text = "Kapat";
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
             // tabPane1
             // 
@@ -760,7 +761,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmUrunIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmUrunIslem";
+            this.Text = "Ürün İşlemleri";
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).EndInit();

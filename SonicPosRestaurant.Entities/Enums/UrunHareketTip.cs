@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SonicPosRestaurant.Entities.Enums
 {
-    public enum TelefonAdresTip
+    public enum UrunHareketTip
     {
-      Ev,
-      Is,
-      Diger
+        Satis,
+        Iptal,
+        Ikram
     }
 }

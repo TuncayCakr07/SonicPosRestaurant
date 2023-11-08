@@ -9,6 +9,7 @@ namespace SonicPosRestaurant.Entities.Enums
     public enum TanimTip
     {
         Birim,
-        UrunGrup
+        UrunGrup,
+        Konum
     }
 }
