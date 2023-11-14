@@ -241,6 +241,7 @@
             this.BtnResimEkle.Size = new System.Drawing.Size(110, 57);
             this.BtnResimEkle.TabIndex = 5;
             this.BtnResimEkle.Text = "Ekle";
+            this.BtnResimEkle.Click += new System.EventHandler(this.BtnResimEkle_Click);
             // 
             // TxtUrunAciklama
             // 
@@ -254,6 +255,7 @@
             this.picUrunFoto.Location = new System.Drawing.Point(540, 136);
             this.picUrunFoto.Name = "picUrunFoto";
             this.picUrunFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picUrunFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.picUrunFoto.Size = new System.Drawing.Size(224, 265);
             this.picUrunFoto.TabIndex = 3;
             // 

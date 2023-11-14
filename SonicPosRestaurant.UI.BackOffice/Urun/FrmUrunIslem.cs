@@ -2,6 +2,7 @@
 using SonicPosRestaurant.Business.Workers;
 using SonicPosRestaurant.Entities.Enums;
 using SonicPosRestaurant.Entities.Tables;
+using SonicPosRestaurant.UI.BackOffice.Fotograf;
 using SonicPosRestaurant.UI.BackOffice.Tanim;
 using System;
 using System.Collections.Generic;
@@ -47,7 +48,7 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
             TxtUrunAdi.DataBindings.Add("Text",_urunEntity,"Adi",false,DataSourceUpdateMode.OnPropertyChanged);
             TxtUrunAciklama.DataBindings.Add("Text",_urunEntity,"Aciklama",false,DataSourceUpdateMode.OnPropertyChanged);
             picUrunFoto.DataBindings.Add("EditValue",_urunEntity,"Fotograf",false,DataSourceUpdateMode.OnPropertyChanged);
-            TxtKategori.DataBindings.Add("Text", _urunEntity, "UrunGrup.Adi", false, DataSourceUpdateMode.Never);
+            TxtKategori.DataBindings.Add("Text", _urunEntity.UrunGrup??new Entities.Tables.Tanim(), "Adi", false, DataSourceUpdateMode.Never);
         }
         void PorsiyonBinding()
         {
@@ -208,5 +209,16 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
         {
             this.Close();
         }
+
+        private void BtnResimEkle_Click(object sender, EventArgs e)
+        {
+            FrmImageEditor frm = new FrmImageEditor();
+            frm.ShowDialog();
+            if (frm.ReturnedImage!=null)
+            {
+                picUrunFoto.Image = frm.ReturnedImage;
+            }
+        }
+
     }
 }
