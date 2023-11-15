@@ -254,6 +254,7 @@
             // 
             this.picUrunFoto.Location = new System.Drawing.Point(540, 136);
             this.picUrunFoto.Name = "picUrunFoto";
+            this.picUrunFoto.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray;
             this.picUrunFoto.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picUrunFoto.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.picUrunFoto.Size = new System.Drawing.Size(224, 265);

@@ -1,7 +1,9 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Helpers;
 using SonicPosRestaurant.Business.Workers;
+using SonicPosRestaurant.Core.Extensions;
 using SonicPosRestaurant.Entities.Tables;
+using SonicPosRestaurant.UI.BackOffice.Fotograf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,6 +75,19 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
         private void controlMenu_ButtonKapat(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnFotografEkle_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+           Entities.Tables.Urun entity=(Entities.Tables.Urun)gridUrun.GetFocusedRow();
+            FrmImageEditor frm = new FrmImageEditor();
+            frm.ShowDialog();
+            if (frm.ReturnedImage!=null)
+            {
+                entity.Fotograf=frm.ReturnedImage.ImageToByteArray();
+                worker.Commit();
+                gridUrun.RefreshData();
+            }
         }
     }
 }
