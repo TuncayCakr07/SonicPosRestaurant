@@ -56,6 +56,15 @@
     <Compile Include="ControlAnaMenuAlt.Designer.cs">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlKategoriButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlKategoriUrun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlKategoriUrun.Designer.cs">
+      <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlMenuKayit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,6 +82,9 @@
     <EmbeddedResource Include="ControlAnaMenuAlt.resx">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlKategoriUrun.resx">
+      <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlMenuKayit.resx">
       <DependentUpon>ControlMenuKayit.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +93,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SonicPosRestaurant.Entities\SonicPosRestaurant.Entities.csproj">
+      <Project>{2A932C29-453A-429C-AC94-5512C6926226}</Project>
+      <Name>SonicPosRestaurant.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

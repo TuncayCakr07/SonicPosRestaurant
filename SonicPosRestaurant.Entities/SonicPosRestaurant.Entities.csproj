@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\KategoriDto.cs" />
     <Compile Include="Enums\TanimTip.cs" />
     <Compile Include="Enums\TelefonAdresTip.cs" />
     <Compile Include="Enums\UrunHareketTip.cs" />

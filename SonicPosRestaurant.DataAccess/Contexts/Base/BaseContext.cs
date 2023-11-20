@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace SonicPosRestaurant.DataAccess.Contexts.Base
 {
-    public class BaseContext<TContext>:DbContext where TContext : DbContext,new()
+    public class BaseContext<TContext> : DbContext where TContext : DbContext, new()
     {
-        private static string Connectionstring = "Tuncay";
-        public BaseContext():base(Connectionstring)
-        {
-            
-        }
-        public BaseContext(string connectionString):base(connectionString)
+        private static string Connectionstring = "Data Source=(localdb)\\Tuncay;Initial Catalog=SonicPOS-Restaurant;Integrated Security=True";
+
+        public BaseContext() : base(Connectionstring)
         {
             Configuration.LazyLoadingEnabled = false;
-            Connectionstring = connectionString;
+        }
+
+        public BaseContext(string connectionString) : base(connectionString)
+        {
+            Configuration.LazyLoadingEnabled = false;
         }
     }
 }
