@@ -63,6 +63,7 @@ namespace SonicPosRestaurant.UserControls
                 lblAciklama.Text = value;   
             } }
         public IEnumerable<Porsiyon> Porsiyonlar { get; set; }
+        public IEnumerable<EkMalzeme> EkMalzemeler { get; set; }
 
         private void groupBase_Click(object sender, EventArgs e)
         {

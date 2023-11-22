@@ -33,6 +33,15 @@
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panelUrunHareketHizliSatis = new DevExpress.XtraEditors.PanelControl();
+            this.navigationKategori = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.PagesKategoriUrunler = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowKategoriUrunleri = new System.Windows.Forms.FlowLayoutPanel();
+            this.PageUrunPorsiyon = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowPorsiyon = new System.Windows.Forms.FlowLayoutPanel();
+            this.PageEkMalzeme = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowEkMalzeme = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnEkMalzemeOnay = new DevExpress.XtraEditors.SimpleButton();
             this.panelUrunGrupKeypad = new DevExpress.XtraEditors.PanelControl();
             this.groupKategori = new DevExpress.XtraEditors.GroupControl();
             this.flowKategori = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,7 +60,6 @@
             this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
             this.panelUrunHareket = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
@@ -93,20 +101,26 @@
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.flowKategoriUrunleri = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtMiktar = new DevExpress.XtraEditors.CalcEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
             this.navigationPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareketHizliSatis)).BeginInit();
             this.panelUrunHareketHizliSatis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationKategori)).BeginInit();
+            this.navigationKategori.SuspendLayout();
+            this.PagesKategoriUrunler.SuspendLayout();
+            this.PageUrunPorsiyon.SuspendLayout();
+            this.PageEkMalzeme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeypad)).BeginInit();
             this.panelUrunGrupKeypad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).BeginInit();
             this.groupKategori.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKeypad)).BeginInit();
             this.groupKeypad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareket)).BeginInit();
             this.panelUrunHareket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -130,6 +144,7 @@
             this.panelUrunHareketMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -166,13 +181,94 @@
             // 
             // panelUrunHareketHizliSatis
             // 
-            this.panelUrunHareketHizliSatis.Controls.Add(this.flowKategoriUrunleri);
+            this.panelUrunHareketHizliSatis.Controls.Add(this.navigationKategori);
             this.panelUrunHareketHizliSatis.Controls.Add(this.panelUrunGrupKeypad);
             this.panelUrunHareketHizliSatis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUrunHareketHizliSatis.Location = new System.Drawing.Point(759, 0);
             this.panelUrunHareketHizliSatis.Name = "panelUrunHareketHizliSatis";
             this.panelUrunHareketHizliSatis.Size = new System.Drawing.Size(641, 691);
             this.panelUrunHareketHizliSatis.TabIndex = 2;
+            // 
+            // navigationKategori
+            // 
+            this.navigationKategori.Controls.Add(this.PagesKategoriUrunler);
+            this.navigationKategori.Controls.Add(this.PageUrunPorsiyon);
+            this.navigationKategori.Controls.Add(this.PageEkMalzeme);
+            this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationKategori.Location = new System.Drawing.Point(310, 2);
+            this.navigationKategori.Name = "navigationKategori";
+            this.navigationKategori.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.PagesKategoriUrunler,
+            this.PageUrunPorsiyon,
+            this.PageEkMalzeme});
+            this.navigationKategori.SelectedPage = this.PagesKategoriUrunler;
+            this.navigationKategori.Size = new System.Drawing.Size(329, 687);
+            this.navigationKategori.TabIndex = 2;
+            this.navigationKategori.Text = "navigationFrame2";
+            // 
+            // PagesKategoriUrunler
+            // 
+            this.PagesKategoriUrunler.Caption = "PagesKategoriUrunler";
+            this.PagesKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
+            this.PagesKategoriUrunler.Name = "PagesKategoriUrunler";
+            this.PagesKategoriUrunler.Size = new System.Drawing.Size(329, 687);
+            // 
+            // flowKategoriUrunleri
+            // 
+            this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowKategoriUrunleri.Location = new System.Drawing.Point(0, 0);
+            this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
+            this.flowKategoriUrunleri.Size = new System.Drawing.Size(329, 687);
+            this.flowKategoriUrunleri.TabIndex = 1;
+            // 
+            // PageUrunPorsiyon
+            // 
+            this.PageUrunPorsiyon.Caption = "PageUrunPorsiyon";
+            this.PageUrunPorsiyon.Controls.Add(this.flowPorsiyon);
+            this.PageUrunPorsiyon.Name = "PageUrunPorsiyon";
+            this.PageUrunPorsiyon.Size = new System.Drawing.Size(329, 687);
+            // 
+            // flowPorsiyon
+            // 
+            this.flowPorsiyon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPorsiyon.Location = new System.Drawing.Point(0, 0);
+            this.flowPorsiyon.Name = "flowPorsiyon";
+            this.flowPorsiyon.Size = new System.Drawing.Size(329, 687);
+            this.flowPorsiyon.TabIndex = 0;
+            // 
+            // PageEkMalzeme
+            // 
+            this.PageEkMalzeme.Caption = "PageEkMalzeme";
+            this.PageEkMalzeme.Controls.Add(this.flowEkMalzeme);
+            this.PageEkMalzeme.Controls.Add(this.panelControl3);
+            this.PageEkMalzeme.Name = "PageEkMalzeme";
+            this.PageEkMalzeme.Size = new System.Drawing.Size(329, 687);
+            // 
+            // flowEkMalzeme
+            // 
+            this.flowEkMalzeme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowEkMalzeme.Location = new System.Drawing.Point(0, 0);
+            this.flowEkMalzeme.Name = "flowEkMalzeme";
+            this.flowEkMalzeme.Size = new System.Drawing.Size(329, 587);
+            this.flowEkMalzeme.TabIndex = 0;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.btnEkMalzemeOnay);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(0, 587);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(329, 100);
+            this.panelControl3.TabIndex = 1;
+            // 
+            // btnEkMalzemeOnay
+            // 
+            this.btnEkMalzemeOnay.Location = new System.Drawing.Point(230, 6);
+            this.btnEkMalzemeOnay.Name = "btnEkMalzemeOnay";
+            this.btnEkMalzemeOnay.Size = new System.Drawing.Size(94, 92);
+            this.btnEkMalzemeOnay.TabIndex = 0;
+            this.btnEkMalzemeOnay.Text = "simpleButton22";
+            this.btnEkMalzemeOnay.Click += new System.EventHandler(this.btnEkMalzemeOnay_Click);
             // 
             // panelUrunGrupKeypad
             // 
@@ -204,6 +300,7 @@
             // 
             // groupKeypad
             // 
+            this.groupKeypad.Controls.Add(this.txtMiktar);
             this.groupKeypad.Controls.Add(this.simpleButton19);
             this.groupKeypad.Controls.Add(this.simpleButton15);
             this.groupKeypad.Controls.Add(this.simpleButton11);
@@ -218,7 +315,6 @@
             this.groupKeypad.Controls.Add(this.simpleButton16);
             this.groupKeypad.Controls.Add(this.simpleButton12);
             this.groupKeypad.Controls.Add(this.simpleButton8);
-            this.groupKeypad.Controls.Add(this.calcEdit1);
             this.groupKeypad.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupKeypad.Location = new System.Drawing.Point(2, 2);
             this.groupKeypad.Name = "groupKeypad";
@@ -368,23 +464,6 @@
             this.simpleButton8.Size = new System.Drawing.Size(71, 58);
             this.simpleButton8.TabIndex = 4;
             this.simpleButton8.Text = "7";
-            // 
-            // calcEdit1
-            // 
-            this.calcEdit1.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.calcEdit1.Location = new System.Drawing.Point(3, 31);
-            this.calcEdit1.Name = "calcEdit1";
-            this.calcEdit1.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.calcEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.calcEdit1.Properties.Appearance.Options.UseFont = true;
-            this.calcEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.calcEdit1.Properties.ReadOnly = true;
-            this.calcEdit1.Size = new System.Drawing.Size(298, 38);
-            this.calcEdit1.TabIndex = 3;
             // 
             // panelUrunHareket
             // 
@@ -913,13 +992,17 @@
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(1400, 691);
             // 
-            // flowKategoriUrunleri
+            // txtMiktar
             // 
-            this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowKategoriUrunleri.Location = new System.Drawing.Point(310, 2);
-            this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
-            this.flowKategoriUrunleri.Size = new System.Drawing.Size(329, 687);
-            this.flowKategoriUrunleri.TabIndex = 1;
+            this.txtMiktar.Location = new System.Drawing.Point(5, 32);
+            this.txtMiktar.Name = "txtMiktar";
+            this.txtMiktar.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.txtMiktar.Properties.Appearance.Options.UseFont = true;
+            this.txtMiktar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMiktar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.txtMiktar.Size = new System.Drawing.Size(296, 38);
+            this.txtMiktar.TabIndex = 5;
             // 
             // FrmMain
             // 
@@ -940,13 +1023,19 @@
             this.navigationPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareketHizliSatis)).EndInit();
             this.panelUrunHareketHizliSatis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationKategori)).EndInit();
+            this.navigationKategori.ResumeLayout(false);
+            this.PagesKategoriUrunler.ResumeLayout(false);
+            this.PageUrunPorsiyon.ResumeLayout(false);
+            this.PageEkMalzeme.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeypad)).EndInit();
             this.panelUrunGrupKeypad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).EndInit();
             this.groupKategori.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKeypad)).EndInit();
             this.groupKeypad.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareket)).EndInit();
             this.panelUrunHareket.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -970,6 +1059,7 @@
             this.panelUrunHareketMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1015,7 +1105,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.CalcEdit calcEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton19;
         private DevExpress.XtraEditors.SimpleButton simpleButton18;
         private DevExpress.XtraEditors.SimpleButton simpleButton21;
@@ -1041,6 +1130,15 @@
         private DevExpress.XtraLayout.SimpleLabelItem item6;
         private System.Windows.Forms.FlowLayoutPanel flowKategori;
         private System.Windows.Forms.FlowLayoutPanel flowKategoriUrunleri;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationKategori;
+        private DevExpress.XtraBars.Navigation.NavigationPage PagesKategoriUrunler;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageUrunPorsiyon;
+        private System.Windows.Forms.FlowLayoutPanel flowPorsiyon;
+        private System.Windows.Forms.FlowLayoutPanel flowEkMalzeme;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageEkMalzeme;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnEkMalzemeOnay;
+        private DevExpress.XtraEditors.CalcEdit txtMiktar;
     }
 }
 

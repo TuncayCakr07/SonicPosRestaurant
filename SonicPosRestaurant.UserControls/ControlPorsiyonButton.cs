@@ -1,22 +1,19 @@
-﻿using SonicPosRestaurant.Entities.Tables.Base;
+﻿using DevExpress.XtraEditors;
+using SonicPosRestaurant.Entities.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SonicPosRestaurant.Entities.Tables
+namespace SonicPosRestaurant.UserControls
 {
-    public class Porsiyon:EntityBase
+    public class ControlPorsiyonButton:SimpleButton
     {
+        public Guid Id { get; set; }
         public string Adi { get; set; }
-
         public decimal Fiyat { get; set; }
         public decimal EkMalzemeCarpan { get; set; }
-        public Guid UrunId { get; set; }
-        public virtual Urun Urun { get; set; }
-        public Guid BirimId { get; set; }
-        public virtual Tanim Birim { get; set; }
         public IEnumerable<EkMalzeme> EkMalzemeler { get; set; }
     }
 }
