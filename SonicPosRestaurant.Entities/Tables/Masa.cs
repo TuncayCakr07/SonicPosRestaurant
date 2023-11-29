@@ -11,9 +11,8 @@ namespace SonicPosRestaurant.Entities.Tables
     {
         public string Adi { get; set; }
         public bool Dolu { get; set; }
+        public int Kapasite { get; set; }
         public Guid KonumId {  get; set; }
         public virtual Tanim Konum { get; set; }
-        public Guid? AdisyonId { get; set; }
-        public virtual Adisyon Adisyon{ get; set; }
     }
 }

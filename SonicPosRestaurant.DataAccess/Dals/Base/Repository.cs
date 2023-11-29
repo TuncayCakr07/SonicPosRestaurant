@@ -155,5 +155,26 @@ namespace SonicPosRestaurant.DataAccess.Dals.Base
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        public void EntityStateChange(Expression<Func<TEntity, bool>> filter, EntityState state)
+        {
+            foreach (var entity in _context.Set<TEntity>().Local.AsQueryable().Where(filter).ToList())
+            {
+                _context.Entry(entity).State = state;
+            }
+        }
+
+        public void EntityStateChange(TEntity entity, EntityState state)
+        {
+            _context.Entry(entity).State = state;
+        }
+
+        public void EntityStateChange(IEnumerable<TEntity> entities, EntityState state)
+        {
+           foreach(var entity in entities) 
+            {
+                _context.Entry(entity).State=state;
+            }
+        }
     }
 }

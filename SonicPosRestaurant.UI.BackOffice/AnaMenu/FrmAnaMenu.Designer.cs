@@ -32,10 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnaMenu));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.BtnUrun = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMusteri = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMasa = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -47,10 +48,11 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.BtnUrun,
-            this.barButtonItem1});
+            this.btnMusteri,
+            this.btnMasa});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 385;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -65,6 +67,14 @@
             this.BtnUrun.Name = "BtnUrun";
             this.BtnUrun.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnUrun_ItemClick);
             // 
+            // btnMusteri
+            // 
+            this.btnMusteri.Caption = "Müşteriler";
+            this.btnMusteri.Id = 2;
+            this.btnMusteri.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnMusteri.Name = "btnMusteri";
+            this.btnMusteri.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -75,20 +85,20 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.BtnUrun);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnMusteri);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnMasa);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // barButtonItem1
+            // btnMasa
             // 
-            this.barButtonItem1.Caption = "Müşteriler";
-            this.barButtonItem1.Id = 2;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.btnMasa.Caption = "Masalar";
+            this.btnMasa.Id = 3;
+            this.btnMasa.Name = "btnMasa";
+            this.btnMasa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMasa_ItemClick);
             // 
             // FrmAnaMenu
             // 
@@ -115,7 +125,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarButtonItem BtnUrun;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnMusteri;
+        private DevExpress.XtraBars.BarButtonItem btnMasa;
     }
 }
 

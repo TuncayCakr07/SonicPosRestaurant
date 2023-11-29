@@ -4,6 +4,7 @@ using SonicPosRestaurant.Entities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -132,6 +133,21 @@ namespace SonicPosRestaurant.Business.Managers.Base
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
+        }
+
+        public void EntityStateChange(Expression<Func<TEntity, bool>> filter, EntityState state)
+        {
+            _uow.Dal<TEntity>().EntityStateChange(filter, state);
+        }
+
+        public void EntityStateChange(TEntity entity, EntityState state)
+        {
+            _uow.Dal<TEntity>().EntityStateChange(entity, state);
+        }
+
+        public void EntityStateChange(IEnumerable<TEntity> entities, EntityState state)
+        {
+            _uow.Dal<TEntity>().EntityStateChange(entities, state);
         }
     }
 }

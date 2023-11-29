@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Data.Helpers;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Layout;
 using SonicPosRestaurant.Business.Workers;
 using SonicPosRestaurant.Core.Extensions;
@@ -7,6 +8,8 @@ using SonicPosRestaurant.Entities.Enums;
 using SonicPosRestaurant.Entities.Tables;
 using SonicPosRestaurant.UserControls;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,13 +18,15 @@ namespace SonicPosRestaurant.UI.FrontOffice
 {
     public partial class FrmMain : DevExpress.XtraEditors.XtraForm
     {
+
         enum KeyPadIslem
         {
             Yok,
             FiyatDegistir,
             Iade,
             Ikram,
-            Bol
+            Bol,
+            Indirim
         }
 
         RestaurantWorker worker=new RestaurantWorker();
@@ -32,11 +37,51 @@ namespace SonicPosRestaurant.UI.FrontOffice
             InitializeComponent();
             KategoriButtonOlustur();
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
+            MasaButonOlustur();
+        }
+
+        void MasaButonOlustur()
+        {
+            foreach (var konum in worker.TanimService.GetList(c=>c.TanimTipi==TanimTip.Konum))
+            {
+                ControlKonumButton button = new ControlKonumButton
+                {
+                    Name=konum.Id.ToString(),   
+                    Text=konum.Adi,
+                    Height=88,
+                    Width=150,
+                    GroupIndex=1,
+                    Masalar=worker.MasaService.GetList(c=>c.KonumId==konum.Id)
+                };
+                button.CheckedChanged += KonumSecim;
+                flowKonum.Controls.Add(button);
+            }
+        }
+
+        private void KonumSecim(object sender, EventArgs e)
+        {
+            ControlKonumButton button=(ControlKonumButton)sender;
+            flowMasalar.Controls.Clear();
+            foreach (var masa in button.Masalar)
+            {
+                SimpleButton masaButton = new SimpleButton
+                {
+                    Name=masa.Id.ToString(),
+                    Text = masa.Adi,
+                    Height=150,
+                    Width=150,
+                };
+                flowMasalar.Controls.Add(masaButton);   
+            }
         }
 
         void MiktarArttir(int sayi)
         {
             UrunHareket row=(UrunHareket)layoutView1.GetFocusedRow();
+            if (row==null)
+            {
+                return;
+            }
             if (sayi<0 && row.Miktar<=1)
             {
                 return;
@@ -151,24 +196,31 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 navigationKategori.SelectedPage = PagesKategoriUrunler;
                 return;
             }
-         
-            foreach (var malzeme in button.EkMalzemeler)
+            EkMalzemeButonOlustur(button.EkMalzemeCarpan,button.EkMalzemeler);
+
+        }
+        void EkMalzemeButonOlustur(decimal EkMalzemeCarpan,IEnumerable<EkMalzeme>EkMalzemeList)
+        {
+
+
+            foreach (var malzeme in EkMalzemeList)
             {
                 ControlEkMalzemeButton MalzemeButton = new ControlEkMalzemeButton
                 {
                     Name = malzeme.Id.ToString(),
-                    Text=malzeme.Adi+System.Environment.NewLine+(malzeme.Fiyat * button.EkMalzemeCarpan).ToString("C2"),
-                    Height=200,
-                    Width=200,
+                    Text = malzeme.Adi + System.Environment.NewLine + (malzeme.Fiyat * EkMalzemeCarpan).ToString("C2"),
+                    Height = 200,
+                    Width = 200,
                     Font = new Font("Century Gothic ", 12, FontStyle.Bold),
-                    Id=malzeme.Id,
-                    Fiyat=malzeme.Fiyat*button.EkMalzemeCarpan
+                    Id = malzeme.Id,
+                    Fiyat = malzeme.Fiyat * EkMalzemeCarpan
                 };
                 MalzemeButton.CheckedChanged += MalzemeCheckChanged;
                 flowEkMalzeme.Controls.Add(MalzemeButton);
             }
             navigationKategori.SelectedPage = PageEkMalzeme;
 
+ 
         }
 
         private void MalzemeCheckChanged(object sender, EventArgs e)
@@ -182,15 +234,22 @@ namespace SonicPosRestaurant.UI.FrontOffice
             {
                 if (button.Checked)
                 {
-                    urunHareketEntity.BirimFiyat += button.Fiyat;
+            
                     worker.EkMalzemeHareketService.AddOrUpdate(new EkMalzemeHareket
                     {
+                        Id=Guid.NewGuid(),
                         UrunHareketId=urunHareketEntity.Id,
                         EkMalzemeId=button.Id,
                         Fiyat=button.Fiyat
                     });
                 }
+                else
+                {
+                    worker.EkMalzemeHareketService.EntityStateChange(c => c.UrunHareketId == urunHareketEntity.Id && c.EkMalzemeId == button.Id, EntityState.Deleted);
+                }
             }
+            EkMalzemeHesapla();
+            urunHareketEntity.BirimFiyat = txtToplamTutar.Value;
             UrunHareketEkle();
             navigationKategori.SelectedPage = PagesKategoriUrunler;
         }
@@ -215,6 +274,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 }
             }
             txtToplamTutar.Value = txtPorsiyonTutar.Value + txtEkMalzemeTutar.Value;
+
         }
 
         private void layoutView1_CustomCardStyle(object sender, DevExpress.XtraGrid.Views.Layout.Events.LayoutViewCardStyleEventArgs e)
@@ -258,11 +318,6 @@ namespace SonicPosRestaurant.UI.FrontOffice
             MiktarArttir(1);
         }
 
-        private void btnMiktarAzalt_Click(object sender, EventArgs e)
-        {
-            MiktarArttir(-1);
-        }
-
         private void btnFiyatDegistir_Click(object sender, EventArgs e)
         {
             if (layoutView1.GetFocusedRow()==null)
@@ -270,7 +325,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 return;
             }
             keyPadIslem = KeyPadIslem.FiyatDegistir;
-            txtMiktar.Value =0;
+            txtMiktar.Text = null;
             txtMiktar.Properties.NullValuePrompt = "Lütfen Yeni Fiyat Giriniz!";
         }
 
@@ -339,8 +394,67 @@ namespace SonicPosRestaurant.UI.FrontOffice
                     }
                     layoutView1.RefreshData();
                     break;
+                case KeyPadIslem.Indirim:
+                    if (txtMiktar.Value<0 || txtMiktar.Value>100)
+                    {
+                        MessageBox.Show("Girdiğiniz İndirim Oranı 0 İle 100 Arasında Olmalıdır.!","Uyarı!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        return;
+                    }
+                    hareketEntity.Indirim= txtMiktar.Value;
+                    layoutView1.RefreshData();
+                    break;
             }
             keyPadIslem = KeyPadIslem.Yok;
+        }
+
+        private void btnIkram_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow() == null) return;
+            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (hareketEntity.Miktar==1)
+            {
+                hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
+                layoutView1.RefreshData();
+            }
+            else
+            {
+                keyPadIslem = KeyPadIslem.Ikram;
+                txtMiktar.Text = null;
+                txtMiktar.Properties.NullValuePrompt = "Lüften İkram Edilecek Miktarı Giriniz!";
+            }
+        }
+
+
+        private void btnEkMalzeme_Click(object sender, EventArgs e)
+        {
+            if (layoutView1.GetFocusedRow()==null)
+            {
+                return;
+            }
+            flowEkMalzeme.Controls.Clear();
+            urunHareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
+            Porsiyon porsiyonEntity = worker.PorsiyonService.Get(c => c.Id == urunHareketEntity.PorsiyonId);
+            IEnumerable<EkMalzeme> ekMalzemeList = worker.EkMalzemeService.GetList(c => c.UrunId == urunHareketEntity.UrunId);
+            EkMalzemeButonOlustur(porsiyonEntity.EkMalzemeCarpan, ekMalzemeList);
+            List<EkMalzemeHareket> HareketList=worker.EkMalzemeHareketService.BindingList().ToList();
+            foreach (var hareket in HareketList.Where(c=>c.UrunHareketId==urunHareketEntity.Id).ToList())
+            {
+                ControlEkMalzemeButton button = (ControlEkMalzemeButton)flowEkMalzeme.Controls.Find(hareket.EkMalzemeId.ToString(),true)[0];
+                button.Checked = true;
+            }
+  
+        }
+
+        private void btnIndirim_Click(object sender, EventArgs e)
+        {
+            UrunHareket entity= (UrunHareket)layoutView1.GetFocusedRow();
+            if (entity==null)
+            {
+                return;
+            }
+            keyPadIslem = KeyPadIslem.Indirim;
+            txtMiktar.Text = null;
+            txtMiktar.Properties.NullValuePrompt = "Lütfen İndirim Oranını Giriniz!";
         }
 
         private void btnIade_Click(object sender, EventArgs e)
@@ -366,35 +480,24 @@ namespace SonicPosRestaurant.UI.FrontOffice
             }
         }
 
-        private void btnIkram_Click(object sender, EventArgs e)
-        {
-            if (layoutView1.GetFocusedRow() == null) return;
-            UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
-            if (hareketEntity.Miktar==1)
-            {
-                hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
-                layoutView1.RefreshData();
-            }
-            else
-            {
-                keyPadIslem = KeyPadIslem.Ikram;
-                txtMiktar.Properties.NullValuePrompt = "Lüften İkram Edilecek Miktarı Giriniz!";
-            }
-        }
-
         private void btnBol_Click(object sender, EventArgs e)
         {
             if (layoutView1.GetFocusedRow() == null) return;
             UrunHareket hareketEntity = (UrunHareket)layoutView1.GetFocusedRow();
-            if (hareketEntity.Miktar==1)
+            if (hareketEntity.Miktar == 1)
             {
-                MessageBox.Show("Miktarınız Bölünmeye Uygun Değildir!","Uyarı!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Miktarınız Bölünmeye Uygun Değildir!", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 keyPadIslem = KeyPadIslem.Bol;
                 txtMiktar.Properties.NullValuePrompt = "Lütfen Bölünecek Miktarı Giriniz!";
             }
+        }
+
+        private void btnMiktarAzalt_Click(object sender, EventArgs e)
+        {
+            MiktarArttir(-1);
         }
     }
 }

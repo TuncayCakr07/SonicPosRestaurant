@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
-            this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
-            this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.navigationMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
+            this.PageAdisyonAyrinti = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.panelUrunHareketHizliSatis = new DevExpress.XtraEditors.PanelControl();
             this.navigationKategori = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.PagesKategoriUrunler = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -91,6 +91,11 @@
             this.item2 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.item5 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.item6 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.btnIndirim = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBol = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIade = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMiktarAzalt = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.calcEdit3 = new DevExpress.XtraEditors.CalcEdit();
@@ -105,12 +110,9 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelUrunHareketMenu = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnBol = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEkMalzeme = new DevExpress.XtraEditors.SimpleButton();
             this.btnIkram = new DevExpress.XtraEditors.SimpleButton();
-            this.btnIade = new DevExpress.XtraEditors.SimpleButton();
             this.btnFiyatDegistir = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMiktarAzalt = new DevExpress.XtraEditors.SimpleButton();
             this.btnMiktarArttir = new DevExpress.XtraEditors.SimpleButton();
             this.panelHareketSolMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnSiparisKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -118,13 +120,17 @@
             this.btnAdisyonDetay = new DevExpress.XtraEditors.SimpleButton();
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
-            this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.PageMasalar = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowMasalar = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
+            this.groupMasalar = new DevExpress.XtraEditors.GroupControl();
+            this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
-            this.navigationFrame1.SuspendLayout();
-            this.navigationPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
+            this.navigationMain.SuspendLayout();
+            this.PageAdisyonAyrinti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareketHizliSatis)).BeginInit();
             this.panelUrunHareketHizliSatis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationKategori)).BeginInit();
@@ -165,6 +171,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.item2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.item5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.item6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -178,7 +186,12 @@
             this.panelUrunHareketMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
+            this.PageMasalar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).BeginInit();
+            this.groupMasalar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
+            this.groupKonumlar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -187,7 +200,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1582, 63);
+            this.panelControl1.Size = new System.Drawing.Size(1582, 57);
             this.panelControl1.TabIndex = 0;
             // 
             // btnKategoriyeDon
@@ -196,35 +209,35 @@
             this.btnKategoriyeDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKategoriyeDon.ImageOptions.Image")));
             this.btnKategoriyeDon.Location = new System.Drawing.Point(1486, 2);
             this.btnKategoriyeDon.Name = "btnKategoriyeDon";
-            this.btnKategoriyeDon.Size = new System.Drawing.Size(94, 59);
+            this.btnKategoriyeDon.Size = new System.Drawing.Size(94, 53);
             this.btnKategoriyeDon.TabIndex = 0;
             this.btnKategoriyeDon.Text = "Geri Dön";
             this.btnKategoriyeDon.Visible = false;
             this.btnKategoriyeDon.Click += new System.EventHandler(this.btnKategoriyeDon_Click);
             // 
-            // navigationFrame1
+            // navigationMain
             // 
-            this.navigationFrame1.Controls.Add(this.navigationPage1);
-            this.navigationFrame1.Controls.Add(this.navigationPage2);
-            this.navigationFrame1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationFrame1.Location = new System.Drawing.Point(0, 63);
-            this.navigationFrame1.Name = "navigationFrame1";
-            this.navigationFrame1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage1,
-            this.navigationPage2});
-            this.navigationFrame1.SelectedPage = this.navigationPage1;
-            this.navigationFrame1.Size = new System.Drawing.Size(1582, 722);
-            this.navigationFrame1.TabIndex = 1;
-            this.navigationFrame1.Text = "navigationFrame1";
+            this.navigationMain.Controls.Add(this.PageAdisyonAyrinti);
+            this.navigationMain.Controls.Add(this.PageMasalar);
+            this.navigationMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationMain.Location = new System.Drawing.Point(0, 57);
+            this.navigationMain.Name = "navigationMain";
+            this.navigationMain.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.PageMasalar,
+            this.PageAdisyonAyrinti});
+            this.navigationMain.SelectedPage = this.PageMasalar;
+            this.navigationMain.Size = new System.Drawing.Size(1582, 728);
+            this.navigationMain.TabIndex = 1;
+            this.navigationMain.Text = "navigationFrame1";
             // 
-            // navigationPage1
+            // PageAdisyonAyrinti
             // 
-            this.navigationPage1.Caption = "navigationPage1";
-            this.navigationPage1.Controls.Add(this.panelUrunHareketHizliSatis);
-            this.navigationPage1.Controls.Add(this.panelUrunHareket);
-            this.navigationPage1.Controls.Add(this.panelHareketSolMenu);
-            this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(1582, 722);
+            this.PageAdisyonAyrinti.Caption = "PageAdisyonAyrinti";
+            this.PageAdisyonAyrinti.Controls.Add(this.panelUrunHareketHizliSatis);
+            this.PageAdisyonAyrinti.Controls.Add(this.panelUrunHareket);
+            this.PageAdisyonAyrinti.Controls.Add(this.panelHareketSolMenu);
+            this.PageAdisyonAyrinti.Name = "PageAdisyonAyrinti";
+            this.PageAdisyonAyrinti.Size = new System.Drawing.Size(1582, 728);
             // 
             // panelUrunHareketHizliSatis
             // 
@@ -233,7 +246,7 @@
             this.panelUrunHareketHizliSatis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUrunHareketHizliSatis.Location = new System.Drawing.Point(759, 0);
             this.panelUrunHareketHizliSatis.Name = "panelUrunHareketHizliSatis";
-            this.panelUrunHareketHizliSatis.Size = new System.Drawing.Size(823, 722);
+            this.panelUrunHareketHizliSatis.Size = new System.Drawing.Size(823, 728);
             this.panelUrunHareketHizliSatis.TabIndex = 2;
             // 
             // navigationKategori
@@ -250,7 +263,7 @@
             this.PageUrunPorsiyon,
             this.PageEkMalzeme});
             this.navigationKategori.SelectedPage = this.PagesKategoriUrunler;
-            this.navigationKategori.Size = new System.Drawing.Size(511, 718);
+            this.navigationKategori.Size = new System.Drawing.Size(511, 724);
             this.navigationKategori.TabIndex = 2;
             this.navigationKategori.Text = "navigationFrame2";
             // 
@@ -259,14 +272,14 @@
             this.PagesKategoriUrunler.Caption = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.PagesKategoriUrunler.Name = "PagesKategoriUrunler";
-            this.PagesKategoriUrunler.Size = new System.Drawing.Size(511, 718);
+            this.PagesKategoriUrunler.Size = new System.Drawing.Size(511, 724);
             // 
             // flowKategoriUrunleri
             // 
             this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKategoriUrunleri.Location = new System.Drawing.Point(0, 0);
             this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
-            this.flowKategoriUrunleri.Size = new System.Drawing.Size(511, 718);
+            this.flowKategoriUrunleri.Size = new System.Drawing.Size(511, 724);
             this.flowKategoriUrunleri.TabIndex = 1;
             // 
             // PageUrunPorsiyon
@@ -274,14 +287,14 @@
             this.PageUrunPorsiyon.Caption = "PageUrunPorsiyon";
             this.PageUrunPorsiyon.Controls.Add(this.flowPorsiyon);
             this.PageUrunPorsiyon.Name = "PageUrunPorsiyon";
-            this.PageUrunPorsiyon.Size = new System.Drawing.Size(511, 718);
+            this.PageUrunPorsiyon.Size = new System.Drawing.Size(511, 724);
             // 
             // flowPorsiyon
             // 
             this.flowPorsiyon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowPorsiyon.Location = new System.Drawing.Point(0, 0);
             this.flowPorsiyon.Name = "flowPorsiyon";
-            this.flowPorsiyon.Size = new System.Drawing.Size(511, 718);
+            this.flowPorsiyon.Size = new System.Drawing.Size(511, 724);
             this.flowPorsiyon.TabIndex = 0;
             // 
             // PageEkMalzeme
@@ -290,14 +303,14 @@
             this.PageEkMalzeme.Controls.Add(this.flowEkMalzeme);
             this.PageEkMalzeme.Controls.Add(this.panelControl3);
             this.PageEkMalzeme.Name = "PageEkMalzeme";
-            this.PageEkMalzeme.Size = new System.Drawing.Size(511, 718);
+            this.PageEkMalzeme.Size = new System.Drawing.Size(511, 724);
             // 
             // flowEkMalzeme
             // 
             this.flowEkMalzeme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowEkMalzeme.Location = new System.Drawing.Point(0, 0);
             this.flowEkMalzeme.Name = "flowEkMalzeme";
-            this.flowEkMalzeme.Size = new System.Drawing.Size(511, 636);
+            this.flowEkMalzeme.Size = new System.Drawing.Size(511, 642);
             this.flowEkMalzeme.TabIndex = 0;
             // 
             // panelControl3
@@ -305,7 +318,7 @@
             this.panelControl3.Controls.Add(this.layoutControl1);
             this.panelControl3.Controls.Add(this.btnEkMalzemeOnay);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 636);
+            this.panelControl3.Location = new System.Drawing.Point(0, 642);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(511, 82);
             this.panelControl3.TabIndex = 1;
@@ -436,7 +449,7 @@
             this.panelUrunGrupKeypad.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUrunGrupKeypad.Location = new System.Drawing.Point(2, 2);
             this.panelUrunGrupKeypad.Name = "panelUrunGrupKeypad";
-            this.panelUrunGrupKeypad.Size = new System.Drawing.Size(308, 718);
+            this.panelUrunGrupKeypad.Size = new System.Drawing.Size(308, 724);
             this.panelUrunGrupKeypad.TabIndex = 0;
             // 
             // groupKategori
@@ -445,7 +458,7 @@
             this.groupKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupKategori.Location = new System.Drawing.Point(2, 339);
             this.groupKategori.Name = "groupKategori";
-            this.groupKategori.Size = new System.Drawing.Size(304, 377);
+            this.groupKategori.Size = new System.Drawing.Size(304, 383);
             this.groupKategori.TabIndex = 1;
             this.groupKategori.Text = "Ürün Grupları";
             // 
@@ -454,7 +467,7 @@
             this.flowKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKategori.Location = new System.Drawing.Point(2, 28);
             this.flowKategori.Name = "flowKategori";
-            this.flowKategori.Size = new System.Drawing.Size(300, 347);
+            this.flowKategori.Size = new System.Drawing.Size(300, 353);
             this.flowKategori.TabIndex = 0;
             // 
             // groupKeypad
@@ -483,18 +496,12 @@
             // 
             // txtMiktar
             // 
-            this.txtMiktar.EditValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtMiktar.Location = new System.Drawing.Point(5, 32);
+            this.txtMiktar.Location = new System.Drawing.Point(6, 32);
             this.txtMiktar.Name = "txtMiktar";
-            this.txtMiktar.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold);
+            this.txtMiktar.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.txtMiktar.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtMiktar.Properties.Appearance.Options.UseFont = true;
-            this.txtMiktar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtMiktar.Size = new System.Drawing.Size(296, 38);
+            this.txtMiktar.Size = new System.Drawing.Size(293, 38);
             this.txtMiktar.TabIndex = 5;
             // 
             // btnKeypadOk
@@ -655,22 +662,23 @@
             // panelUrunHareket
             // 
             this.panelUrunHareket.Controls.Add(this.gridControl1);
+            this.panelUrunHareket.Controls.Add(this.panelControl5);
             this.panelUrunHareket.Controls.Add(this.panelControl2);
             this.panelUrunHareket.Controls.Add(this.panelUrunHareketMenu);
             this.panelUrunHareket.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelUrunHareket.Location = new System.Drawing.Point(104, 0);
             this.panelUrunHareket.Name = "panelUrunHareket";
-            this.panelUrunHareket.Size = new System.Drawing.Size(655, 722);
+            this.panelUrunHareket.Size = new System.Drawing.Size(655, 728);
             this.panelUrunHareket.TabIndex = 1;
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Font = new System.Drawing.Font("Arial", 7.8F);
-            this.gridControl1.Location = new System.Drawing.Point(2, 58);
+            this.gridControl1.Location = new System.Drawing.Point(2, 114);
             this.gridControl1.MainView = this.layoutView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(651, 592);
+            this.gridControl1.Size = new System.Drawing.Size(651, 542);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.layoutView1});
@@ -974,6 +982,70 @@
             this.item6.Text = "Toplam Tutar";
             this.item6.TextSize = new System.Drawing.Size(84, 16);
             // 
+            // panelControl5
+            // 
+            this.panelControl5.Controls.Add(this.btnIndirim);
+            this.panelControl5.Controls.Add(this.btnBol);
+            this.panelControl5.Controls.Add(this.btnIade);
+            this.panelControl5.Controls.Add(this.btnMiktarAzalt);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl5.Location = new System.Drawing.Point(2, 58);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(651, 56);
+            this.panelControl5.TabIndex = 3;
+            // 
+            // btnIndirim
+            // 
+            this.btnIndirim.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnIndirim.Appearance.Options.UseFont = true;
+            this.btnIndirim.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnIndirim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIndirim.ImageOptions.Image")));
+            this.btnIndirim.Location = new System.Drawing.Point(485, 2);
+            this.btnIndirim.Name = "btnIndirim";
+            this.btnIndirim.Size = new System.Drawing.Size(161, 52);
+            this.btnIndirim.TabIndex = 7;
+            this.btnIndirim.Text = "İndirim";
+            this.btnIndirim.Click += new System.EventHandler(this.btnIndirim_Click);
+            // 
+            // btnBol
+            // 
+            this.btnBol.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnBol.Appearance.Options.UseFont = true;
+            this.btnBol.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBol.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBol.ImageOptions.Image")));
+            this.btnBol.Location = new System.Drawing.Point(324, 2);
+            this.btnBol.Name = "btnBol";
+            this.btnBol.Size = new System.Drawing.Size(161, 52);
+            this.btnBol.TabIndex = 6;
+            this.btnBol.Text = "Böl";
+            this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
+            // 
+            // btnIade
+            // 
+            this.btnIade.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnIade.Appearance.Options.UseFont = true;
+            this.btnIade.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnIade.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIade.ImageOptions.Image")));
+            this.btnIade.Location = new System.Drawing.Point(163, 2);
+            this.btnIade.Name = "btnIade";
+            this.btnIade.Size = new System.Drawing.Size(161, 52);
+            this.btnIade.TabIndex = 4;
+            this.btnIade.Text = "İade";
+            this.btnIade.Click += new System.EventHandler(this.btnIade_Click);
+            // 
+            // btnMiktarAzalt
+            // 
+            this.btnMiktarAzalt.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnMiktarAzalt.Appearance.Options.UseFont = true;
+            this.btnMiktarAzalt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMiktarAzalt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMiktarAzalt.ImageOptions.Image")));
+            this.btnMiktarAzalt.Location = new System.Drawing.Point(2, 2);
+            this.btnMiktarAzalt.Name = "btnMiktarAzalt";
+            this.btnMiktarAzalt.Size = new System.Drawing.Size(161, 52);
+            this.btnMiktarAzalt.TabIndex = 2;
+            this.btnMiktarAzalt.Text = "Azalt";
+            this.btnMiktarAzalt.Click += new System.EventHandler(this.btnMiktarAzalt_Click);
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.panelControl4);
@@ -983,7 +1055,7 @@
             this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.labelControl2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 650);
+            this.panelControl2.Location = new System.Drawing.Point(2, 656);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(651, 70);
             this.panelControl2.TabIndex = 1;
@@ -1138,12 +1210,9 @@
             // 
             // panelUrunHareketMenu
             // 
-            this.panelUrunHareketMenu.Controls.Add(this.simpleButton7);
-            this.panelUrunHareketMenu.Controls.Add(this.btnBol);
+            this.panelUrunHareketMenu.Controls.Add(this.btnEkMalzeme);
             this.panelUrunHareketMenu.Controls.Add(this.btnIkram);
-            this.panelUrunHareketMenu.Controls.Add(this.btnIade);
             this.panelUrunHareketMenu.Controls.Add(this.btnFiyatDegistir);
-            this.panelUrunHareketMenu.Controls.Add(this.btnMiktarAzalt);
             this.panelUrunHareketMenu.Controls.Add(this.btnMiktarArttir);
             this.panelUrunHareketMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUrunHareketMenu.Location = new System.Drawing.Point(2, 2);
@@ -1151,56 +1220,31 @@
             this.panelUrunHareketMenu.Size = new System.Drawing.Size(651, 56);
             this.panelUrunHareketMenu.TabIndex = 0;
             // 
-            // simpleButton7
+            // btnEkMalzeme
             // 
-            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
-            this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButton7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton7.ImageOptions.Image")));
-            this.simpleButton7.Location = new System.Drawing.Point(548, 2);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(101, 52);
-            this.simpleButton7.TabIndex = 6;
-            this.simpleButton7.Text = "Ek \r\nMalzeme";
-            // 
-            // btnBol
-            // 
-            this.btnBol.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnBol.Appearance.Options.UseFont = true;
-            this.btnBol.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBol.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
-            this.btnBol.Location = new System.Drawing.Point(457, 2);
-            this.btnBol.Name = "btnBol";
-            this.btnBol.Size = new System.Drawing.Size(91, 52);
-            this.btnBol.TabIndex = 5;
-            this.btnBol.Text = "Böl";
-            this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
+            this.btnEkMalzeme.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnEkMalzeme.Appearance.Options.UseFont = true;
+            this.btnEkMalzeme.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEkMalzeme.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEkMalzeme.ImageOptions.Image")));
+            this.btnEkMalzeme.Location = new System.Drawing.Point(485, 2);
+            this.btnEkMalzeme.Name = "btnEkMalzeme";
+            this.btnEkMalzeme.Size = new System.Drawing.Size(161, 52);
+            this.btnEkMalzeme.TabIndex = 6;
+            this.btnEkMalzeme.Text = "Ek \r\nMalzeme";
+            this.btnEkMalzeme.Click += new System.EventHandler(this.btnEkMalzeme_Click);
             // 
             // btnIkram
             // 
             this.btnIkram.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
             this.btnIkram.Appearance.Options.UseFont = true;
             this.btnIkram.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnIkram.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.btnIkram.Location = new System.Drawing.Point(366, 2);
+            this.btnIkram.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIkram.ImageOptions.Image")));
+            this.btnIkram.Location = new System.Drawing.Point(324, 2);
             this.btnIkram.Name = "btnIkram";
-            this.btnIkram.Size = new System.Drawing.Size(91, 52);
+            this.btnIkram.Size = new System.Drawing.Size(161, 52);
             this.btnIkram.TabIndex = 4;
             this.btnIkram.Text = "İkram";
             this.btnIkram.Click += new System.EventHandler(this.btnIkram_Click);
-            // 
-            // btnIade
-            // 
-            this.btnIade.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnIade.Appearance.Options.UseFont = true;
-            this.btnIade.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnIade.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.btnIade.Location = new System.Drawing.Point(275, 2);
-            this.btnIade.Name = "btnIade";
-            this.btnIade.Size = new System.Drawing.Size(91, 52);
-            this.btnIade.TabIndex = 3;
-            this.btnIade.Text = "İade";
-            this.btnIade.Click += new System.EventHandler(this.btnIade_Click);
             // 
             // btnFiyatDegistir
             // 
@@ -1208,25 +1252,12 @@
             this.btnFiyatDegistir.Appearance.Options.UseFont = true;
             this.btnFiyatDegistir.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnFiyatDegistir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFiyatDegistir.ImageOptions.Image")));
-            this.btnFiyatDegistir.Location = new System.Drawing.Point(184, 2);
+            this.btnFiyatDegistir.Location = new System.Drawing.Point(163, 2);
             this.btnFiyatDegistir.Name = "btnFiyatDegistir";
-            this.btnFiyatDegistir.Size = new System.Drawing.Size(91, 52);
+            this.btnFiyatDegistir.Size = new System.Drawing.Size(161, 52);
             this.btnFiyatDegistir.TabIndex = 2;
             this.btnFiyatDegistir.Text = "Fiyat \r\nDeğiştir";
             this.btnFiyatDegistir.Click += new System.EventHandler(this.btnFiyatDegistir_Click);
-            // 
-            // btnMiktarAzalt
-            // 
-            this.btnMiktarAzalt.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnMiktarAzalt.Appearance.Options.UseFont = true;
-            this.btnMiktarAzalt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnMiktarAzalt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMiktarAzalt.ImageOptions.Image")));
-            this.btnMiktarAzalt.Location = new System.Drawing.Point(93, 2);
-            this.btnMiktarAzalt.Name = "btnMiktarAzalt";
-            this.btnMiktarAzalt.Size = new System.Drawing.Size(91, 52);
-            this.btnMiktarAzalt.TabIndex = 1;
-            this.btnMiktarAzalt.Text = "Azalt";
-            this.btnMiktarAzalt.Click += new System.EventHandler(this.btnMiktarAzalt_Click);
             // 
             // btnMiktarArttir
             // 
@@ -1236,7 +1267,7 @@
             this.btnMiktarArttir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMiktarArttir.ImageOptions.Image")));
             this.btnMiktarArttir.Location = new System.Drawing.Point(2, 2);
             this.btnMiktarArttir.Name = "btnMiktarArttir";
-            this.btnMiktarArttir.Size = new System.Drawing.Size(91, 52);
+            this.btnMiktarArttir.Size = new System.Drawing.Size(161, 52);
             this.btnMiktarArttir.TabIndex = 0;
             this.btnMiktarArttir.Text = "Arttır";
             this.btnMiktarArttir.Click += new System.EventHandler(this.btnMiktarArttir_Click);
@@ -1251,7 +1282,7 @@
             this.panelHareketSolMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelHareketSolMenu.Location = new System.Drawing.Point(0, 0);
             this.panelHareketSolMenu.Name = "panelHareketSolMenu";
-            this.panelHareketSolMenu.Size = new System.Drawing.Size(104, 722);
+            this.panelHareketSolMenu.Size = new System.Drawing.Size(104, 728);
             this.panelHareketSolMenu.TabIndex = 0;
             // 
             // btnSiparisKaydet
@@ -1261,7 +1292,7 @@
             this.btnSiparisKaydet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSiparisKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSiparisKaydet.ImageOptions.Image")));
             this.btnSiparisKaydet.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnSiparisKaydet.Location = new System.Drawing.Point(2, 638);
+            this.btnSiparisKaydet.Location = new System.Drawing.Point(2, 644);
             this.btnSiparisKaydet.Name = "btnSiparisKaydet";
             this.btnSiparisKaydet.Size = new System.Drawing.Size(100, 82);
             this.btnSiparisKaydet.TabIndex = 4;
@@ -1319,11 +1350,28 @@
             this.btnUrunEkle.TabIndex = 0;
             this.btnUrunEkle.Text = "Ürün Ekle";
             // 
-            // navigationPage2
+            // PageMasalar
             // 
-            this.navigationPage2.Caption = "navigationPage2";
-            this.navigationPage2.Name = "navigationPage2";
-            this.navigationPage2.Size = new System.Drawing.Size(1582, 722);
+            this.PageMasalar.Controls.Add(this.groupMasalar);
+            this.PageMasalar.Controls.Add(this.groupKonumlar);
+            this.PageMasalar.Name = "PageMasalar";
+            this.PageMasalar.Size = new System.Drawing.Size(1582, 728);
+            // 
+            // flowMasalar
+            // 
+            this.flowMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowMasalar.Location = new System.Drawing.Point(2, 28);
+            this.flowMasalar.Name = "flowMasalar";
+            this.flowMasalar.Size = new System.Drawing.Size(1578, 576);
+            this.flowMasalar.TabIndex = 1;
+            // 
+            // flowKonum
+            // 
+            this.flowKonum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowKonum.Location = new System.Drawing.Point(2, 28);
+            this.flowKonum.Name = "flowKonum";
+            this.flowKonum.Size = new System.Drawing.Size(1578, 92);
+            this.flowKonum.TabIndex = 0;
             // 
             // txtToplamUrunHareketTutar
             // 
@@ -1335,12 +1383,32 @@
             this.txtToplamUrunHareketTutar.Size = new System.Drawing.Size(62, 24);
             this.txtToplamUrunHareketTutar.TabIndex = 2;
             // 
+            // groupMasalar
+            // 
+            this.groupMasalar.Controls.Add(this.flowMasalar);
+            this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupMasalar.Location = new System.Drawing.Point(0, 122);
+            this.groupMasalar.Name = "groupMasalar";
+            this.groupMasalar.Size = new System.Drawing.Size(1582, 606);
+            this.groupMasalar.TabIndex = 2;
+            this.groupMasalar.Text = "Masalar";
+            // 
+            // groupKonumlar
+            // 
+            this.groupKonumlar.Controls.Add(this.flowKonum);
+            this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
+            this.groupKonumlar.Name = "groupKonumlar";
+            this.groupKonumlar.Size = new System.Drawing.Size(1582, 122);
+            this.groupKonumlar.TabIndex = 3;
+            this.groupKonumlar.Text = "Konumlar";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 785);
-            this.Controls.Add(this.navigationFrame1);
+            this.Controls.Add(this.navigationMain);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1350,9 +1418,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).EndInit();
-            this.navigationFrame1.ResumeLayout(false);
-            this.navigationPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).EndInit();
+            this.navigationMain.ResumeLayout(false);
+            this.PageAdisyonAyrinti.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareketHizliSatis)).EndInit();
             this.panelUrunHareketHizliSatis.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navigationKategori)).EndInit();
@@ -1393,6 +1461,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.item2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.item5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.item6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
@@ -1406,7 +1476,12 @@
             this.panelUrunHareketMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
+            this.PageMasalar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).EndInit();
+            this.groupMasalar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
+            this.groupKonumlar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1414,9 +1489,9 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraBars.Navigation.NavigationFrame navigationFrame1;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage1;
-        private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
+        private DevExpress.XtraBars.Navigation.NavigationFrame navigationMain;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageAdisyonAyrinti;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageMasalar;
         private DevExpress.XtraEditors.PanelControl panelHareketSolMenu;
         private DevExpress.XtraEditors.SimpleButton btnUrunEkle;
         private DevExpress.XtraEditors.SimpleButton btnSiparisKaydet;
@@ -1434,12 +1509,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton btnBol;
+        private DevExpress.XtraEditors.SimpleButton btnEkMalzeme;
         private DevExpress.XtraEditors.SimpleButton btnIkram;
-        private DevExpress.XtraEditors.SimpleButton btnIade;
         private DevExpress.XtraEditors.SimpleButton btnFiyatDegistir;
-        private DevExpress.XtraEditors.SimpleButton btnMiktarAzalt;
         private DevExpress.XtraEditors.SimpleButton btnMiktarArttir;
         private DevExpress.XtraEditors.PanelControl panelUrunHareketHizliSatis;
         private DevExpress.XtraEditors.PanelControl panelUrunGrupKeypad;
@@ -1485,7 +1557,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage PageEkMalzeme;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton btnEkMalzemeOnay;
-        private DevExpress.XtraEditors.CalcEdit txtMiktar;
         private DevExpress.XtraGrid.Columns.LayoutViewColumn colHareketTip;
         private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_layoutViewColumn1_6;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
@@ -1504,6 +1575,16 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.SimpleButton btnKategoriyeDon;
+        private DevExpress.XtraEditors.PanelControl panelControl5;
+        private DevExpress.XtraEditors.SimpleButton btnMiktarAzalt;
+        private DevExpress.XtraEditors.SimpleButton btnIndirim;
+        private DevExpress.XtraEditors.SimpleButton btnBol;
+        private DevExpress.XtraEditors.SimpleButton btnIade;
+        private DevExpress.XtraEditors.CalcEdit txtMiktar;
+        private System.Windows.Forms.FlowLayoutPanel flowKonum;
+        private System.Windows.Forms.FlowLayoutPanel flowMasalar;
+        private DevExpress.XtraEditors.GroupControl groupMasalar;
+        private DevExpress.XtraEditors.GroupControl groupKonumlar;
     }
 }
 
