@@ -59,6 +59,12 @@
     <Compile Include="ControlEkMalzemeButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ControlGarsonButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlGarsonCheckButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlKategoriButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -69,6 +75,9 @@
       <DependentUpon>ControlKategoriUrun.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlKonumButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlMasaButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ControlMenuKayit.cs">

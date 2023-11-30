@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnGarsonSecim = new SonicPosRestaurant.UserControls.ControlGarsonButton();
             this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             this.navigationMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.PageAdisyonAyrinti = new DevExpress.XtraBars.Navigation.NavigationPage();
@@ -51,6 +52,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnEkMalzemeOnay = new DevExpress.XtraEditors.SimpleButton();
+            this.PageGarson = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowGarson = new System.Windows.Forms.FlowLayoutPanel();
             this.panelUrunGrupKeypad = new DevExpress.XtraEditors.PanelControl();
             this.groupKategori = new DevExpress.XtraEditors.GroupControl();
             this.flowKategori = new System.Windows.Forms.FlowLayoutPanel();
@@ -121,11 +124,11 @@
             this.btnYazdir = new DevExpress.XtraEditors.SimpleButton();
             this.btnUrunEkle = new DevExpress.XtraEditors.SimpleButton();
             this.PageMasalar = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.groupMasalar = new DevExpress.XtraEditors.GroupControl();
             this.flowMasalar = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
-            this.groupMasalar = new DevExpress.XtraEditors.GroupControl();
-            this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -149,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            this.PageGarson.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeypad)).BeginInit();
             this.panelUrunGrupKeypad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).BeginInit();
@@ -187,15 +191,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).BeginInit();
             this.panelHareketSolMenu.SuspendLayout();
             this.PageMasalar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).BeginInit();
             this.groupMasalar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
             this.groupKonumlar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnGarsonSecim);
             this.panelControl1.Controls.Add(this.btnKategoriyeDon);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
@@ -203,13 +208,32 @@
             this.panelControl1.Size = new System.Drawing.Size(1582, 57);
             this.panelControl1.TabIndex = 0;
             // 
+            // btnGarsonSecim
+            // 
+            this.btnGarsonSecim.Adi = null;
+            this.btnGarsonSecim.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGarsonSecim.Appearance.Options.UseFont = true;
+            this.btnGarsonSecim.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGarsonSecim.GarsonId = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.btnGarsonSecim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGarsonSecim.ImageOptions.Image")));
+            this.btnGarsonSecim.Location = new System.Drawing.Point(1235, 2);
+            this.btnGarsonSecim.Name = "btnGarsonSecim";
+            this.btnGarsonSecim.Size = new System.Drawing.Size(240, 53);
+            this.btnGarsonSecim.Soyadi = null;
+            this.btnGarsonSecim.TabIndex = 1;
+            this.btnGarsonSecim.Text = "Garson Seçilmedi";
+            this.btnGarsonSecim.Visible = false;
+            this.btnGarsonSecim.Click += new System.EventHandler(this.btnGarsonSecim_Click);
+            // 
             // btnKategoriyeDon
             // 
+            this.btnKategoriyeDon.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKategoriyeDon.Appearance.Options.UseFont = true;
             this.btnKategoriyeDon.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnKategoriyeDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKategoriyeDon.ImageOptions.Image")));
-            this.btnKategoriyeDon.Location = new System.Drawing.Point(1486, 2);
+            this.btnKategoriyeDon.Location = new System.Drawing.Point(1475, 2);
             this.btnKategoriyeDon.Name = "btnKategoriyeDon";
-            this.btnKategoriyeDon.Size = new System.Drawing.Size(94, 53);
+            this.btnKategoriyeDon.Size = new System.Drawing.Size(105, 53);
             this.btnKategoriyeDon.TabIndex = 0;
             this.btnKategoriyeDon.Text = "Geri Dön";
             this.btnKategoriyeDon.Visible = false;
@@ -255,13 +279,15 @@
             this.navigationKategori.Controls.Add(this.PagesKategoriUrunler);
             this.navigationKategori.Controls.Add(this.PageUrunPorsiyon);
             this.navigationKategori.Controls.Add(this.PageEkMalzeme);
+            this.navigationKategori.Controls.Add(this.PageGarson);
             this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationKategori.Location = new System.Drawing.Point(310, 2);
             this.navigationKategori.Name = "navigationKategori";
             this.navigationKategori.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.PagesKategoriUrunler,
             this.PageUrunPorsiyon,
-            this.PageEkMalzeme});
+            this.PageEkMalzeme,
+            this.PageGarson});
             this.navigationKategori.SelectedPage = this.PagesKategoriUrunler;
             this.navigationKategori.Size = new System.Drawing.Size(511, 724);
             this.navigationKategori.TabIndex = 2;
@@ -441,6 +467,21 @@
             this.btnEkMalzemeOnay.TabIndex = 0;
             this.btnEkMalzemeOnay.Text = "Onayla\r\n";
             this.btnEkMalzemeOnay.Click += new System.EventHandler(this.btnEkMalzemeOnay_Click);
+            // 
+            // PageGarson
+            // 
+            this.PageGarson.Caption = "PageGarson";
+            this.PageGarson.Controls.Add(this.flowGarson);
+            this.PageGarson.Name = "PageGarson";
+            this.PageGarson.Size = new System.Drawing.Size(511, 724);
+            // 
+            // flowGarson
+            // 
+            this.flowGarson.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowGarson.Location = new System.Drawing.Point(0, 0);
+            this.flowGarson.Name = "flowGarson";
+            this.flowGarson.Size = new System.Drawing.Size(511, 724);
+            this.flowGarson.TabIndex = 0;
             // 
             // panelUrunGrupKeypad
             // 
@@ -1297,6 +1338,7 @@
             this.btnSiparisKaydet.Size = new System.Drawing.Size(100, 82);
             this.btnSiparisKaydet.TabIndex = 4;
             this.btnSiparisKaydet.Text = "Değişiklikleri\r\nKaydet";
+            this.btnSiparisKaydet.Click += new System.EventHandler(this.btnSiparisKaydet_Click);
             // 
             // btnSiparisİptal
             // 
@@ -1352,10 +1394,21 @@
             // 
             // PageMasalar
             // 
+            this.PageMasalar.Caption = "PageMasalar";
             this.PageMasalar.Controls.Add(this.groupMasalar);
             this.PageMasalar.Controls.Add(this.groupKonumlar);
             this.PageMasalar.Name = "PageMasalar";
             this.PageMasalar.Size = new System.Drawing.Size(1582, 728);
+            // 
+            // groupMasalar
+            // 
+            this.groupMasalar.Controls.Add(this.flowMasalar);
+            this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupMasalar.Location = new System.Drawing.Point(0, 122);
+            this.groupMasalar.Name = "groupMasalar";
+            this.groupMasalar.Size = new System.Drawing.Size(1582, 606);
+            this.groupMasalar.TabIndex = 2;
+            this.groupMasalar.Text = "Masalar";
             // 
             // flowMasalar
             // 
@@ -1364,6 +1417,16 @@
             this.flowMasalar.Name = "flowMasalar";
             this.flowMasalar.Size = new System.Drawing.Size(1578, 576);
             this.flowMasalar.TabIndex = 1;
+            // 
+            // groupKonumlar
+            // 
+            this.groupKonumlar.Controls.Add(this.flowKonum);
+            this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
+            this.groupKonumlar.Name = "groupKonumlar";
+            this.groupKonumlar.Size = new System.Drawing.Size(1582, 122);
+            this.groupKonumlar.TabIndex = 3;
+            this.groupKonumlar.Text = "Konumlar";
             // 
             // flowKonum
             // 
@@ -1382,26 +1445,6 @@
             this.txtToplamUrunHareketTutar.Properties.ReadOnly = true;
             this.txtToplamUrunHareketTutar.Size = new System.Drawing.Size(62, 24);
             this.txtToplamUrunHareketTutar.TabIndex = 2;
-            // 
-            // groupMasalar
-            // 
-            this.groupMasalar.Controls.Add(this.flowMasalar);
-            this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupMasalar.Location = new System.Drawing.Point(0, 122);
-            this.groupMasalar.Name = "groupMasalar";
-            this.groupMasalar.Size = new System.Drawing.Size(1582, 606);
-            this.groupMasalar.TabIndex = 2;
-            this.groupMasalar.Text = "Masalar";
-            // 
-            // groupKonumlar
-            // 
-            this.groupKonumlar.Controls.Add(this.flowKonum);
-            this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
-            this.groupKonumlar.Name = "groupKonumlar";
-            this.groupKonumlar.Size = new System.Drawing.Size(1582, 122);
-            this.groupKonumlar.TabIndex = 3;
-            this.groupKonumlar.Text = "Konumlar";
             // 
             // FrmMain
             // 
@@ -1439,6 +1482,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            this.PageGarson.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeypad)).EndInit();
             this.panelUrunGrupKeypad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).EndInit();
@@ -1477,11 +1521,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelHareketSolMenu)).EndInit();
             this.panelHareketSolMenu.ResumeLayout(false);
             this.PageMasalar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupMasalar)).EndInit();
             this.groupMasalar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
             this.groupKonumlar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1585,6 +1629,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowMasalar;
         private DevExpress.XtraEditors.GroupControl groupMasalar;
         private DevExpress.XtraEditors.GroupControl groupKonumlar;
+        private UserControls.ControlGarsonButton btnGarsonSecim;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageGarson;
+        private System.Windows.Forms.FlowLayoutPanel flowGarson;
     }
 }
 

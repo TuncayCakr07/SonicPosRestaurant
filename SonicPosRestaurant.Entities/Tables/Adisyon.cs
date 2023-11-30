@@ -9,6 +9,7 @@ namespace SonicPosRestaurant.Entities.Tables
 {
     public class Adisyon:EntityBase
     {
+        public bool AdisyonAcik { get; set; }
         public decimal Indirim { get; set; }
         public decimal Tutar { get; set; }
         public Guid? MasaId { get; set; }
