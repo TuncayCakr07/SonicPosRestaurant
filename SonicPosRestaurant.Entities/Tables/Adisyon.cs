@@ -19,5 +19,6 @@ namespace SonicPosRestaurant.Entities.Tables
         public Guid? MusteriId { get; set; }
         public virtual Musteri Musteri { get; set; }
         public virtual ICollection<UrunHareket> UrunHareketleri{ get; set; }
+        public virtual ICollection<OdemeHareket> OdemeHareketleri{ get; set; }
     }
 }

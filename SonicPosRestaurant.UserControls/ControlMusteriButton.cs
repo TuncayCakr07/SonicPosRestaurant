@@ -22,7 +22,15 @@ namespace SonicPosRestaurant.UserControls
         public MusteriTip MusteriTip { get; set; }
         public void Load()
         {
-            Text = $"{Adi} {Soyadi}";
+            if (Adi==null && Soyadi==null)
+            {
+                Text = "Müşteri Seçilmedi";
+            }
+            else
+            {
+               Text = $"{Adi} {Soyadi}";
+            }
+           
             switch (MusteriTip)
             {
                 case MusteriTip.Yok:
@@ -45,6 +53,8 @@ namespace SonicPosRestaurant.UserControls
             MusteriId=Guid.Empty;
             Adi = null;
             Soyadi = null;
+            MusteriTip = MusteriTip.Yok;
+            Refresh();
         }
     }
 }

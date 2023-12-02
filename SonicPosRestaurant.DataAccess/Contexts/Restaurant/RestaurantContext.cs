@@ -35,6 +35,9 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
         public DbSet<Garson> Garsonlar { get; set; }
         public DbSet<Masa> Masalar { get; set; }
         public DbSet<UrunHareket> UrunHareketleri { get; set; }
+        public DbSet<OdemeTuru> OdemeTurleri { get; set; }
+        public DbSet<OdemeHareket> OdemeHareketleri { get; set; }
+
         
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -78,6 +81,10 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Entity<EkMalzemeHareket>().HasRequired(c => c.UrunHareket).WithMany(c => c.EkMalzemeHareketleri).HasForeignKey(c => c.UrunHareketId);
             modelBuilder.Entity<EkMalzemeHareket>().HasRequired(c => c.EkMalzeme).WithMany().HasForeignKey(c => c.EkMalzemeId);
 
+            //OdemeHareketİlişkileri
+            modelBuilder.Entity<OdemeHareket>().HasRequired(c => c.OdemeTuru).WithMany(c => c.OdemeHareketleri).HasForeignKey(c => c.OdemeId);
+            modelBuilder.Entity<OdemeHareket>().HasRequired(c => c.Adisyon).WithMany(c => c.OdemeHareketleri).HasForeignKey(c => c.AdisyonId);
+
             modelBuilder.Configurations.Add(new UrunMap());
             modelBuilder.Configurations.Add(new TanimMap());
             modelBuilder.Configurations.Add(new PorsiyonMap());
@@ -90,6 +97,8 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Configurations.Add(new GarsonMap());
             modelBuilder.Configurations.Add(new MasaMap());
             modelBuilder.Configurations.Add(new UrunHareketMap());
+            modelBuilder.Configurations.Add(new OdemeTuruMap());
+            modelBuilder.Configurations.Add(new OdemeHareketMap());
 
         }
     }

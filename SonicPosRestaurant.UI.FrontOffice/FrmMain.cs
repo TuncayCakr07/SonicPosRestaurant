@@ -167,6 +167,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 secilenAdisyon.MasaId = button.MasaId;
                 btnGarsonSecim.Text = "Garson Seçilmedi";
                 button.AdisyonId= secilenAdisyon.Id;
+                btnMusteri.Load();
                 navigationMain.SelectedPage = PageAdisyonAyrinti;
             }
             else if (button.MasaDurum==MasaDurum.Dolu)
@@ -188,6 +189,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 {
                     btnGarsonSecim.Text = "Garson Seçilmedi";
                 }
+                if (secilenAdisyon.MusteriId!=Guid.Empty)
+                {
                 Musteri musteri = worker.MusteriService.Get(c => c.Id == secilenAdisyon.MusteriId);
                 if (musteri!=null)
                 {
@@ -198,6 +201,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
                     btnMusteri.MusteriTip = musteri.MusteriTip;
                     btnMusteri.Load();
                 }
+                }
+
                 else
                 {
                     btnMusteri.Text = "Müşteri Seçilmedi";
@@ -641,6 +646,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             {
                 btnGarsonSecim.Visible = false;
                 btnMusteri.Visible = false;
+                btnMusteri.Clear();
                 navigationMain.SelectedPage= PageMasalar;
                 return;
             }
