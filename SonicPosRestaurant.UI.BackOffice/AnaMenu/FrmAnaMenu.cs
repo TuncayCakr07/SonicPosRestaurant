@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data.Entity;
 using SonicPosRestaurant.Core.Functions;
+using SonicPosRestaurant.UI.BackOffice.Garson;
 using SonicPosRestaurant.UI.BackOffice.Masa;
 using SonicPosRestaurant.UI.BackOffice.Musteri;
 using SonicPosRestaurant.UI.BackOffice.Urun;
@@ -44,6 +45,13 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
         {
             FrmMasa form=new FrmMasa();
             form.MdiParent = this;
+            form.Show();
+        }
+
+        private void btnGarson_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmGarson form= new FrmGarson();
+            form.MdiParent= this;
             form.Show();
         }
     }

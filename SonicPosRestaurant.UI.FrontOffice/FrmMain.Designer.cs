@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnMusteri = new SonicPosRestaurant.UserControls.ControlMusteriButton();
             this.btnGarsonSecim = new SonicPosRestaurant.UserControls.ControlGarsonButton();
             this.btnKategoriyeDon = new DevExpress.XtraEditors.SimpleButton();
             this.navigationMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
@@ -129,6 +130,8 @@
             this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
+            this.PageMusteri = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowMusteri = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -196,10 +199,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
             this.groupKonumlar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
+            this.PageMusteri.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnMusteri);
             this.panelControl1.Controls.Add(this.btnGarsonSecim);
             this.panelControl1.Controls.Add(this.btnKategoriyeDon);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -207,6 +212,24 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1582, 57);
             this.panelControl1.TabIndex = 0;
+            // 
+            // btnMusteri
+            // 
+            this.btnMusteri.Adi = null;
+            this.btnMusteri.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnMusteri.Appearance.Options.UseFont = true;
+            this.btnMusteri.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMusteri.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMusteri.ImageOptions.Image")));
+            this.btnMusteri.Location = new System.Drawing.Point(995, 2);
+            this.btnMusteri.MusteriId = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.btnMusteri.MusteriTip = SonicPosRestaurant.Entities.Enums.MusteriTip.Yok;
+            this.btnMusteri.Name = "btnMusteri";
+            this.btnMusteri.Size = new System.Drawing.Size(240, 53);
+            this.btnMusteri.Soyadi = null;
+            this.btnMusteri.TabIndex = 2;
+            this.btnMusteri.Text = "Müşteri Seçilmedi";
+            this.btnMusteri.Visible = false;
+            this.btnMusteri.Click += new System.EventHandler(this.btnMusteri_Click);
             // 
             // btnGarsonSecim
             // 
@@ -280,6 +303,7 @@
             this.navigationKategori.Controls.Add(this.PageUrunPorsiyon);
             this.navigationKategori.Controls.Add(this.PageEkMalzeme);
             this.navigationKategori.Controls.Add(this.PageGarson);
+            this.navigationKategori.Controls.Add(this.PageMusteri);
             this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationKategori.Location = new System.Drawing.Point(310, 2);
             this.navigationKategori.Name = "navigationKategori";
@@ -287,7 +311,8 @@
             this.PagesKategoriUrunler,
             this.PageUrunPorsiyon,
             this.PageEkMalzeme,
-            this.PageGarson});
+            this.PageGarson,
+            this.PageMusteri});
             this.navigationKategori.SelectedPage = this.PagesKategoriUrunler;
             this.navigationKategori.Size = new System.Drawing.Size(511, 724);
             this.navigationKategori.TabIndex = 2;
@@ -295,7 +320,6 @@
             // 
             // PagesKategoriUrunler
             // 
-            this.PagesKategoriUrunler.Caption = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.PagesKategoriUrunler.Name = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Size = new System.Drawing.Size(511, 724);
@@ -1446,6 +1470,20 @@
             this.txtToplamUrunHareketTutar.Size = new System.Drawing.Size(62, 24);
             this.txtToplamUrunHareketTutar.TabIndex = 2;
             // 
+            // PageMusteri
+            // 
+            this.PageMusteri.Controls.Add(this.flowMusteri);
+            this.PageMusteri.Name = "PageMusteri";
+            this.PageMusteri.Size = new System.Drawing.Size(511, 724);
+            // 
+            // flowMusteri
+            // 
+            this.flowMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowMusteri.Location = new System.Drawing.Point(0, 0);
+            this.flowMusteri.Name = "flowMusteri";
+            this.flowMusteri.Size = new System.Drawing.Size(511, 724);
+            this.flowMusteri.TabIndex = 0;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1526,6 +1564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
             this.groupKonumlar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
+            this.PageMusteri.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1632,6 +1671,9 @@
         private UserControls.ControlGarsonButton btnGarsonSecim;
         private DevExpress.XtraBars.Navigation.NavigationPage PageGarson;
         private System.Windows.Forms.FlowLayoutPanel flowGarson;
+        private UserControls.ControlMusteriButton btnMusteri;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageMusteri;
+        private System.Windows.Forms.FlowLayoutPanel flowMusteri;
     }
 }
 

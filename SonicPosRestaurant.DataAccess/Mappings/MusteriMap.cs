@@ -20,6 +20,7 @@ namespace SonicPosRestaurant.DataAccess.Mappings
             Property(c => c.Sirket).HasColumnName("Sirket");
             Property(c => c.Adi).HasColumnName("Adi");
             Property(c => c.Soyadi).HasColumnName("Soyadi");
+            Property(c => c.MusteriTip).HasColumnName("MusteriTip");
         }
     }
 }

@@ -41,7 +41,40 @@ namespace SonicPosRestaurant.UI.FrontOffice
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             MasaButonOlustur();
             GarsonButtonOlustur();
+            MusteriButtonOlustur();
         }
+        void MusteriButtonOlustur()
+        {
+            foreach (var musteri in worker.MusteriService.GetList(null))
+            {
+                ControlMusteriButton button=new ControlMusteriButton 
+                {
+                    Name=musteri.Id.ToString(),
+                    Adi=musteri.Adi,
+                    Soyadi=musteri.Soyadi,
+                    MusteriId=musteri.Id,
+                    MusteriTip=musteri.MusteriTip,
+                    Height=150,
+                    Width=150,
+                    Font = new Font("Century Gothic ", 10, FontStyle.Bold)
+                };
+                button.Load();
+                button.Click += MusteriSec;
+                flowMusteri.Controls.Add(button);
+            }
+        }
+
+        private void MusteriSec(object sender, EventArgs e)
+        {
+           ControlMusteriButton button=(ControlMusteriButton)sender;
+           btnMusteri.MusteriId = button.MusteriId;
+           btnMusteri.Adi= button.Adi;
+           btnMusteri.Soyadi= button.Soyadi;
+           btnMusteri.MusteriTip= button.MusteriTip;
+           btnMusteri.Load();
+            navigationKategori.SelectedPage = PagesKategoriUrunler;
+        }
+
         void GarsonButtonOlustur()
         {
             foreach (var garson in worker.GarsonService.GetList(null))
@@ -125,6 +158,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
         {
             ControlMasaButton button=(ControlMasaButton)sender;
             btnGarsonSecim.Visible = true;
+            btnMusteri.Visible = true;
             if (button.MasaDurum==MasaDurum.Bos)
             {
                 secilenAdisyon = new Adisyon();
@@ -153,6 +187,20 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 else
                 {
                     btnGarsonSecim.Text = "Garson Seçilmedi";
+                }
+                Musteri musteri = worker.MusteriService.Get(c => c.Id == secilenAdisyon.MusteriId);
+                if (musteri!=null)
+                {
+        
+                    btnMusteri.Adi = musteri.Adi;
+                    btnMusteri.Soyadi= musteri.Soyadi;
+                    btnMusteri.MusteriId = musteri.Id;
+                    btnMusteri.MusteriTip = musteri.MusteriTip;
+                    btnMusteri.Load();
+                }
+                else
+                {
+                    btnMusteri.Text = "Müşteri Seçilmedi";
                 }
                 button.AdisyonId = secilenAdisyon.Id;
                 navigationMain.SelectedPage = PageAdisyonAyrinti;
@@ -592,6 +640,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             if (layoutView1.RowCount==0)
             {
                 btnGarsonSecim.Visible = false;
+                btnMusteri.Visible = false;
                 navigationMain.SelectedPage= PageMasalar;
                 return;
             }
@@ -601,8 +650,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 return;
             }
             btnGarsonSecim.Visible = false;
+            btnMusteri.Visible = false;
             secilenAdisyon.GarsonId = btnGarsonSecim.GarsonId;
+            if (btnMusteri.MusteriId!=null)
+            {
+                secilenAdisyon.MusteriId = btnMusteri.MusteriId;
+            }
             btnGarsonSecim.Clear();
+            btnMusteri.Clear();
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
             ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(), true)[0];
             button.MasaDurum = MasaDurum.Dolu;
@@ -618,6 +673,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             navigationKategori.SelectedPage = PageGarson;
         }
 
-
+        private void btnMusteri_Click(object sender, EventArgs e)
+        {
+            navigationKategori.SelectedPage=PageMusteri;
+        }
     }
 }
