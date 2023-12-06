@@ -34,10 +34,11 @@
             this.BtnUrun = new DevExpress.XtraBars.BarButtonItem();
             this.btnMusteri = new DevExpress.XtraBars.BarButtonItem();
             this.btnMasa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnGarson = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnGarson = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOdemeTur = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -51,10 +52,11 @@
             this.BtnUrun,
             this.btnMusteri,
             this.btnMasa,
-            this.btnGarson});
+            this.btnGarson,
+            this.btnOdemeTur});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 385;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -84,6 +86,13 @@
             this.btnMasa.Name = "btnMasa";
             this.btnMasa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMasa_ItemClick);
             // 
+            // btnGarson
+            // 
+            this.btnGarson.Caption = "Garson";
+            this.btnGarson.Id = 4;
+            this.btnGarson.Name = "btnGarson";
+            this.btnGarson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGarson_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -97,18 +106,19 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnMusteri);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnMasa);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGarson);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnOdemeTur);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // btnGarson
+            // btnOdemeTur
             // 
-            this.btnGarson.Caption = "Garson";
-            this.btnGarson.Id = 4;
-            this.btnGarson.Name = "btnGarson";
-            this.btnGarson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGarson_ItemClick);
+            this.btnOdemeTur.Caption = "Ödeme Türleri";
+            this.btnOdemeTur.Id = 5;
+            this.btnOdemeTur.Name = "btnOdemeTur";
+            this.btnOdemeTur.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOdemeTur_ItemClick);
             // 
             // FrmAnaMenu
             // 
@@ -138,6 +148,7 @@
         private DevExpress.XtraBars.BarButtonItem btnMusteri;
         private DevExpress.XtraBars.BarButtonItem btnMasa;
         private DevExpress.XtraBars.BarButtonItem btnGarson;
+        private DevExpress.XtraBars.BarButtonItem btnOdemeTur;
     }
 }
 

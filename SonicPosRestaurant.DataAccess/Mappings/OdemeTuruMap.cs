@@ -16,6 +16,7 @@ namespace SonicPosRestaurant.DataAccess.Mappings
 
             ToTable("OdemeTurleri");
             Property(c => c.Adi).HasColumnName("Adi");
+            Property(c=>c.OdemeTurId).HasColumnName("OdemeTurId");
         }
     }
 }

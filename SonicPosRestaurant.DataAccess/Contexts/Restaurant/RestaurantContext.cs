@@ -84,6 +84,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             //OdemeHareketİlişkileri
             modelBuilder.Entity<OdemeHareket>().HasRequired(c => c.OdemeTuru).WithMany(c => c.OdemeHareketleri).HasForeignKey(c => c.OdemeId);
             modelBuilder.Entity<OdemeHareket>().HasRequired(c => c.Adisyon).WithMany(c => c.OdemeHareketleri).HasForeignKey(c => c.AdisyonId);
+            modelBuilder.Entity<OdemeTuru>().HasRequired(c => c.OdemeTur).WithMany().HasForeignKey(c => c.OdemeTurId);
 
             modelBuilder.Configurations.Add(new UrunMap());
             modelBuilder.Configurations.Add(new TanimMap());

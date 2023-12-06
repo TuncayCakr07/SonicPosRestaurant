@@ -55,6 +55,8 @@
             this.btnEkMalzemeOnay = new DevExpress.XtraEditors.SimpleButton();
             this.PageGarson = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.flowGarson = new System.Windows.Forms.FlowLayoutPanel();
+            this.PageMusteri = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.flowMusteri = new System.Windows.Forms.FlowLayoutPanel();
             this.panelUrunGrupKeypad = new DevExpress.XtraEditors.PanelControl();
             this.groupKategori = new DevExpress.XtraEditors.GroupControl();
             this.flowKategori = new System.Windows.Forms.FlowLayoutPanel();
@@ -102,9 +104,9 @@
             this.btnMiktarAzalt = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.calcEdit3 = new DevExpress.XtraEditors.CalcEdit();
-            this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
-            this.calcEdit2 = new DevExpress.XtraEditors.CalcEdit();
+            this.TxtToplamUrunTutar = new DevExpress.XtraEditors.CalcEdit();
+            this.TxtUrunHareketIndirim = new DevExpress.XtraEditors.CalcEdit();
+            this.TxtUrunHareketOdemeTutar = new DevExpress.XtraEditors.CalcEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -130,8 +132,6 @@
             this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
-            this.PageMusteri = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.flowMusteri = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -156,6 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.PageGarson.SuspendLayout();
+            this.PageMusteri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeypad)).BeginInit();
             this.panelUrunGrupKeypad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).BeginInit();
@@ -184,9 +185,9 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtToplamUrunTutar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtUrunHareketIndirim.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtUrunHareketOdemeTutar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrunHareketIndirimTutar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrunHareketOdenecekTutar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareketMenu)).BeginInit();
@@ -199,7 +200,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
             this.groupKonumlar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
-            this.PageMusteri.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -320,6 +320,7 @@
             // 
             // PagesKategoriUrunler
             // 
+            this.PagesKategoriUrunler.Caption = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.PagesKategoriUrunler.Name = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Size = new System.Drawing.Size(511, 724);
@@ -506,6 +507,21 @@
             this.flowGarson.Name = "flowGarson";
             this.flowGarson.Size = new System.Drawing.Size(511, 724);
             this.flowGarson.TabIndex = 0;
+            // 
+            // PageMusteri
+            // 
+            this.PageMusteri.Caption = "PageMusteri";
+            this.PageMusteri.Controls.Add(this.flowMusteri);
+            this.PageMusteri.Name = "PageMusteri";
+            this.PageMusteri.Size = new System.Drawing.Size(511, 724);
+            // 
+            // flowMusteri
+            // 
+            this.flowMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowMusteri.Location = new System.Drawing.Point(0, 0);
+            this.flowMusteri.Name = "flowMusteri";
+            this.flowMusteri.Size = new System.Drawing.Size(511, 724);
+            this.flowMusteri.TabIndex = 0;
             // 
             // panelUrunGrupKeypad
             // 
@@ -1127,9 +1143,9 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Controls.Add(this.calcEdit3);
-            this.panelControl4.Controls.Add(this.calcEdit1);
-            this.panelControl4.Controls.Add(this.calcEdit2);
+            this.panelControl4.Controls.Add(this.TxtToplamUrunTutar);
+            this.panelControl4.Controls.Add(this.TxtUrunHareketIndirim);
+            this.panelControl4.Controls.Add(this.TxtUrunHareketOdemeTutar);
             this.panelControl4.Controls.Add(this.labelControl4);
             this.panelControl4.Controls.Add(this.labelControl5);
             this.panelControl4.Controls.Add(this.labelControl6);
@@ -1139,35 +1155,59 @@
             this.panelControl4.Size = new System.Drawing.Size(647, 70);
             this.panelControl4.TabIndex = 3;
             // 
-            // calcEdit3
+            // TxtToplamUrunTutar
             // 
-            this.calcEdit3.Location = new System.Drawing.Point(118, 4);
-            this.calcEdit3.Name = "calcEdit3";
-            this.calcEdit3.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.calcEdit3.Properties.Appearance.Options.UseFont = true;
-            this.calcEdit3.Properties.ReadOnly = true;
-            this.calcEdit3.Size = new System.Drawing.Size(190, 24);
-            this.calcEdit3.TabIndex = 3;
+            this.TxtToplamUrunTutar.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.TxtToplamUrunTutar.Location = new System.Drawing.Point(118, 4);
+            this.TxtToplamUrunTutar.Name = "TxtToplamUrunTutar";
+            this.TxtToplamUrunTutar.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtToplamUrunTutar.Properties.Appearance.Options.UseFont = true;
+            this.TxtToplamUrunTutar.Properties.DisplayFormat.FormatString = "C2";
+            this.TxtToplamUrunTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TxtToplamUrunTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.TxtToplamUrunTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.TxtToplamUrunTutar.Size = new System.Drawing.Size(190, 24);
+            this.TxtToplamUrunTutar.TabIndex = 3;
             // 
-            // calcEdit1
+            // TxtUrunHareketIndirim
             // 
-            this.calcEdit1.Location = new System.Drawing.Point(432, 4);
-            this.calcEdit1.Name = "calcEdit1";
-            this.calcEdit1.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.calcEdit1.Properties.Appearance.Options.UseFont = true;
-            this.calcEdit1.Properties.ReadOnly = true;
-            this.calcEdit1.Size = new System.Drawing.Size(214, 24);
-            this.calcEdit1.TabIndex = 2;
+            this.TxtUrunHareketIndirim.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.TxtUrunHareketIndirim.Location = new System.Drawing.Point(432, 4);
+            this.TxtUrunHareketIndirim.Name = "TxtUrunHareketIndirim";
+            this.TxtUrunHareketIndirim.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtUrunHareketIndirim.Properties.Appearance.Options.UseFont = true;
+            this.TxtUrunHareketIndirim.Properties.DisplayFormat.FormatString = "C2";
+            this.TxtUrunHareketIndirim.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TxtUrunHareketIndirim.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.TxtUrunHareketIndirim.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.TxtUrunHareketIndirim.Size = new System.Drawing.Size(214, 24);
+            this.TxtUrunHareketIndirim.TabIndex = 2;
             // 
-            // calcEdit2
+            // TxtUrunHareketOdemeTutar
             // 
-            this.calcEdit2.Location = new System.Drawing.Point(120, 37);
-            this.calcEdit2.Name = "calcEdit2";
-            this.calcEdit2.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.calcEdit2.Properties.Appearance.Options.UseFont = true;
-            this.calcEdit2.Properties.ReadOnly = true;
-            this.calcEdit2.Size = new System.Drawing.Size(526, 24);
-            this.calcEdit2.TabIndex = 2;
+            this.TxtUrunHareketOdemeTutar.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.TxtUrunHareketOdemeTutar.Location = new System.Drawing.Point(120, 37);
+            this.TxtUrunHareketOdemeTutar.Name = "TxtUrunHareketOdemeTutar";
+            this.TxtUrunHareketOdemeTutar.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtUrunHareketOdemeTutar.Properties.Appearance.Options.UseFont = true;
+            this.TxtUrunHareketOdemeTutar.Properties.DisplayFormat.FormatString = "C2";
+            this.TxtUrunHareketOdemeTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.TxtUrunHareketOdemeTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
+            this.TxtUrunHareketOdemeTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.TxtUrunHareketOdemeTutar.Size = new System.Drawing.Size(526, 24);
+            this.TxtUrunHareketOdemeTutar.TabIndex = 2;
             // 
             // labelControl4
             // 
@@ -1470,20 +1510,6 @@
             this.txtToplamUrunHareketTutar.Size = new System.Drawing.Size(62, 24);
             this.txtToplamUrunHareketTutar.TabIndex = 2;
             // 
-            // PageMusteri
-            // 
-            this.PageMusteri.Controls.Add(this.flowMusteri);
-            this.PageMusteri.Name = "PageMusteri";
-            this.PageMusteri.Size = new System.Drawing.Size(511, 724);
-            // 
-            // flowMusteri
-            // 
-            this.flowMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowMusteri.Location = new System.Drawing.Point(0, 0);
-            this.flowMusteri.Name = "flowMusteri";
-            this.flowMusteri.Size = new System.Drawing.Size(511, 724);
-            this.flowMusteri.TabIndex = 0;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1521,6 +1547,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.PageGarson.ResumeLayout(false);
+            this.PageMusteri.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunGrupKeypad)).EndInit();
             this.panelUrunGrupKeypad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKategori)).EndInit();
@@ -1549,9 +1576,9 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtToplamUrunTutar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtUrunHareketIndirim.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtUrunHareketOdemeTutar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrunHareketIndirimTutar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrunHareketOdenecekTutar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelUrunHareketMenu)).EndInit();
@@ -1564,7 +1591,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
             this.groupKonumlar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
-            this.PageMusteri.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1651,9 +1677,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraEditors.CalcEdit calcEdit3;
-        private DevExpress.XtraEditors.CalcEdit calcEdit1;
-        private DevExpress.XtraEditors.CalcEdit calcEdit2;
+        private DevExpress.XtraEditors.CalcEdit TxtToplamUrunTutar;
+        private DevExpress.XtraEditors.CalcEdit TxtUrunHareketIndirim;
+        private DevExpress.XtraEditors.CalcEdit TxtUrunHareketOdemeTutar;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;

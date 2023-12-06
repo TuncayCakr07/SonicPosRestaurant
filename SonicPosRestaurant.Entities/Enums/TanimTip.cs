@@ -10,6 +10,7 @@ namespace SonicPosRestaurant.Entities.Enums
     {
         Birim,
         UrunGrup,
-        Konum
+        Konum,
+        OdemeTuru
     }
 }

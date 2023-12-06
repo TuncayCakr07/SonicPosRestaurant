@@ -33,11 +33,11 @@
             this.controlMenu = new SonicPosRestaurant.UserControls.ControlAnaMenuAlt();
             this.gridControlMasa = new DevExpress.XtraGrid.GridControl();
             this.gridMasa = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.colMasaAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKonum = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKapasite = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMasa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMasa)).BeginInit();
@@ -90,21 +90,6 @@
             this.gridMasa.GridControl = this.gridControlMasa;
             this.gridMasa.Name = "gridMasa";
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.labelControl1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.ImageOptions.Image")));
-            this.labelControl1.Location = new System.Drawing.Point(0, 0);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(1309, 75);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Masalar";
-            // 
             // colMasaAdi
             // 
             this.colMasaAdi.Caption = "Masa Adı";
@@ -145,6 +130,21 @@
             this.colAciklama.VisibleIndex = 3;
             this.colAciklama.Width = 527;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.labelControl1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.ImageOptions.Image")));
+            this.labelControl1.Location = new System.Drawing.Point(0, 0);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(1309, 75);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "Masalar";
+            // 
             // FrmMasa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -154,6 +154,7 @@
             this.Controls.Add(this.gridControlMasa);
             this.Controls.Add(this.labelControl1);
             this.Name = "FrmMasa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMasa";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMasa)).EndInit();

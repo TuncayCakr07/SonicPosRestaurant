@@ -210,6 +210,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 button.AdisyonId = secilenAdisyon.Id;
                 navigationMain.SelectedPage = PageAdisyonAyrinti;
                 layoutView1.RefreshData();
+                UrunHareketToplamGetir();
             }
         }
 
@@ -226,6 +227,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             }
             row.Miktar += sayi;
             layoutView1.RefreshData();
+            UrunHareketToplamGetir();
         }
 
         private void KategoriButtonOlustur()
@@ -401,6 +403,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             Guid Id = urunHareketEntity.Porsiyon.BirimId;
             worker.TanimService.Load(c => c.Id == Id);
             layoutView1.RefreshData();
+            UrunHareketToplamGetir();
         }
         void EkMalzemeHesapla()
         {
@@ -544,6 +547,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
                     break;
             }
             keyPadIslem = KeyPadIslem.Yok;
+            UrunHareketToplamGetir();
         }
 
         private void btnIkram_Click(object sender, EventArgs e)
@@ -554,6 +558,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             {
                 hareketEntity.UrunHareketTip = UrunHareketTip.Ikram;
                 layoutView1.RefreshData();
+                UrunHareketToplamGetir();
             }
             else
             {
@@ -611,6 +616,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             {
                 hareketEntity.UrunHareketTip = UrunHareketTip.Iptal;
                 layoutView1.RefreshData();
+                UrunHareketToplamGetir();
             }
             else
             {
@@ -682,6 +688,13 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private void btnMusteri_Click(object sender, EventArgs e)
         {
             navigationKategori.SelectedPage=PageMusteri;
+        }
+        private void UrunHareketToplamGetir()
+        {
+           AdisyonToplamDto toplamlar=worker.AdisyonService.AdisyonToplamGetir();
+            TxtToplamUrunTutar.Value = toplamlar.ToplamTutar;
+            TxtUrunHareketIndirim.Value = toplamlar.IndirimTutar;
+            TxtUrunHareketOdemeTutar.Value = toplamlar.OdenecekTutar;
         }
     }
 }
