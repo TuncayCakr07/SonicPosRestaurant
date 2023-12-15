@@ -11,14 +11,23 @@ namespace SonicPosRestaurant.Entities.Tables
     public class UrunHareket:EntityBase
     {
         public UrunHareketTip UrunHareketTip { get; set; }
+        public SiparisDurum SiparisDurum { get; set; }
         public decimal Miktar { get; set; }
         public decimal BirimFiyat { get; set; }
+        public decimal EkMalzemeFiyat { get; set; }
+        public decimal EkMalzemeliBirimFiyat 
+        { 
+            get 
+            {
+                return BirimFiyat + EkMalzemeFiyat;
+            } 
+        }
         public decimal Indirim { get; set; }
         public decimal ToplamTutar 
         { 
             get 
             {
-                return (Miktar * BirimFiyat) - ((Miktar * BirimFiyat) / 100 * Indirim);
+                return (Miktar * EkMalzemeliBirimFiyat) - ((Miktar * EkMalzemeliBirimFiyat) / 100 * Indirim);
             } 
         }
         public Guid UrunId { get; set; }

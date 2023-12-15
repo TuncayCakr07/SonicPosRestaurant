@@ -198,7 +198,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmOdemeTuruIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmOdemeTuruIslem";
+            this.Text = "Ödeme Türü İşlemleri";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TxtAciklama.Properties)).EndInit();

@@ -33,10 +33,10 @@
             this.gridOdemeTuru = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOdemeTuru = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.controlMenu = new SonicPosRestaurant.UserControls.ControlAnaMenuAlt();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOdemeTuru)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOdemeTuru)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,6 +82,16 @@
             this.colOdemeTuru.VisibleIndex = 1;
             this.colOdemeTuru.Width = 94;
             // 
+            // colAciklama
+            // 
+            this.colAciklama.Caption = "Açıklama";
+            this.colAciklama.FieldName = "Aciklama";
+            this.colAciklama.MinWidth = 25;
+            this.colAciklama.Name = "colAciklama";
+            this.colAciklama.Visible = true;
+            this.colAciklama.VisibleIndex = 2;
+            this.colAciklama.Width = 94;
+            // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -123,16 +133,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menü:";
             // 
-            // colAciklama
-            // 
-            this.colAciklama.Caption = "Açıklama";
-            this.colAciklama.FieldName = "Aciklama";
-            this.colAciklama.MinWidth = 25;
-            this.colAciklama.Name = "colAciklama";
-            this.colAciklama.Visible = true;
-            this.colAciklama.VisibleIndex = 2;
-            this.colAciklama.Width = 94;
-            // 
             // FrmOdemeTuru
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -143,7 +143,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmOdemeTuru";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmOdemeTuru";
+            this.Text = "Ödeme Türleri";
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOdemeTuru)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridOdemeTuru)).EndInit();
             this.groupBox1.ResumeLayout(false);

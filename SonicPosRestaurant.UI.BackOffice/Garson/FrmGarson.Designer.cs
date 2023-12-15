@@ -143,7 +143,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelControl1);
             this.Name = "FrmGarson";
-            this.Text = "FrmGarson";
+            this.Text = "Garsonlar";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGarson)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGarson)).EndInit();

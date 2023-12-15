@@ -207,7 +207,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmTanim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTanim";
+            this.Text = "Tanımlar";
             ((System.ComponentModel.ISupportInitialize)(this.groupTanimBilgi)).EndInit();
             this.groupTanimBilgi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TxtAciklama.Properties)).EndInit();

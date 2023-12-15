@@ -10,7 +10,7 @@ namespace SonicPosRestaurant.Entities.Tables
     public class OdemeHareket:EntityBase
     {
         public decimal Tutar { get; set; }
-        public Guid OdemeId { get; set; }
+        public Guid OdemeTuruId { get; set; }
         public virtual OdemeTuru OdemeTuru { get; set; }
         public Guid AdisyonId { get; set; }
         public virtual Adisyon Adisyon { get; set; }

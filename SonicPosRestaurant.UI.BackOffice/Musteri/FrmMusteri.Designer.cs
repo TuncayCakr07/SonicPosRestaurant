@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMusteri));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.controlMenu = new SonicPosRestaurant.UserControls.ControlAnaMenuAlt();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridControlMusteri = new DevExpress.XtraGrid.GridControl();
             this.gridMusteri = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoyadi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSirket = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.controlMenu = new SonicPosRestaurant.UserControls.ControlAnaMenuAlt();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMusteri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMusteri)).BeginInit();
@@ -53,6 +53,20 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menü:";
+            // 
+            // controlMenu
+            // 
+            this.controlMenu.ButtonFont = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlMenu.Location = new System.Drawing.Point(3, 32);
+            this.controlMenu.Name = "controlMenu";
+            this.controlMenu.Size = new System.Drawing.Size(1303, 65);
+            this.controlMenu.TabIndex = 0;
+            this.controlMenu.ButtonEkle += new System.EventHandler(this.controlMenu_ButtonEkle);
+            this.controlMenu.ButtonDuzenle += new System.EventHandler(this.controlMenu_ButtonDuzenle);
+            this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
+            this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
+            this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
             // 
             // labelControl1
             // 
@@ -119,20 +133,6 @@
             this.colSirket.VisibleIndex = 2;
             this.colSirket.Width = 94;
             // 
-            // controlMenu
-            // 
-            this.controlMenu.ButtonFont = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlMenu.Location = new System.Drawing.Point(3, 32);
-            this.controlMenu.Name = "controlMenu";
-            this.controlMenu.Size = new System.Drawing.Size(1303, 65);
-            this.controlMenu.TabIndex = 0;
-            this.controlMenu.ButtonEkle += new System.EventHandler(this.controlMenu_ButtonEkle);
-            this.controlMenu.ButtonDuzenle += new System.EventHandler(this.controlMenu_ButtonDuzenle);
-            this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
-            this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
-            this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
-            // 
             // FrmMusteri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -142,7 +142,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelControl1);
             this.Name = "FrmMusteri";
-            this.Text = "FrmMusteri";
+            this.Text = "Müşteriler";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMusteri)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMusteri)).EndInit();

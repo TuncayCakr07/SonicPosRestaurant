@@ -155,7 +155,7 @@
             this.Controls.Add(this.labelControl1);
             this.Name = "FrmMasa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMasa";
+            this.Text = "Masalar";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMasa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMasa)).EndInit();

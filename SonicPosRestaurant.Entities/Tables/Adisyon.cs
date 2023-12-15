@@ -1,4 +1,5 @@
-﻿using SonicPosRestaurant.Entities.Tables.Base;
+﻿using SonicPosRestaurant.Entities.Enums;
+using SonicPosRestaurant.Entities.Tables.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace SonicPosRestaurant.Entities.Tables
 {
     public class Adisyon:EntityBase
     {
-        public bool AdisyonAcik { get; set; }
+        public AdisyonDurum AdisyonDurum { get; set; }
         public decimal Indirim { get; set; }
         public decimal Tutar { get; set; }
         public Guid? MasaId { get; set; }

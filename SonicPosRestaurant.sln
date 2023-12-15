@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UI.Front
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.UserControls", "SonicPosRestaurant.UserControls\SonicPosRestaurant.UserControls.csproj", "{72A23A76-5F39-402C-8E12-9A0076949D62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SonicPosRestaurant.Mutfak", "SonicPosRestaurant.Mutfak\SonicPosRestaurant.Mutfak.csproj", "{97B11285-57AC-4FEF-ADA4-EFB2A4156838}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{72A23A76-5F39-402C-8E12-9A0076949D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72A23A76-5F39-402C-8E12-9A0076949D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72A23A76-5F39-402C-8E12-9A0076949D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B11285-57AC-4FEF-ADA4-EFB2A4156838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B11285-57AC-4FEF-ADA4-EFB2A4156838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B11285-57AC-4FEF-ADA4-EFB2A4156838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B11285-57AC-4FEF-ADA4-EFB2A4156838}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,20 +33,20 @@
             this.TxtAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSoyadi = new DevExpress.XtraEditors.TextEdit();
             this.TxtAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupAltMenu = new DevExpress.XtraEditors.GroupControl();
             this.BtnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BtnKapat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSoyadi = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAciklama.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -98,6 +98,15 @@
             this.labelControl2.Size = new System.Drawing.Size(109, 20);
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Soyadı:";
+            // 
+            // txtSoyadi
+            // 
+            this.txtSoyadi.Location = new System.Drawing.Point(127, 73);
+            this.txtSoyadi.Name = "txtSoyadi";
+            this.txtSoyadi.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSoyadi.Properties.Appearance.Options.UseFont = true;
+            this.txtSoyadi.Size = new System.Drawing.Size(644, 24);
+            this.txtSoyadi.TabIndex = 1;
             // 
             // TxtAdi
             // 
@@ -176,15 +185,6 @@
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "Garson İşlemleri";
             // 
-            // txtSoyadi
-            // 
-            this.txtSoyadi.Location = new System.Drawing.Point(127, 73);
-            this.txtSoyadi.Name = "txtSoyadi";
-            this.txtSoyadi.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoyadi.Properties.Appearance.Options.UseFont = true;
-            this.txtSoyadi.Size = new System.Drawing.Size(644, 24);
-            this.txtSoyadi.TabIndex = 1;
-            // 
             // FrmGarsonIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -198,14 +198,14 @@
             this.MinimizeBox = false;
             this.Name = "FrmGarsonIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmGarsonIslem";
+            this.Text = "Garson İşlemleri";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TxtAciklama.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

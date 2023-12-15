@@ -1,10 +1,12 @@
 ﻿using DevExpress.Data.Entity;
 using SonicPosRestaurant.Core.Functions;
+using SonicPosRestaurant.UI.BackOffice.Adisyon;
 using SonicPosRestaurant.UI.BackOffice.Garson;
 using SonicPosRestaurant.UI.BackOffice.Masa;
 using SonicPosRestaurant.UI.BackOffice.Musteri;
 using SonicPosRestaurant.UI.BackOffice.OdemeTuru;
 using SonicPosRestaurant.UI.BackOffice.Urun;
+using SonicPosRestaurant.UI.BackOffice.UrunHareket;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +29,9 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
                 FrmSetupConnection form= new FrmSetupConnection();
                 form.ShowDialog();
             }
+            FrmAnaMenuBilgi formBilgi=new FrmAnaMenuBilgi();
+            formBilgi.MdiParent = this;
+            formBilgi.Show();
         }
         private void BtnUrun_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -59,6 +64,27 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
         private void btnOdemeTur_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmOdemeTuru form= new FrmOdemeTuru();
+            form.MdiParent= this;
+            form.Show();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmAdisyonHareket form=new FrmAdisyonHareket();
+            form.MdiParent= this;
+            form.Show();
+        }
+
+        private void btnUrunHareket_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmUrunHareket form = new FrmUrunHareket();
+            form.MdiParent= this;
+            form.Show();
+        }
+
+        private void btnOdemeHareketleri_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmOdemeHareketleri form=new FrmOdemeHareketleri();
             form.MdiParent= this;
             form.Show();
         }
