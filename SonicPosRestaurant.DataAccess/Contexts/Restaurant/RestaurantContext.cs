@@ -37,8 +37,8 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
         public DbSet<UrunHareket> UrunHareketleri { get; set; }
         public DbSet<OdemeTuru> OdemeTurleri { get; set; }
         public DbSet<OdemeHareket> OdemeHareketleri { get; set; }
+        public DbSet<UrunNot> UrunNotlari { get; set; }
 
-        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,6 +64,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Entity<EkMalzeme>().HasRequired(c => c.Urun).WithMany(c => c.EkMalzemeler).HasForeignKey(c => c.UrunId);
             modelBuilder.Entity<Urun>().HasRequired(c => c.UrunGrup).WithOptional().Map(c => c.MapKey("UrunGrupId"));
             modelBuilder.Entity<Porsiyon>().HasRequired(c => c.Birim).WithOptional().Map(c => c.MapKey("BirimId"));
+            modelBuilder.Entity<UrunNot>().HasRequired(c=>c.Urun).WithMany(c=>c.UrunNotlari).HasForeignKey(c => c.UrunId);
 
             //Musteri ilişkileri
             modelBuilder.Entity<Telefon>().HasRequired(c => c.Musteri).WithMany(c => c.Telefonlar).HasForeignKey(c => c.MusteriId);
@@ -100,6 +101,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Configurations.Add(new UrunHareketMap());
             modelBuilder.Configurations.Add(new OdemeTuruMap());
             modelBuilder.Configurations.Add(new OdemeHareketMap());
+            modelBuilder.Configurations.Add(new UrunNotMap());
 
         }
     }

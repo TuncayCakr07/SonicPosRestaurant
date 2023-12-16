@@ -77,6 +77,7 @@
     <Compile Include="Managers\TelefonManager.cs" />
     <Compile Include="Managers\UrunHareketManager.cs" />
     <Compile Include="Managers\UrunManager.cs" />
+    <Compile Include="Managers\UrunNotManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Base\IBaseService.cs" />
     <Compile Include="Services\IAdisyonService.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Services\ITanimService.cs" />
     <Compile Include="Services\ITelefonService.cs" />
     <Compile Include="Services\IUrunHareketService.cs" />
+    <Compile Include="Services\IUrunNotService.cs" />
     <Compile Include="Services\IUrunService.cs" />
     <Compile Include="Validations\AdisyonValidator.cs" />
     <Compile Include="Validations\AdresValidator.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Validations\TanimValidator.cs" />
     <Compile Include="Validations\TelefonValidator.cs" />
     <Compile Include="Validations\UrunHareketValidator.cs" />
+    <Compile Include="Validations\UrunNotValidator.cs" />
     <Compile Include="Validations\UrunValidator.cs" />
     <Compile Include="Workers\IWorker.cs" />
     <Compile Include="Workers\RestaurantWorker.cs" />

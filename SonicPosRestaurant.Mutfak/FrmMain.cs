@@ -24,7 +24,8 @@ using TableDependency.SqlClient.Where;
 namespace SonicPosRestaurant.Mutfak
 {
     public partial class FrmMain : DevExpress.XtraEditors.XtraForm
-    {
+    {   
+        Guid adisyonId = Guid.Empty;
         RestaurantWorker worker=new RestaurantWorker();
         SqlMonitor<UrunHareket> urunHareketMonitor = new SqlMonitor<UrunHareket>("UrunHareketleri", c => c.SiparisDurum == SiparisDurum.Hazirlaniyor);
         public FrmMain()
@@ -34,17 +35,34 @@ namespace SonicPosRestaurant.Mutfak
             urunHareketMonitor.OnChange += UrunHareketChanged;
         }
 
+        private int GetRowHandle()
+        {
+            if (adisyonId == Guid.Empty) return 0;
+            for (int i = 0; i < gridAdisyonHareket.RowCount; i++)
+            {
+                if ((Guid)gridAdisyonHareket.GetRowCellValue(i,colAdisyonId)==adisyonId)
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
         private void UrunHareketChanged()
         {
-            AdisyonListele();
+            Invoke((MethodInvoker)delegate { AdisyonListele(); });
         }
 
         void AdisyonListele()
         {
-            int rowHandle = gridAdisyonHareket.FocusedRowHandle;
+           
             Guid[] adisyonListe=worker.UrunHareketService.Select(c => c.SiparisDurum == SiparisDurum.Hazirlaniyor,c=>c.AdisyonId).Distinct().ToArray();
             gridControlAdisyonHareket.DataSource = worker.AdisyonService.MutfakAdisyonHareketGetir(adisyonListe);
+            int rowHandle=GetRowHandle();
             gridAdisyonHareket.ExpandMasterRow(rowHandle);
+            gridAdisyonHareket.OptionsSelection.MultiSelectMode = GridMultiSelectMode.RowSelect;
+            gridAdisyonHareket.FocusedRowHandle = rowHandle;
+            gridAdisyonHareket.SelectRow(rowHandle);
         }
 
         private void gridAdisyonHareket_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
@@ -72,6 +90,7 @@ namespace SonicPosRestaurant.Mutfak
             urunHareketEntity.SiparisDurum = SiparisDurum.ServiseHazir;
             worker.UrunHareketService.Update(urunHareketEntity);
             worker.Commit();
+            AdisyonListele();
             gridAdisyonHareket.CollapseMasterRow(gridAdisyonHareket.FocusedRowHandle);
             gridAdisyonHareket.ExpandMasterRow(gridAdisyonHareket.FocusedRowHandle);
         }
@@ -81,12 +100,14 @@ namespace SonicPosRestaurant.Mutfak
             MutfakAdisyonHareketDto entity = (MutfakAdisyonHareketDto)gridAdisyonHareket.GetFocusedRow();
             worker.UrunHareketService.Select(c=>c.AdisyonId==entity.AdisyonId,c=>c).ForEach(c => c.SiparisDurum = SiparisDurum.ServiseHazir);
             worker.Commit();
+            AdisyonListele();
             gridAdisyonHareket.CollapseMasterRow(gridAdisyonHareket.FocusedRowHandle);
             gridAdisyonHareket.ExpandMasterRow(gridAdisyonHareket.FocusedRowHandle);
         }
 
         private void gridAdisyonHareket_RowClick(object sender, RowClickEventArgs e)
         {
+            adisyonId =(Guid)gridAdisyonHareket.GetRowCellValue(e.RowHandle, colAdisyonId);
             gridAdisyonHareket.ExpandMasterRow(e.RowHandle);
         }
 

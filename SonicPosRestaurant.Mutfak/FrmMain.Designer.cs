@@ -60,6 +60,7 @@
             this.repoAdisyonServiseHazir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnKapat = new DevExpress.XtraEditors.SimpleButton();
+            this.colAdisyonId = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridUrunHareketleri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoUrunHareketServiseHazir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAdisyonHareket)).BeginInit();
@@ -205,7 +206,8 @@
             this.colMusteri,
             this.colMasaAdi,
             this.colGarson,
-            this.colAdisyonServiseHazir});
+            this.colAdisyonServiseHazir,
+            this.colAdisyonId});
             this.gridAdisyonHareket.GridControl = this.gridControlAdisyonHareket;
             this.gridAdisyonHareket.Name = "gridAdisyonHareket";
             this.gridAdisyonHareket.OptionsDetail.AllowOnlyOneMasterRowExpanded = true;
@@ -316,6 +318,14 @@
             this.btnKapat.Text = "Kapat";
             this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
+            // colAdisyonId
+            // 
+            this.colAdisyonId.Caption = "Id";
+            this.colAdisyonId.FieldName = "AdisyonId";
+            this.colAdisyonId.MinWidth = 25;
+            this.colAdisyonId.Name = "colAdisyonId";
+            this.colAdisyonId.Width = 94;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -362,6 +372,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEkMalzeme;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnKapat;
+        private DevExpress.XtraGrid.Columns.GridColumn colAdisyonId;
     }
 }
 

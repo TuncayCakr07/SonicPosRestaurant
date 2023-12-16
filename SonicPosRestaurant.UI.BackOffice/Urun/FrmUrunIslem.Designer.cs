@@ -82,6 +82,17 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.tabNotlar = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.groupUrunNotu = new DevExpress.XtraEditors.GroupControl();
+            this.txtUrunNotu = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.gridControlNotlar = new DevExpress.XtraGrid.GridControl();
+            this.gridNotlar = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.controlNotlar = new SonicPosRestaurant.UserControls.ControlMenuKayit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabPane1)).BeginInit();
@@ -116,6 +127,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TxtMalzemeAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtMalzemeFiyati.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtMalzemeAdi.Properties)).BeginInit();
+            this.tabNotlar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupUrunNotu)).BeginInit();
+            this.groupUrunNotu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunNotu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotlar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridNotlar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -177,6 +196,7 @@
             this.tabPane1.Controls.Add(this.tabUrunBilgileri);
             this.tabPane1.Controls.Add(this.tabPorsiyon);
             this.tabPane1.Controls.Add(this.tabEkMalzeme);
+            this.tabPane1.Controls.Add(this.tabNotlar);
             this.tabPane1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPane1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.tabPane1.Location = new System.Drawing.Point(0, 75);
@@ -185,7 +205,8 @@
             this.tabPane1.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.tabUrunBilgileri,
             this.tabPorsiyon,
-            this.tabEkMalzeme});
+            this.tabEkMalzeme,
+            this.tabNotlar});
             this.tabPane1.RegularSize = new System.Drawing.Size(794, 541);
             this.tabPane1.SelectedPage = this.tabUrunBilgileri;
             this.tabPane1.Size = new System.Drawing.Size(794, 541);
@@ -751,6 +772,123 @@
             this.labelControl13.TabIndex = 2;
             this.labelControl13.Text = "Malzeme Adı:";
             // 
+            // tabNotlar
+            // 
+            this.tabNotlar.Caption = "Notlar";
+            this.tabNotlar.Controls.Add(this.groupControl2);
+            this.tabNotlar.Controls.Add(this.groupUrunNotu);
+            this.tabNotlar.Controls.Add(this.gridControlNotlar);
+            this.tabNotlar.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("tabNotlar.ImageOptions.Image")));
+            this.tabNotlar.Name = "tabNotlar";
+            this.tabNotlar.Size = new System.Drawing.Size(794, 496);
+            // 
+            // groupUrunNotu
+            // 
+            this.groupUrunNotu.Controls.Add(this.txtUrunNotu);
+            this.groupUrunNotu.Controls.Add(this.labelControl16);
+            this.groupUrunNotu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupUrunNotu.Location = new System.Drawing.Point(0, 0);
+            this.groupUrunNotu.Name = "groupUrunNotu";
+            this.groupUrunNotu.Size = new System.Drawing.Size(794, 71);
+            this.groupUrunNotu.TabIndex = 7;
+            this.groupUrunNotu.Text = "Ek Malzeme Bilgisi";
+            this.groupUrunNotu.Visible = false;
+            // 
+            // txtUrunNotu
+            // 
+            this.txtUrunNotu.Location = new System.Drawing.Point(120, 29);
+            this.txtUrunNotu.Name = "txtUrunNotu";
+            this.txtUrunNotu.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUrunNotu.Properties.Appearance.Options.UseFont = true;
+            this.txtUrunNotu.Size = new System.Drawing.Size(669, 24);
+            this.txtUrunNotu.TabIndex = 3;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl16.Appearance.Options.UseFont = true;
+            this.labelControl16.Appearance.Options.UseTextOptions = true;
+            this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl16.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl16.Location = new System.Drawing.Point(5, 31);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(109, 20);
+            this.labelControl16.TabIndex = 2;
+            this.labelControl16.Text = "Ürün Notu:";
+            // 
+            // gridControlNotlar
+            // 
+            this.gridControlNotlar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridControlNotlar.Location = new System.Drawing.Point(0, 179);
+            this.gridControlNotlar.MainView = this.gridNotlar;
+            this.gridControlNotlar.Name = "gridControlNotlar";
+            this.gridControlNotlar.Size = new System.Drawing.Size(794, 317);
+            this.gridControlNotlar.TabIndex = 6;
+            this.gridControlNotlar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridNotlar});
+            // 
+            // gridNotlar
+            // 
+            this.gridNotlar.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
+            this.gridNotlar.GridControl = this.gridControlNotlar;
+            this.gridNotlar.Name = "gridNotlar";
+            this.gridNotlar.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Adı";
+            this.gridColumn1.FieldName = "Adi";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 94;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Fiyatı";
+            this.gridColumn2.FieldName = "Fiyat";
+            this.gridColumn2.MinWidth = 25;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 94;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Açıklama";
+            this.gridColumn3.FieldName = "Aciklama";
+            this.gridColumn3.MinWidth = 25;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 94;
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.controlNotlar);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl2.Location = new System.Drawing.Point(0, 71);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(794, 102);
+            this.groupControl2.TabIndex = 8;
+            this.groupControl2.Text = "Ek Malzeme Menüsü:";
+            // 
+            // controlNotlar
+            // 
+            this.controlNotlar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlNotlar.KapatVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlNotlar.KayıtAc = false;
+            this.controlNotlar.Location = new System.Drawing.Point(2, 28);
+            this.controlNotlar.Name = "controlNotlar";
+            this.controlNotlar.SecVisibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.controlNotlar.Size = new System.Drawing.Size(790, 72);
+            this.controlNotlar.TabIndex = 0;
+            // 
             // FrmUrunIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -799,6 +937,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TxtMalzemeAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtMalzemeFiyati.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtMalzemeAdi.Properties)).EndInit();
+            this.tabNotlar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupUrunNotu)).EndInit();
+            this.groupUrunNotu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunNotu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotlar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridNotlar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -858,5 +1004,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMalzemeAciklama;
         private UserControls.ControlMenuKayit controlMenuPorsiyon;
         private UserControls.ControlMenuKayit controlMenuEkMalzeme;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tabNotlar;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private UserControls.ControlMenuKayit controlNotlar;
+        private DevExpress.XtraEditors.GroupControl groupUrunNotu;
+        private DevExpress.XtraEditors.TextEdit txtUrunNotu;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraGrid.GridControl gridControlNotlar;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridNotlar;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

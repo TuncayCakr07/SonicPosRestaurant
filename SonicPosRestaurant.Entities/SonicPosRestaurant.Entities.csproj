@@ -87,6 +87,7 @@
     <Compile Include="Tables\Telefon.cs" />
     <Compile Include="Tables\Urun.cs" />
     <Compile Include="Tables\UrunHareket.cs" />
+    <Compile Include="Tables\UrunNot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
