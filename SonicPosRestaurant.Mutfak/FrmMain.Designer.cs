@@ -58,11 +58,15 @@
             this.colGarson = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdisyonServiseHazir = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repoAdisyonServiseHazir = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnKapat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridUrunHareketleri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoUrunHareketServiseHazir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAdisyonHareket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAdisyonHareket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoAdisyonServiseHazir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridUrunHareketleri
@@ -179,13 +183,13 @@
             gridLevelNode1.RelationName = "Ürün Hareketleri";
             this.gridControlAdisyonHareket.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControlAdisyonHareket.Location = new System.Drawing.Point(0, 0);
+            this.gridControlAdisyonHareket.Location = new System.Drawing.Point(0, 52);
             this.gridControlAdisyonHareket.MainView = this.gridAdisyonHareket;
             this.gridControlAdisyonHareket.Name = "gridControlAdisyonHareket";
             this.gridControlAdisyonHareket.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repoUrunHareketServiseHazir,
             this.repoAdisyonServiseHazir});
-            this.gridControlAdisyonHareket.Size = new System.Drawing.Size(1292, 747);
+            this.gridControlAdisyonHareket.Size = new System.Drawing.Size(1292, 695);
             this.gridControlAdisyonHareket.TabIndex = 11;
             this.gridControlAdisyonHareket.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridAdisyonHareket,
@@ -290,13 +294,39 @@
             this.repoAdisyonServiseHazir.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repoAdisyonServiseHazir.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repoAdisyonServiseHazir_ButtonClick);
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnKapat);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1292, 52);
+            this.panelControl1.TabIndex = 12;
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Appearance.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKapat.Appearance.Options.UseFont = true;
+            this.btnKapat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnKapat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.ImageOptions.Image")));
+            this.btnKapat.Location = new System.Drawing.Point(1136, 2);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(154, 48);
+            this.btnKapat.TabIndex = 0;
+            this.btnKapat.Text = "Kapat";
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1292, 747);
             this.Controls.Add(this.gridControlAdisyonHareket);
+            this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMain";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.gridUrunHareketleri)).EndInit();
@@ -304,6 +334,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAdisyonHareket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridAdisyonHareket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repoAdisyonServiseHazir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -328,6 +360,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAdisyonServiseHazir;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repoAdisyonServiseHazir;
         private DevExpress.XtraGrid.Columns.GridColumn colEkMalzeme;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnKapat;
     }
 }
 

@@ -1,6 +1,8 @@
 ﻿using DevExpress.Utils.Extensions;
 using DevExpress.XtraGrid.Views.Grid;
 using SonicPosRestaurant.Business.Workers;
+using SonicPosRestaurant.Core.Functions;
+using SonicPosRestaurant.Core.Monitors;
 using SonicPosRestaurant.Entities.Dtos;
 using SonicPosRestaurant.Entities.Dtos.Mutfak;
 using SonicPosRestaurant.Entities.Enums;
@@ -11,18 +13,38 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows.Forms;
+using TableDependency.SqlClient;
+using TableDependency.SqlClient.Base.Enums;
+using TableDependency.SqlClient.Base.EventArgs;
+using TableDependency.SqlClient.Where;
 
 namespace SonicPosRestaurant.Mutfak
 {
     public partial class FrmMain : DevExpress.XtraEditors.XtraForm
     {
         RestaurantWorker worker=new RestaurantWorker();
+        SqlMonitor<UrunHareket> urunHareketMonitor = new SqlMonitor<UrunHareket>("UrunHareketleri", c => c.SiparisDurum == SiparisDurum.Hazirlaniyor);
         public FrmMain()
         {
             InitializeComponent();
-            gridControlAdisyonHareket.DataSource = worker.AdisyonService.MutfakAdisyonHareketGetir();
+            AdisyonListele();
+            urunHareketMonitor.OnChange += UrunHareketChanged;
+        }
+
+        private void UrunHareketChanged()
+        {
+            AdisyonListele();
+        }
+
+        void AdisyonListele()
+        {
+            int rowHandle = gridAdisyonHareket.FocusedRowHandle;
+            Guid[] adisyonListe=worker.UrunHareketService.Select(c => c.SiparisDurum == SiparisDurum.Hazirlaniyor,c=>c.AdisyonId).Distinct().ToArray();
+            gridControlAdisyonHareket.DataSource = worker.AdisyonService.MutfakAdisyonHareketGetir(adisyonListe);
+            gridAdisyonHareket.ExpandMasterRow(rowHandle);
         }
 
         private void gridAdisyonHareket_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
@@ -66,6 +88,11 @@ namespace SonicPosRestaurant.Mutfak
         private void gridAdisyonHareket_RowClick(object sender, RowClickEventArgs e)
         {
             gridAdisyonHareket.ExpandMasterRow(e.RowHandle);
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
