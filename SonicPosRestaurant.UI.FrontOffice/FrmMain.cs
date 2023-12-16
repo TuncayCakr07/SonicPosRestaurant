@@ -38,6 +38,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private Adisyon secilenAdisyon;
         private Masa secilenMasa;
         private KeyPadIslem keyPadIslem = KeyPadIslem.Yok;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -909,6 +910,50 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 secilenAdisyon.AdisyonDurum = AdisyonDurum.Iptal;
                 btnSiparisKaydet.PerformClick();
             }
+        }
+
+        private void btnUrunNot_Click(object sender, EventArgs e)
+        {
+            UrunHareket entity = (UrunHareket)layoutView1.GetFocusedRow();
+            if (entity == null) return;
+
+            navigationKategori.SelectedPage = PageUrunNotlari;
+            txtUrunNotu.Text = entity.Aciklama;
+
+            foreach (var urunNot in worker.UrunNotService.GetList(c => c.UrunId == entity.UrunId))
+            {
+                flowUrunNotlari.Controls.Clear();
+                SimpleButton button = new SimpleButton
+                {
+                    Name = urunNot.Id.ToString(),
+                    Text = urunNot.Notu,
+                    Width = 200,
+                    Height = 40
+                };
+                button.Click += UrunNotClick;
+                flowUrunNotlari.Controls.Add(button);
+            }
+        }
+
+        private void UrunNotClick(object sender, EventArgs e)
+        {
+            SimpleButton button = (SimpleButton)sender;
+            if (string.IsNullOrEmpty(txtUrunNotu.Text))
+            {
+                txtUrunNotu.Text=button.Text;
+            }
+            else
+            {
+                txtUrunNotu.Text += ", " + button.Text; 
+            }
+        }
+
+        private void btnUrunNotuOnayla_Click(object sender, EventArgs e)
+        {
+            UrunHareket entity = (UrunHareket)layoutView1.GetFocusedRow();
+            entity.Aciklama = txtUrunNotu.Text;
+            layoutView1.RefreshData();
+            navigationKategori.SelectedPage = PagesKategoriUrunler;
         }
     }
 }

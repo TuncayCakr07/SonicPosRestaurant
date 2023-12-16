@@ -22,6 +22,7 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
         private Entities.Tables.Urun _urunEntity;
         private Porsiyon _porsiyonEntity;
         private EkMalzeme _ekMalzemeEntity;
+        private UrunNot _urunNotEntity;
         public bool Eklendi=false;
         public FrmUrunIslem(Entities.Tables.Urun urunEntity)
         {
@@ -35,6 +36,8 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
             gridControlPorsiyon.DataSource = worker.PorsiyonService.BindingList();
             worker.EkMalzemeService.Load(c=> c.UrunId== _urunEntity.Id);
             gridControlMalzeme.DataSource = worker.EkMalzemeService.BindingList();
+            worker.UrunNotService.Load(c=> c.UrunId==urunEntity.Id);
+            gridControlNotlar.DataSource = worker.UrunNotService.BindingList();
             UrunBinding();
         }
         void UrunBinding()
@@ -62,6 +65,13 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
             TxtEkMalzemeCarpan.DataBindings.Add("Value", _porsiyonEntity, "EkMalzemeCarpan", false, DataSourceUpdateMode.OnPropertyChanged);
             TxtPorsiyonAciklama.DataBindings.Add("Text", _porsiyonEntity, "Aciklama", false, DataSourceUpdateMode.OnPropertyChanged);
             TxtBirim.DataBindings.Add("Text", _porsiyonEntity.Birim??new Entities.Tables.Tanim(), "Adi", false, DataSourceUpdateMode.Never);
+        }
+        void UrunNotBinding()
+        {
+            txtUrunNotu.DataBindings.Clear();
+            txtUrunNotAciklama.DataBindings.Clear();
+            txtUrunNotu.DataBindings.Add("Text",_urunNotEntity,"Notu",false, DataSourceUpdateMode.OnPropertyChanged);
+            txtUrunNotAciklama.DataBindings.Add("Text",_urunNotEntity,"Aciklama",false,DataSourceUpdateMode.OnPropertyChanged);
         }
         void EkMalzemeBinding()
         {
@@ -220,5 +230,55 @@ namespace SonicPosRestaurant.UI.BackOffice.Urun
             }
         }
 
+        private void controlNotlar_EkleClick(object sender, EventArgs e)
+        {
+            controlNotlar.KayıtAc = true;
+            groupUrunNotu.Visible = true;
+            groupAltMenu.Enabled = false;
+            _urunNotEntity = new UrunNot();
+            _urunNotEntity.UrunId = _urunEntity.Id;
+            UrunNotBinding();
+        }
+
+        private void controlNotlar_DuzenleClick(object sender, EventArgs e)
+        {
+            if (gridNotlar.GetFocusedRow() == null)
+            {
+                return;
+            }
+            controlNotlar.KayıtAc = true;
+            groupUrunNotu.Visible = true;
+            groupAltMenu.Enabled = false;
+            _urunNotEntity = (UrunNot)gridNotlar.GetFocusedRow();
+            _urunNotEntity.UrunId = _urunEntity.Id;
+            UrunNotBinding();
+        }
+
+        private void controlNotlar_SilClick(object sender, EventArgs e)
+        {
+            if (gridNotlar.GetFocusedRow() == null)
+            {
+                return;
+            }
+            if (MessageBox.Show("Seçili Olan Veriyi Silmek İster Misiniz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                gridNotlar.DeleteSelectedRows();
+            }
+        }
+
+        private void controlNotlar_KaydetClick(object sender, EventArgs e)
+        {
+            controlNotlar.KayıtAc = false;
+            groupUrunNotu.Visible = false;
+            groupAltMenu.Enabled = true;
+            worker.UrunNotService.AddOrUpdate(_urunNotEntity);
+        }
+
+        private void controlNotlar_VazgecClick(object sender, EventArgs e)
+        {
+            controlNotlar.KayıtAc = false;
+            groupUrunNotu.Visible = false;
+            groupAltMenu.Enabled = true;
+        }
     }
 }

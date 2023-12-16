@@ -32,14 +32,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition3 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition4 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.ColumnDefinition columnDefinition5 = new DevExpress.XtraLayout.ColumnDefinition();
-            DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition6 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition7 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition8 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition4 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition5 = new DevExpress.XtraLayout.RowDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition9 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.ColumnDefinition columnDefinition10 = new DevExpress.XtraLayout.ColumnDefinition();
+            DevExpress.XtraLayout.RowDefinition rowDefinition6 = new DevExpress.XtraLayout.RowDefinition();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lblMesaj = new DevExpress.XtraEditors.LabelControl();
             this.btnMusteri = new SonicPosRestaurant.UserControls.ControlMusteriButton();
@@ -176,6 +176,12 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
+            this.PageUrunNotlari = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.txtUrunNotu = new DevExpress.XtraEditors.MemoEdit();
+            this.btnUrunNotuOnayla = new DevExpress.XtraEditors.SimpleButton();
+            this.flowUrunNotlari = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnUrunNot = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -270,6 +276,10 @@ namespace SonicPosRestaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
             this.groupKonumlar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
+            this.PageUrunNotlari.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
+            this.panelControl8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunNotu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -389,6 +399,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.navigationKategori.Controls.Add(this.PageGarson);
             this.navigationKategori.Controls.Add(this.PageMusteri);
             this.navigationKategori.Controls.Add(this.PageOdemeEkrani);
+            this.navigationKategori.Controls.Add(this.PageUrunNotlari);
             this.navigationKategori.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationKategori.Location = new System.Drawing.Point(310, 2);
             this.navigationKategori.Name = "navigationKategori";
@@ -398,7 +409,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageEkMalzeme,
             this.PageGarson,
             this.PageMusteri,
-            this.PageOdemeEkrani});
+            this.PageOdemeEkrani,
+            this.PageUrunNotlari});
             this.navigationKategori.SelectedPage = this.PagesKategoriUrunler;
             this.navigationKategori.Size = new System.Drawing.Size(511, 724);
             this.navigationKategori.TabIndex = 2;
@@ -406,7 +418,6 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // 
             // PagesKategoriUrunler
             // 
-            this.PagesKategoriUrunler.Caption = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.PagesKategoriUrunler.Name = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Size = new System.Drawing.Size(511, 724);
@@ -907,23 +918,23 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem12});
             this.layoutControlGroup3.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup3.Name = "Root";
-            columnDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition1.Width = 100D;
-            columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition2.Width = 100D;
-            columnDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition3.Width = 100D;
+            columnDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition6.Width = 100D;
+            columnDefinition7.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition7.Width = 100D;
+            columnDefinition8.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition8.Width = 100D;
             this.layoutControlGroup3.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition1,
-            columnDefinition2,
-            columnDefinition3});
-            rowDefinition1.Height = 50D;
-            rowDefinition1.SizeType = System.Windows.Forms.SizeType.Percent;
-            rowDefinition2.Height = 50D;
-            rowDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition6,
+            columnDefinition7,
+            columnDefinition8});
+            rowDefinition4.Height = 50D;
+            rowDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
+            rowDefinition5.Height = 50D;
+            rowDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup3.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition1,
-            rowDefinition2});
+            rowDefinition4,
+            rowDefinition5});
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup3.Size = new System.Drawing.Size(507, 77);
             this.layoutControlGroup3.TextVisible = false;
@@ -1058,17 +1069,17 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem5});
             this.layoutControlGroup1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            columnDefinition4.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition4.Width = 100D;
-            columnDefinition5.SizeType = System.Windows.Forms.SizeType.Percent;
-            columnDefinition5.Width = 100D;
+            columnDefinition9.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition9.Width = 100D;
+            columnDefinition10.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition10.Width = 100D;
             this.layoutControlGroup1.OptionsTableLayoutGroup.ColumnDefinitions.AddRange(new DevExpress.XtraLayout.ColumnDefinition[] {
-            columnDefinition4,
-            columnDefinition5});
-            rowDefinition3.Height = 100D;
-            rowDefinition3.SizeType = System.Windows.Forms.SizeType.Percent;
+            columnDefinition9,
+            columnDefinition10});
+            rowDefinition6.Height = 100D;
+            rowDefinition6.SizeType = System.Windows.Forms.SizeType.Percent;
             this.layoutControlGroup1.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
-            rowDefinition3});
+            rowDefinition6});
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.Size = new System.Drawing.Size(507, 93);
             this.layoutControlGroup1.TextVisible = false;
@@ -1652,6 +1663,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // 
             // panelControl5
             // 
+            this.panelControl5.Controls.Add(this.btnUrunNot);
             this.panelControl5.Controls.Add(this.btnIndirim);
             this.panelControl5.Controls.Add(this.btnBol);
             this.panelControl5.Controls.Add(this.btnIade);
@@ -1668,9 +1680,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btnIndirim.Appearance.Options.UseFont = true;
             this.btnIndirim.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnIndirim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIndirim.ImageOptions.Image")));
-            this.btnIndirim.Location = new System.Drawing.Point(485, 2);
+            this.btnIndirim.Location = new System.Drawing.Point(389, 2);
             this.btnIndirim.Name = "btnIndirim";
-            this.btnIndirim.Size = new System.Drawing.Size(161, 52);
+            this.btnIndirim.Size = new System.Drawing.Size(129, 52);
             this.btnIndirim.TabIndex = 7;
             this.btnIndirim.Text = "İndirim";
             this.btnIndirim.Click += new System.EventHandler(this.btnIndirim_Click);
@@ -1681,9 +1693,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btnBol.Appearance.Options.UseFont = true;
             this.btnBol.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnBol.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBol.ImageOptions.Image")));
-            this.btnBol.Location = new System.Drawing.Point(324, 2);
+            this.btnBol.Location = new System.Drawing.Point(260, 2);
             this.btnBol.Name = "btnBol";
-            this.btnBol.Size = new System.Drawing.Size(161, 52);
+            this.btnBol.Size = new System.Drawing.Size(129, 52);
             this.btnBol.TabIndex = 6;
             this.btnBol.Text = "Böl";
             this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
@@ -1694,9 +1706,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btnIade.Appearance.Options.UseFont = true;
             this.btnIade.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnIade.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIade.ImageOptions.Image")));
-            this.btnIade.Location = new System.Drawing.Point(163, 2);
+            this.btnIade.Location = new System.Drawing.Point(131, 2);
             this.btnIade.Name = "btnIade";
-            this.btnIade.Size = new System.Drawing.Size(161, 52);
+            this.btnIade.Size = new System.Drawing.Size(129, 52);
             this.btnIade.TabIndex = 4;
             this.btnIade.Text = "İade";
             this.btnIade.Click += new System.EventHandler(this.btnIade_Click);
@@ -1709,7 +1721,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btnMiktarAzalt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMiktarAzalt.ImageOptions.Image")));
             this.btnMiktarAzalt.Location = new System.Drawing.Point(2, 2);
             this.btnMiktarAzalt.Name = "btnMiktarAzalt";
-            this.btnMiktarAzalt.Size = new System.Drawing.Size(161, 52);
+            this.btnMiktarAzalt.Size = new System.Drawing.Size(129, 52);
             this.btnMiktarAzalt.TabIndex = 2;
             this.btnMiktarAzalt.Text = "Azalt";
             this.btnMiktarAzalt.Click += new System.EventHandler(this.btnMiktarAzalt_Click);
@@ -2042,6 +2054,64 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtToplamUrunHareketTutar.Size = new System.Drawing.Size(62, 24);
             this.txtToplamUrunHareketTutar.TabIndex = 2;
             // 
+            // PageUrunNotlari
+            // 
+            this.PageUrunNotlari.Controls.Add(this.flowUrunNotlari);
+            this.PageUrunNotlari.Controls.Add(this.panelControl8);
+            this.PageUrunNotlari.Name = "PageUrunNotlari";
+            this.PageUrunNotlari.Size = new System.Drawing.Size(511, 724);
+            // 
+            // panelControl8
+            // 
+            this.panelControl8.Controls.Add(this.txtUrunNotu);
+            this.panelControl8.Controls.Add(this.btnUrunNotuOnayla);
+            this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl8.Location = new System.Drawing.Point(0, 0);
+            this.panelControl8.Name = "panelControl8";
+            this.panelControl8.Size = new System.Drawing.Size(511, 100);
+            this.panelControl8.TabIndex = 0;
+            // 
+            // txtUrunNotu
+            // 
+            this.txtUrunNotu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUrunNotu.Location = new System.Drawing.Point(2, 2);
+            this.txtUrunNotu.Name = "txtUrunNotu";
+            this.txtUrunNotu.Size = new System.Drawing.Size(424, 96);
+            this.txtUrunNotu.TabIndex = 0;
+            // 
+            // btnUrunNotuOnayla
+            // 
+            this.btnUrunNotuOnayla.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnUrunNotuOnayla.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUrunNotuOnayla.ImageOptions.Image")));
+            this.btnUrunNotuOnayla.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnUrunNotuOnayla.Location = new System.Drawing.Point(426, 2);
+            this.btnUrunNotuOnayla.Name = "btnUrunNotuOnayla";
+            this.btnUrunNotuOnayla.Size = new System.Drawing.Size(83, 96);
+            this.btnUrunNotuOnayla.TabIndex = 1;
+            this.btnUrunNotuOnayla.Text = "Onayla";
+            this.btnUrunNotuOnayla.Click += new System.EventHandler(this.btnUrunNotuOnayla_Click);
+            // 
+            // flowUrunNotlari
+            // 
+            this.flowUrunNotlari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowUrunNotlari.Location = new System.Drawing.Point(0, 100);
+            this.flowUrunNotlari.Name = "flowUrunNotlari";
+            this.flowUrunNotlari.Size = new System.Drawing.Size(511, 624);
+            this.flowUrunNotlari.TabIndex = 1;
+            // 
+            // btnUrunNot
+            // 
+            this.btnUrunNot.Appearance.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnUrunNot.Appearance.Options.UseFont = true;
+            this.btnUrunNot.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnUrunNot.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnUrunNot.Location = new System.Drawing.Point(518, 2);
+            this.btnUrunNot.Name = "btnUrunNot";
+            this.btnUrunNot.Size = new System.Drawing.Size(129, 52);
+            this.btnUrunNot.TabIndex = 8;
+            this.btnUrunNot.Text = "Ürün Notu";
+            this.btnUrunNot.Click += new System.EventHandler(this.btnUrunNot_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -2149,6 +2219,10 @@ namespace SonicPosRestaurant.UI.FrontOffice
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
             this.groupKonumlar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
+            this.PageUrunNotlari.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
+            this.panelControl8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrunNotu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2291,6 +2365,12 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private System.Windows.Forms.ImageList ımageList1;
         private DevExpress.XtraEditors.CalcEdit TxtToplamUrunTutar;
         private DevExpress.XtraEditors.LabelControl lblMesaj;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageUrunNotlari;
+        private System.Windows.Forms.FlowLayoutPanel flowUrunNotlari;
+        private DevExpress.XtraEditors.PanelControl panelControl8;
+        private DevExpress.XtraEditors.MemoEdit txtUrunNotu;
+        private DevExpress.XtraEditors.SimpleButton btnUrunNotuOnayla;
+        private DevExpress.XtraEditors.SimpleButton btnUrunNot;
     }
 }
 

@@ -29,6 +29,7 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
         public IUrunHareketDal UrunHareketDal { get; set; }
         public IOdemeTuruDal OdemeTuruDal { get; set; }
         public IOdemeHareketDal OdemeHareketDal { get; set; }
+        public IUrunNotDal UrunNotDal { get; set; }
         public RestaurantUnitOfWork(string connectionString = null)
         {
             if (connectionString == null)
@@ -53,6 +54,7 @@ namespace SonicPosRestaurant.DataAccess.UnitOfWork
             UrunHareketDal=new UrunHareketDal(_context);
             OdemeTuruDal=new OdemeTuruDal(_context);
             OdemeHareketDal=new OdemeHareketDal((_context));
+            UrunNotDal=new UrunNotDal(_context);
 
         }
 
