@@ -43,7 +43,6 @@ namespace SonicPosRestaurant.UI.FrontOffice
         {
             InitializeComponent();
             KategoriButtonOlustur();
-
             MasaButonOlustur();
             GarsonButtonOlustur();
             MusteriButtonOlustur();
@@ -953,6 +952,11 @@ namespace SonicPosRestaurant.UI.FrontOffice
             UrunHareket entity = (UrunHareket)layoutView1.GetFocusedRow();
             entity.Aciklama = txtUrunNotu.Text;
             layoutView1.RefreshData();
+            navigationKategori.SelectedPage = PagesKategoriUrunler;
+        }
+
+        private void BtnUrunNotVazgec_Click(object sender, EventArgs e)
+        {
             navigationKategori.SelectedPage = PagesKategoriUrunler;
         }
     }
