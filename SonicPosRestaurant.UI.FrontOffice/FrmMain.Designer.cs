@@ -191,7 +191,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.flowMasalar = new System.Windows.Forms.FlowLayoutPanel();
             this.groupKonumlar = new DevExpress.XtraEditors.GroupControl();
             this.flowKonum = new System.Windows.Forms.FlowLayoutPanel();
+            this.PageSiparis = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.groupSiparis = new DevExpress.XtraEditors.GroupControl();
+            this.flowSiparis = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnYeniSiparis = new DevExpress.XtraEditors.SimpleButton();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
+            this.panelAnaSolMenu = new DevExpress.XtraEditors.PanelControl();
+            this.btnSiparisler = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMasalar = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -300,7 +307,13 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.groupMasalar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).BeginInit();
             this.groupKonumlar.SuspendLayout();
+            this.PageSiparis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupSiparis)).BeginInit();
+            this.groupSiparis.SuspendLayout();
+            this.flowSiparis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAnaSolMenu)).BeginInit();
+            this.panelAnaSolMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -379,18 +392,22 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // 
             // navigationMain
             // 
+            this.navigationMain.AllowTransitionAnimation = DevExpress.Utils.DefaultBoolean.False;
             this.navigationMain.Controls.Add(this.PageAdisyonAyrinti);
             this.navigationMain.Controls.Add(this.PageMasalar);
+            this.navigationMain.Controls.Add(this.PageSiparis);
             this.navigationMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationMain.Location = new System.Drawing.Point(0, 57);
+            this.navigationMain.Location = new System.Drawing.Point(126, 57);
             this.navigationMain.Name = "navigationMain";
             this.navigationMain.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.PageSiparis,
             this.PageMasalar,
             this.PageAdisyonAyrinti});
-            this.navigationMain.SelectedPage = this.PageMasalar;
-            this.navigationMain.Size = new System.Drawing.Size(1622, 728);
+            this.navigationMain.SelectedPage = this.PageSiparis;
+            this.navigationMain.Size = new System.Drawing.Size(1496, 728);
             this.navigationMain.TabIndex = 1;
             this.navigationMain.Text = "navigationFrame1";
+            this.navigationMain.SelectedPageChanged += new DevExpress.XtraBars.Navigation.SelectedPageChangedEventHandler(this.navigationMain_SelectedPageChanged);
             // 
             // PageAdisyonAyrinti
             // 
@@ -399,7 +416,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageAdisyonAyrinti.Controls.Add(this.panelUrunHareket);
             this.PageAdisyonAyrinti.Controls.Add(this.panelHareketSolMenu);
             this.PageAdisyonAyrinti.Name = "PageAdisyonAyrinti";
-            this.PageAdisyonAyrinti.Size = new System.Drawing.Size(1622, 728);
+            this.PageAdisyonAyrinti.Size = new System.Drawing.Size(1496, 728);
             // 
             // panelUrunHareketHizliSatis
             // 
@@ -408,7 +425,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.panelUrunHareketHizliSatis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUrunHareketHizliSatis.Location = new System.Drawing.Point(759, 0);
             this.panelUrunHareketHizliSatis.Name = "panelUrunHareketHizliSatis";
-            this.panelUrunHareketHizliSatis.Size = new System.Drawing.Size(863, 728);
+            this.panelUrunHareketHizliSatis.Size = new System.Drawing.Size(737, 728);
             this.panelUrunHareketHizliSatis.TabIndex = 2;
             // 
             // navigationKategori
@@ -433,7 +450,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageOdemeEkrani,
             this.PageUrunNotlari});
             this.navigationKategori.SelectedPage = this.PagesKategoriUrunler;
-            this.navigationKategori.Size = new System.Drawing.Size(551, 724);
+            this.navigationKategori.Size = new System.Drawing.Size(425, 724);
             this.navigationKategori.TabIndex = 2;
             this.navigationKategori.Text = "navigationFrame2";
             // 
@@ -442,14 +459,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PagesKategoriUrunler.Caption = "PagesKategoriUrunler";
             this.PagesKategoriUrunler.Controls.Add(this.flowKategoriUrunleri);
             this.PagesKategoriUrunler.Name = "PagesKategoriUrunler";
-            this.PagesKategoriUrunler.Size = new System.Drawing.Size(551, 724);
+            this.PagesKategoriUrunler.Size = new System.Drawing.Size(425, 724);
             // 
             // flowKategoriUrunleri
             // 
             this.flowKategoriUrunleri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKategoriUrunleri.Location = new System.Drawing.Point(0, 0);
             this.flowKategoriUrunleri.Name = "flowKategoriUrunleri";
-            this.flowKategoriUrunleri.Size = new System.Drawing.Size(551, 724);
+            this.flowKategoriUrunleri.Size = new System.Drawing.Size(425, 724);
             this.flowKategoriUrunleri.TabIndex = 1;
             // 
             // PageUrunPorsiyon
@@ -457,14 +474,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageUrunPorsiyon.Caption = "PageUrunPorsiyon";
             this.PageUrunPorsiyon.Controls.Add(this.flowPorsiyon);
             this.PageUrunPorsiyon.Name = "PageUrunPorsiyon";
-            this.PageUrunPorsiyon.Size = new System.Drawing.Size(551, 724);
+            this.PageUrunPorsiyon.Size = new System.Drawing.Size(425, 724);
             // 
             // flowPorsiyon
             // 
             this.flowPorsiyon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowPorsiyon.Location = new System.Drawing.Point(0, 0);
             this.flowPorsiyon.Name = "flowPorsiyon";
-            this.flowPorsiyon.Size = new System.Drawing.Size(551, 724);
+            this.flowPorsiyon.Size = new System.Drawing.Size(425, 724);
             this.flowPorsiyon.TabIndex = 0;
             // 
             // PageEkMalzeme
@@ -473,14 +490,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageEkMalzeme.Controls.Add(this.flowEkMalzeme);
             this.PageEkMalzeme.Controls.Add(this.panelControl3);
             this.PageEkMalzeme.Name = "PageEkMalzeme";
-            this.PageEkMalzeme.Size = new System.Drawing.Size(551, 724);
+            this.PageEkMalzeme.Size = new System.Drawing.Size(425, 724);
             // 
             // flowEkMalzeme
             // 
             this.flowEkMalzeme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowEkMalzeme.Location = new System.Drawing.Point(0, 0);
             this.flowEkMalzeme.Name = "flowEkMalzeme";
-            this.flowEkMalzeme.Size = new System.Drawing.Size(551, 642);
+            this.flowEkMalzeme.Size = new System.Drawing.Size(425, 642);
             this.flowEkMalzeme.TabIndex = 0;
             // 
             // panelControl3
@@ -490,7 +507,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl3.Location = new System.Drawing.Point(0, 642);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(551, 82);
+            this.panelControl3.Size = new System.Drawing.Size(425, 82);
             this.panelControl3.TabIndex = 1;
             // 
             // layoutControl1
@@ -502,7 +519,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(466, 78);
+            this.layoutControl1.Size = new System.Drawing.Size(340, 78);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -522,7 +539,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtToplamTutar.Properties.ReadOnly = true;
             this.txtToplamTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtToplamTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtToplamTutar.Size = new System.Drawing.Size(322, 24);
+            this.txtToplamTutar.Size = new System.Drawing.Size(248, 24);
             this.txtToplamTutar.StyleController = this.layoutControl1;
             this.txtToplamTutar.TabIndex = 6;
             // 
@@ -533,7 +550,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             0,
             0,
             0});
-            this.txtEkMalzemeTutar.Location = new System.Drawing.Point(374, 12);
+            this.txtEkMalzemeTutar.Location = new System.Drawing.Point(318, 12);
             this.txtEkMalzemeTutar.Name = "txtEkMalzemeTutar";
             this.txtEkMalzemeTutar.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtEkMalzemeTutar.Properties.Appearance.Options.UseFont = true;
@@ -542,7 +559,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtEkMalzemeTutar.Properties.ReadOnly = true;
             this.txtEkMalzemeTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtEkMalzemeTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtEkMalzemeTutar.Size = new System.Drawing.Size(80, 24);
+            this.txtEkMalzemeTutar.Size = new System.Drawing.Size(62, 24);
             this.txtEkMalzemeTutar.StyleController = this.layoutControl1;
             this.txtEkMalzemeTutar.TabIndex = 5;
             // 
@@ -563,7 +580,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtPorsiyonTutar.Properties.ReadOnly = true;
             this.txtPorsiyonTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtPorsiyonTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtPorsiyonTutar.Size = new System.Drawing.Size(118, 24);
+            this.txtPorsiyonTutar.Size = new System.Drawing.Size(62, 24);
             this.txtPorsiyonTutar.StyleController = this.layoutControl1;
             this.txtPorsiyonTutar.TabIndex = 4;
             // 
@@ -576,7 +593,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem3,
             this.layoutControlItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(466, 78);
+            this.Root.Size = new System.Drawing.Size(392, 78);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -584,7 +601,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem1.Control = this.txtPorsiyonTutar;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(242, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(186, 28);
             this.layoutControlItem1.Text = "Porsiyon Tutar:";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 16);
             // 
@@ -593,16 +610,16 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem3.Control = this.txtToplamTutar;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 28);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(446, 30);
+            this.layoutControlItem3.Size = new System.Drawing.Size(372, 30);
             this.layoutControlItem3.Text = "Toplam Tutar:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 16);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtEkMalzemeTutar;
-            this.layoutControlItem2.Location = new System.Drawing.Point(242, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(186, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(204, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(186, 28);
             this.layoutControlItem2.Text = "Ek Malzeme Tutar:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 16);
             // 
@@ -611,7 +628,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btnEkMalzemeOnay.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnEkMalzemeOnay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEkMalzemeOnay.ImageOptions.Image")));
             this.btnEkMalzemeOnay.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnEkMalzemeOnay.Location = new System.Drawing.Point(468, 2);
+            this.btnEkMalzemeOnay.Location = new System.Drawing.Point(342, 2);
             this.btnEkMalzemeOnay.Name = "btnEkMalzemeOnay";
             this.btnEkMalzemeOnay.Size = new System.Drawing.Size(81, 78);
             this.btnEkMalzemeOnay.TabIndex = 0;
@@ -623,14 +640,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageGarson.Caption = "PageGarson";
             this.PageGarson.Controls.Add(this.flowGarson);
             this.PageGarson.Name = "PageGarson";
-            this.PageGarson.Size = new System.Drawing.Size(551, 724);
+            this.PageGarson.Size = new System.Drawing.Size(425, 724);
             // 
             // flowGarson
             // 
             this.flowGarson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowGarson.Location = new System.Drawing.Point(0, 0);
             this.flowGarson.Name = "flowGarson";
-            this.flowGarson.Size = new System.Drawing.Size(551, 724);
+            this.flowGarson.Size = new System.Drawing.Size(425, 724);
             this.flowGarson.TabIndex = 0;
             // 
             // PageMusteri
@@ -638,14 +655,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageMusteri.Caption = "PageMusteri";
             this.PageMusteri.Controls.Add(this.flowMusteri);
             this.PageMusteri.Name = "PageMusteri";
-            this.PageMusteri.Size = new System.Drawing.Size(551, 724);
+            this.PageMusteri.Size = new System.Drawing.Size(425, 724);
             // 
             // flowMusteri
             // 
             this.flowMusteri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowMusteri.Location = new System.Drawing.Point(0, 0);
             this.flowMusteri.Name = "flowMusteri";
-            this.flowMusteri.Size = new System.Drawing.Size(551, 724);
+            this.flowMusteri.Size = new System.Drawing.Size(425, 724);
             this.flowMusteri.TabIndex = 0;
             // 
             // PageOdemeEkrani
@@ -657,7 +674,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageOdemeEkrani.Controls.Add(this.panelControl6);
             this.PageOdemeEkrani.Controls.Add(this.flowOdemeTurleri);
             this.PageOdemeEkrani.Name = "PageOdemeEkrani";
-            this.PageOdemeEkrani.Size = new System.Drawing.Size(551, 724);
+            this.PageOdemeEkrani.Size = new System.Drawing.Size(425, 724);
             // 
             // gridControlOdeme
             // 
@@ -665,7 +682,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.gridControlOdeme.Location = new System.Drawing.Point(0, 136);
             this.gridControlOdeme.MainView = this.gridOdeme;
             this.gridControlOdeme.Name = "gridControlOdeme";
-            this.gridControlOdeme.Size = new System.Drawing.Size(462, 414);
+            this.gridControlOdeme.Size = new System.Drawing.Size(336, 414);
             this.gridControlOdeme.TabIndex = 1;
             this.gridControlOdeme.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridOdeme});
@@ -715,7 +732,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.panelControl7.Controls.Add(this.btnOdemeYarim);
             this.panelControl7.Controls.Add(this.btnOdemeTumu);
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl7.Location = new System.Drawing.Point(462, 136);
+            this.panelControl7.Location = new System.Drawing.Point(336, 136);
             this.panelControl7.Name = "panelControl7";
             this.panelControl7.Size = new System.Drawing.Size(89, 414);
             this.panelControl7.TabIndex = 4;
@@ -779,7 +796,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControl3.Location = new System.Drawing.Point(0, 81);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(551, 55);
+            this.layoutControl3.Size = new System.Drawing.Size(425, 55);
             this.layoutControl3.TabIndex = 3;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -797,7 +814,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtOdemeTutari.Properties.DisplayFormat.FormatString = "C2";
             this.txtOdemeTutari.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtOdemeTutari.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
-            this.txtOdemeTutari.Size = new System.Drawing.Size(447, 30);
+            this.txtOdemeTutari.Size = new System.Drawing.Size(321, 30);
             this.txtOdemeTutari.StyleController = this.layoutControl3;
             this.txtOdemeTutari.TabIndex = 2;
             // 
@@ -809,7 +826,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem6});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(551, 55);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(425, 55);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem6
@@ -817,7 +834,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem6.Control = this.txtOdemeTutari;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(547, 51);
+            this.layoutControlItem6.Size = new System.Drawing.Size(421, 51);
             this.layoutControlItem6.Text = "Ödeme Tutarı:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(84, 16);
             // 
@@ -828,7 +845,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl6.Location = new System.Drawing.Point(0, 550);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(551, 174);
+            this.panelControl6.Size = new System.Drawing.Size(425, 174);
             this.panelControl6.TabIndex = 2;
             // 
             // layoutControl4
@@ -845,7 +862,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControl4.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1108, 294, 812, 500);
             this.layoutControl4.Padding = new System.Windows.Forms.Padding(2);
             this.layoutControl4.Root = this.layoutControlGroup3;
-            this.layoutControl4.Size = new System.Drawing.Size(547, 77);
+            this.layoutControl4.Size = new System.Drawing.Size(421, 77);
             this.layoutControl4.TabIndex = 1;
             this.layoutControl4.Text = "layoutControl4";
             // 
@@ -854,9 +871,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btn200TL.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn200TL.Appearance.Options.UseFont = true;
             this.btn200TL.Deger = 200;
-            this.btn200TL.Location = new System.Drawing.Point(366, 40);
+            this.btn200TL.Location = new System.Drawing.Point(282, 40);
             this.btn200TL.Name = "btn200TL";
-            this.btn200TL.Size = new System.Drawing.Size(178, 34);
+            this.btn200TL.Size = new System.Drawing.Size(136, 34);
             this.btn200TL.StyleController = this.layoutControl4;
             this.btn200TL.TabIndex = 9;
             this.btn200TL.Text = "200₺";
@@ -867,9 +884,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btn100TL.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn100TL.Appearance.Options.UseFont = true;
             this.btn100TL.Deger = 100;
-            this.btn100TL.Location = new System.Drawing.Point(184, 40);
+            this.btn100TL.Location = new System.Drawing.Point(142, 40);
             this.btn100TL.Name = "btn100TL";
-            this.btn100TL.Size = new System.Drawing.Size(178, 34);
+            this.btn100TL.Size = new System.Drawing.Size(136, 34);
             this.btn100TL.StyleController = this.layoutControl4;
             this.btn100TL.TabIndex = 8;
             this.btn100TL.Text = "100₺";
@@ -882,7 +899,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btn50Tl.Deger = 50;
             this.btn50Tl.Location = new System.Drawing.Point(3, 40);
             this.btn50Tl.Name = "btn50Tl";
-            this.btn50Tl.Size = new System.Drawing.Size(177, 33);
+            this.btn50Tl.Size = new System.Drawing.Size(135, 33);
             this.btn50Tl.StyleController = this.layoutControl4;
             this.btn50Tl.TabIndex = 7;
             this.btn50Tl.Text = "50₺";
@@ -893,9 +910,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btn20TL.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn20TL.Appearance.Options.UseFont = true;
             this.btn20TL.Deger = 20;
-            this.btn20TL.Location = new System.Drawing.Point(366, 3);
+            this.btn20TL.Location = new System.Drawing.Point(282, 3);
             this.btn20TL.Name = "btn20TL";
-            this.btn20TL.Size = new System.Drawing.Size(178, 33);
+            this.btn20TL.Size = new System.Drawing.Size(136, 33);
             this.btn20TL.StyleController = this.layoutControl4;
             this.btn20TL.TabIndex = 6;
             this.btn20TL.Text = "20₺";
@@ -906,9 +923,9 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btn10TL.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn10TL.Appearance.Options.UseFont = true;
             this.btn10TL.Deger = 10;
-            this.btn10TL.Location = new System.Drawing.Point(184, 3);
+            this.btn10TL.Location = new System.Drawing.Point(142, 3);
             this.btn10TL.Name = "btn10TL";
-            this.btn10TL.Size = new System.Drawing.Size(178, 33);
+            this.btn10TL.Size = new System.Drawing.Size(136, 33);
             this.btn10TL.StyleController = this.layoutControl4;
             this.btn10TL.TabIndex = 5;
             this.btn10TL.Text = "10₺";
@@ -921,7 +938,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.btn5Tl.Deger = 5;
             this.btn5Tl.Location = new System.Drawing.Point(3, 3);
             this.btn5Tl.Name = "btn5Tl";
-            this.btn5Tl.Size = new System.Drawing.Size(177, 33);
+            this.btn5Tl.Size = new System.Drawing.Size(135, 33);
             this.btn5Tl.StyleController = this.layoutControl4;
             this.btn5Tl.TabIndex = 4;
             this.btn5Tl.Text = "5₺";
@@ -958,7 +975,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             rowDefinition1,
             rowDefinition2});
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(547, 77);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(421, 77);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem7
@@ -967,7 +984,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(25, 31);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(181, 37);
+            this.layoutControlItem7.Size = new System.Drawing.Size(139, 37);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
@@ -975,11 +992,11 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btn10TL;
-            this.layoutControlItem8.Location = new System.Drawing.Point(181, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(139, 0);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(32, 31);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem8.Size = new System.Drawing.Size(182, 37);
+            this.layoutControlItem8.Size = new System.Drawing.Size(140, 37);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
@@ -987,11 +1004,11 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btn20TL;
-            this.layoutControlItem9.Location = new System.Drawing.Point(363, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(279, 0);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(32, 31);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.OptionsTableLayoutItem.ColumnIndex = 2;
-            this.layoutControlItem9.Size = new System.Drawing.Size(182, 37);
+            this.layoutControlItem9.Size = new System.Drawing.Size(140, 37);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
@@ -1002,19 +1019,19 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 37);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem10.Size = new System.Drawing.Size(181, 38);
+            this.layoutControlItem10.Size = new System.Drawing.Size(139, 38);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btn100TL;
-            this.layoutControlItem11.Location = new System.Drawing.Point(181, 37);
+            this.layoutControlItem11.Location = new System.Drawing.Point(139, 37);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(39, 31);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlItem11.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem11.Size = new System.Drawing.Size(182, 38);
+            this.layoutControlItem11.Size = new System.Drawing.Size(140, 38);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
@@ -1022,12 +1039,12 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.btn200TL;
-            this.layoutControlItem12.Location = new System.Drawing.Point(363, 37);
+            this.layoutControlItem12.Location = new System.Drawing.Point(279, 37);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(39, 31);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem12.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem12.Size = new System.Drawing.Size(182, 38);
+            this.layoutControlItem12.Size = new System.Drawing.Size(140, 38);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -1040,7 +1057,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControl2.Location = new System.Drawing.Point(2, 79);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(547, 93);
+            this.layoutControl2.Size = new System.Drawing.Size(421, 93);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -1051,7 +1068,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             0,
             0,
             0});
-            this.txtKalanTutar.Location = new System.Drawing.Point(395, 2);
+            this.txtKalanTutar.Location = new System.Drawing.Point(332, 2);
             this.txtKalanTutar.Name = "txtKalanTutar";
             this.txtKalanTutar.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.txtKalanTutar.Properties.Appearance.Options.UseFont = true;
@@ -1059,7 +1076,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtKalanTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtKalanTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtKalanTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtKalanTutar.Size = new System.Drawing.Size(150, 30);
+            this.txtKalanTutar.Size = new System.Drawing.Size(87, 30);
             this.txtKalanTutar.StyleController = this.layoutControl2;
             this.txtKalanTutar.TabIndex = 2;
             // 
@@ -1078,7 +1095,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtOdenenTutar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtOdenenTutar.Properties.ShowDropDown = DevExpress.XtraEditors.Controls.ShowDropDown.Never;
             this.txtOdenenTutar.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtOdenenTutar.Size = new System.Drawing.Size(149, 30);
+            this.txtOdenenTutar.Size = new System.Drawing.Size(86, 30);
             this.txtOdenenTutar.StyleController = this.layoutControl2;
             this.txtOdenenTutar.TabIndex = 2;
             // 
@@ -1103,7 +1120,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlGroup1.OptionsTableLayoutGroup.RowDefinitions.AddRange(new DevExpress.XtraLayout.RowDefinition[] {
             rowDefinition3});
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(547, 93);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(421, 93);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem4
@@ -1115,7 +1132,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.OptionsPrint.AppearanceItemText.Options.UseTextOptions = true;
             this.layoutControlItem4.OptionsPrint.AppearanceItemText.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.layoutControlItem4.Size = new System.Drawing.Size(273, 93);
+            this.layoutControlItem4.Size = new System.Drawing.Size(210, 93);
             this.layoutControlItem4.Text = "Ödenen Tutar:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(108, 21);
             // 
@@ -1124,12 +1141,12 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControlItem5.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 10F);
             this.layoutControlItem5.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem5.Control = this.txtKalanTutar;
-            this.layoutControlItem5.Location = new System.Drawing.Point(273, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(210, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.OptionsPrint.AppearanceItemText.Options.UseTextOptions = true;
             this.layoutControlItem5.OptionsPrint.AppearanceItemText.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.layoutControlItem5.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlItem5.Size = new System.Drawing.Size(274, 93);
+            this.layoutControlItem5.Size = new System.Drawing.Size(211, 93);
             this.layoutControlItem5.Text = "Kalan Tutar:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(108, 21);
             // 
@@ -1138,7 +1155,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.flowOdemeTurleri.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowOdemeTurleri.Location = new System.Drawing.Point(0, 0);
             this.flowOdemeTurleri.Name = "flowOdemeTurleri";
-            this.flowOdemeTurleri.Size = new System.Drawing.Size(551, 81);
+            this.flowOdemeTurleri.Size = new System.Drawing.Size(425, 81);
             this.flowOdemeTurleri.TabIndex = 0;
             // 
             // PageUrunNotlari
@@ -1147,7 +1164,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageUrunNotlari.Controls.Add(this.splitContainerControl1);
             this.PageUrunNotlari.Controls.Add(this.panelControl8);
             this.PageUrunNotlari.Name = "PageUrunNotlari";
-            this.PageUrunNotlari.Size = new System.Drawing.Size(551, 724);
+            this.PageUrunNotlari.Size = new System.Drawing.Size(425, 724);
             // 
             // splitContainerControl1
             // 
@@ -1165,7 +1182,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             // 
             this.splitContainerControl1.Panel2.Controls.Add(this.controlKeyboard1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(551, 624);
+            this.splitContainerControl1.Size = new System.Drawing.Size(425, 624);
             this.splitContainerControl1.SplitterPosition = 284;
             this.splitContainerControl1.TabIndex = 2;
             // 
@@ -1174,7 +1191,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.flowUrunNotlari.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowUrunNotlari.Location = new System.Drawing.Point(0, 0);
             this.flowUrunNotlari.Name = "flowUrunNotlari";
-            this.flowUrunNotlari.Size = new System.Drawing.Size(551, 284);
+            this.flowUrunNotlari.Size = new System.Drawing.Size(425, 284);
             this.flowUrunNotlari.TabIndex = 2;
             // 
             // controlKeyboard1
@@ -1185,7 +1202,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.controlKeyboard1.KeyboardButtonType = SonicPosRestaurant.UserControls.KeyboardButtonType.Standart;
             this.controlKeyboard1.Location = new System.Drawing.Point(0, 0);
             this.controlKeyboard1.Name = "controlKeyboard1";
-            this.controlKeyboard1.Size = new System.Drawing.Size(551, 328);
+            this.controlKeyboard1.Size = new System.Drawing.Size(425, 328);
             this.controlKeyboard1.TabIndex = 0;
             // 
             // txtUrunNotu
@@ -1193,7 +1210,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtUrunNotu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUrunNotu.Location = new System.Drawing.Point(2, 2);
             this.txtUrunNotu.Name = "txtUrunNotu";
-            this.txtUrunNotu.Size = new System.Drawing.Size(412, 96);
+            this.txtUrunNotu.Size = new System.Drawing.Size(286, 96);
             this.txtUrunNotu.TabIndex = 0;
             // 
             // panelControl8
@@ -1203,7 +1220,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl8.Location = new System.Drawing.Point(0, 0);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(551, 100);
+            this.panelControl8.Size = new System.Drawing.Size(425, 100);
             this.panelControl8.TabIndex = 0;
             // 
             // layoutControl5
@@ -1211,7 +1228,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.layoutControl5.Controls.Add(this.BtnUrunNotVazgec);
             this.layoutControl5.Controls.Add(this.btnUrunNotuOnayla);
             this.layoutControl5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.layoutControl5.Location = new System.Drawing.Point(414, 2);
+            this.layoutControl5.Location = new System.Drawing.Point(288, 2);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(289, 470, 812, 500);
             this.layoutControl5.Root = this.layoutControlGroup4;
@@ -2192,7 +2209,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageMasalar.Controls.Add(this.groupMasalar);
             this.PageMasalar.Controls.Add(this.groupKonumlar);
             this.PageMasalar.Name = "PageMasalar";
-            this.PageMasalar.Size = new System.Drawing.Size(1622, 728);
+            this.PageMasalar.Size = new System.Drawing.Size(1496, 728);
             // 
             // groupMasalar
             // 
@@ -2200,7 +2217,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.groupMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupMasalar.Location = new System.Drawing.Point(0, 122);
             this.groupMasalar.Name = "groupMasalar";
-            this.groupMasalar.Size = new System.Drawing.Size(1622, 606);
+            this.groupMasalar.Size = new System.Drawing.Size(1496, 606);
             this.groupMasalar.TabIndex = 2;
             this.groupMasalar.Text = "Masalar";
             // 
@@ -2211,7 +2228,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.flowMasalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowMasalar.Location = new System.Drawing.Point(2, 28);
             this.flowMasalar.Name = "flowMasalar";
-            this.flowMasalar.Size = new System.Drawing.Size(1618, 576);
+            this.flowMasalar.Size = new System.Drawing.Size(1492, 576);
             this.flowMasalar.TabIndex = 1;
             // 
             // groupKonumlar
@@ -2220,7 +2237,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.groupKonumlar.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupKonumlar.Location = new System.Drawing.Point(0, 0);
             this.groupKonumlar.Name = "groupKonumlar";
-            this.groupKonumlar.Size = new System.Drawing.Size(1622, 122);
+            this.groupKonumlar.Size = new System.Drawing.Size(1496, 122);
             this.groupKonumlar.TabIndex = 3;
             this.groupKonumlar.Text = "Konumlar";
             // 
@@ -2229,8 +2246,47 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.flowKonum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowKonum.Location = new System.Drawing.Point(2, 28);
             this.flowKonum.Name = "flowKonum";
-            this.flowKonum.Size = new System.Drawing.Size(1618, 92);
+            this.flowKonum.Size = new System.Drawing.Size(1492, 92);
             this.flowKonum.TabIndex = 0;
+            // 
+            // PageSiparis
+            // 
+            this.PageSiparis.Caption = "PageSiparis";
+            this.PageSiparis.Controls.Add(this.groupSiparis);
+            this.PageSiparis.Name = "PageSiparis";
+            this.PageSiparis.Size = new System.Drawing.Size(1496, 728);
+            // 
+            // groupSiparis
+            // 
+            this.groupSiparis.Controls.Add(this.flowSiparis);
+            this.groupSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupSiparis.Location = new System.Drawing.Point(0, 0);
+            this.groupSiparis.Name = "groupSiparis";
+            this.groupSiparis.Size = new System.Drawing.Size(1496, 728);
+            this.groupSiparis.TabIndex = 1;
+            this.groupSiparis.Text = "Siparişler";
+            // 
+            // flowSiparis
+            // 
+            this.flowSiparis.Controls.Add(this.btnYeniSiparis);
+            this.flowSiparis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowSiparis.Location = new System.Drawing.Point(2, 28);
+            this.flowSiparis.Name = "flowSiparis";
+            this.flowSiparis.Size = new System.Drawing.Size(1492, 698);
+            this.flowSiparis.TabIndex = 0;
+            // 
+            // btnYeniSiparis
+            // 
+            this.btnYeniSiparis.Appearance.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYeniSiparis.Appearance.Options.UseFont = true;
+            this.btnYeniSiparis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnYeniSiparis.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnYeniSiparis.Location = new System.Drawing.Point(3, 3);
+            this.btnYeniSiparis.Name = "btnYeniSiparis";
+            this.btnYeniSiparis.Size = new System.Drawing.Size(200, 100);
+            this.btnYeniSiparis.TabIndex = 0;
+            this.btnYeniSiparis.Text = "Yeni Sipariş Ekle";
+            this.btnYeniSiparis.Click += new System.EventHandler(this.btnYeniSiparis_Click);
             // 
             // txtToplamUrunHareketTutar
             // 
@@ -2242,12 +2298,47 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.txtToplamUrunHareketTutar.Size = new System.Drawing.Size(62, 24);
             this.txtToplamUrunHareketTutar.TabIndex = 2;
             // 
+            // panelAnaSolMenu
+            // 
+            this.panelAnaSolMenu.Controls.Add(this.btnSiparisler);
+            this.panelAnaSolMenu.Controls.Add(this.btnMasalar);
+            this.panelAnaSolMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelAnaSolMenu.Location = new System.Drawing.Point(0, 57);
+            this.panelAnaSolMenu.Name = "panelAnaSolMenu";
+            this.panelAnaSolMenu.Size = new System.Drawing.Size(126, 728);
+            this.panelAnaSolMenu.TabIndex = 2;
+            // 
+            // btnSiparisler
+            // 
+            this.btnSiparisler.Appearance.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSiparisler.Appearance.Options.UseFont = true;
+            this.btnSiparisler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSiparisler.Location = new System.Drawing.Point(2, 78);
+            this.btnSiparisler.Name = "btnSiparisler";
+            this.btnSiparisler.Size = new System.Drawing.Size(122, 76);
+            this.btnSiparisler.TabIndex = 1;
+            this.btnSiparisler.Text = "Siparişler";
+            this.btnSiparisler.Click += new System.EventHandler(this.btnSiparisler_Click);
+            // 
+            // btnMasalar
+            // 
+            this.btnMasalar.Appearance.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnMasalar.Appearance.Options.UseFont = true;
+            this.btnMasalar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMasalar.Location = new System.Drawing.Point(2, 2);
+            this.btnMasalar.Name = "btnMasalar";
+            this.btnMasalar.Size = new System.Drawing.Size(122, 76);
+            this.btnMasalar.TabIndex = 0;
+            this.btnMasalar.Text = "Masalar";
+            this.btnMasalar.Click += new System.EventHandler(this.btnMasalar_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1622, 785);
             this.Controls.Add(this.navigationMain);
+            this.Controls.Add(this.panelAnaSolMenu);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -2363,7 +2454,13 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.groupMasalar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupKonumlar)).EndInit();
             this.groupKonumlar.ResumeLayout(false);
+            this.PageSiparis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupSiparis)).EndInit();
+            this.groupSiparis.ResumeLayout(false);
+            this.flowSiparis.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAnaSolMenu)).EndInit();
+            this.panelAnaSolMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2519,6 +2616,13 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private DevExpress.XtraEditors.SimpleButton BtnUrunNotVazgec;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraBars.Navigation.NavigationPage PageSiparis;
+        private DevExpress.XtraEditors.GroupControl groupSiparis;
+        private System.Windows.Forms.FlowLayoutPanel flowSiparis;
+        private DevExpress.XtraEditors.PanelControl panelAnaSolMenu;
+        private DevExpress.XtraEditors.SimpleButton btnSiparisler;
+        private DevExpress.XtraEditors.SimpleButton btnMasalar;
+        private DevExpress.XtraEditors.SimpleButton btnYeniSiparis;
     }
 }
 

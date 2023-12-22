@@ -62,6 +62,7 @@
     <Compile Include="Dtos\Mutfak\MutfakUrunHareketDto.cs" />
     <Compile Include="Dtos\YillikKazancDto.cs" />
     <Compile Include="Enums\AdisyonDurum.cs" />
+    <Compile Include="Enums\AdisyonTipi.cs" />
     <Compile Include="Enums\Aylar.cs" />
     <Compile Include="Enums\HaftaninGunleri.cs" />
     <Compile Include="Enums\MasaDurum.cs" />

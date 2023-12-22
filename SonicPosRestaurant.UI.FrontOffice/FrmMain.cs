@@ -219,6 +219,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             {
                 secilenAdisyon = new Adisyon();
                 secilenAdisyon.Id = Guid.NewGuid();
+                secilenAdisyon.AdisyonTipi = AdisyonTipi.Masa;
                 secilenMasa = worker.MasaService.Get(c => c.Id == button.MasaId);
                 secilenAdisyon.MasaId = button.MasaId;
                 btnGarsonSecim.Text = "Garson Seçilmedi";
@@ -764,25 +765,36 @@ namespace SonicPosRestaurant.UI.FrontOffice
             btnGarsonSecim.Visible = false;
             btnMusteri.Visible = false;
             worker.AdisyonService.AddOrUpdate(secilenAdisyon);
-            ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(), true)[0];
-            if (secilenAdisyon.AdisyonDurum!=AdisyonDurum.Iptal)
+            if (secilenAdisyon.AdisyonTipi==AdisyonTipi.Masa)
             {
-                if (txtKalanTutar.Value <= 0)
+                ControlMasaButton button = (ControlMasaButton)flowMasalar.Controls.Find(secilenMasa.Id.ToString(), true)[0];
+                if (secilenAdisyon.AdisyonDurum==AdisyonDurum.Iptal || txtKalanTutar.Value <= 0)
                 {
                     button.MasaDurum = MasaDurum.Bos;
-                    secilenAdisyon.AdisyonDurum = AdisyonDurum.Kapali;
-                    btnSiparisKaydet.Text = "Değişiklikleri\nKaydet";
-                    btnSiparisKaydet.ImageOptions.ImageIndex = 0;
                 }
                 else
                 {
                     button.MasaDurum = MasaDurum.Dolu;
-                    secilenAdisyon.AdisyonDurum = AdisyonDurum.Acik;
                 }
+            }
+            if (secilenAdisyon.AdisyonTipi==AdisyonTipi.Siparis)
+            {
+                ControlSiparisButton button = (ControlSiparisButton)flowSiparis.Controls.Find(secilenAdisyon.Id.ToString(), true)[0];
+                if (secilenAdisyon.AdisyonDurum==AdisyonDurum.Iptal || txtKalanTutar.Value <= 0)
+                {
+                    button.Dispose();
+                }
+            }
+            if (txtKalanTutar.Value <= 0)
+            {
+             secilenAdisyon.AdisyonDurum = AdisyonDurum.Kapali;
+             btnSiparisKaydet.Text = "Değişiklikleri\nKaydet";
+             btnSiparisKaydet.ImageOptions.ImageIndex = 0;
             }
             else
             {
-                button.MasaDurum = MasaDurum.Bos;
+
+                secilenAdisyon.AdisyonDurum = AdisyonDurum.Acik;
             }
             worker.Commit();
             worker = new RestaurantWorker();
@@ -958,6 +970,106 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private void BtnUrunNotVazgec_Click(object sender, EventArgs e)
         {
             navigationKategori.SelectedPage = PagesKategoriUrunler;
+        }
+
+        private void btnMasalar_Click(object sender, EventArgs e)
+        {
+            navigationMain.SelectedPage = PageMasalar;
+        }
+
+        private void btnSiparisler_Click(object sender, EventArgs e)
+        {
+            navigationMain.SelectedPage = PageSiparis;
+        }
+
+        private void navigationMain_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
+        {
+            if (e.Page==PageAdisyonAyrinti)
+            {
+                panelAnaSolMenu.Visible = false;
+            }
+            else
+            {
+                panelAnaSolMenu.Visible = true;
+            }
+        }
+
+        private void btnYeniSiparis_Click(object sender, EventArgs e)
+        {
+            btnGarsonSecim.Visible = true;
+            btnMusteri.Visible = true;
+            gridControl1.DataSource = worker.UrunHareketService.BindingList();
+            gridControlOdeme.DataSource = worker.OdemeHareketService.BindingList();
+            navigationKategori.SelectedPage = PagesKategoriUrunler;
+            secilenAdisyon = new Adisyon();
+            secilenAdisyon.Id = Guid.NewGuid();
+            secilenAdisyon.AdisyonTipi = AdisyonTipi.Siparis;
+            ControlSiparisButton button = new ControlSiparisButton
+            {
+                Height = 100,
+                Width = 200,
+                Name = secilenAdisyon.Id.ToString(),
+                AdisyonId = secilenAdisyon.Id,
+                Text = "Sipariş"
+            };
+            button.Click += SiparisSec;
+            flowSiparis.Controls.Add(button);
+            btnGarsonSecim.Text = "Garson Seçilmedi";
+            btnMusteri.Load();
+            ToplamlariSifirla();
+            navigationMain.SelectedPage = PageAdisyonAyrinti;
+        }
+
+        private void SiparisSec(object sender, EventArgs e)
+        {
+            ControlSiparisButton button = (ControlSiparisButton)sender;
+            btnGarsonSecim.Visible = true;
+            btnMusteri.Visible = true;
+            gridControl1.DataSource = worker.UrunHareketService.BindingList();
+            gridControlOdeme.DataSource = worker.OdemeHareketService.BindingList();
+            navigationKategori.SelectedPage = PagesKategoriUrunler;
+
+                // Masa dolu ise yapılması gereken işlemler
+                worker.UrunHareketService.Load(c => c.AdisyonId == button.AdisyonId, c => c.Urun, c => c.Porsiyon, c => c.Porsiyon.Birim, c => c.EkMalzemeHareketleri);
+                worker.AdisyonService.Load(c => c.Id == button.AdisyonId);
+                worker.OdemeHareketService.Load(c => c.AdisyonId == button.AdisyonId, c => c.OdemeTuru);
+                worker.EkMalzemeHareketService.Load(null);
+                secilenAdisyon = worker.AdisyonService.Get(c => c.Id == button.AdisyonId);
+                Garson garson = worker.GarsonService.Get(c => c.Id == secilenAdisyon.GarsonId);
+
+                if (garson != null)
+                {
+                    btnGarsonSecim.Adi = garson.Adi;
+                    btnGarsonSecim.Soyadi = garson.Soyadi;
+                    btnGarsonSecim.GarsonId = garson.Id;
+                }
+                else
+                {
+                    btnGarsonSecim.Text = "Garson Seçilmedi";
+                }
+
+                if (secilenAdisyon.MusteriId != Guid.Empty)
+                {
+                    Musteri musteri = worker.MusteriService.Get(c => c.Id == secilenAdisyon.MusteriId);
+                    if (musteri != null)
+                    {
+                        btnMusteri.Adi = musteri.Adi;
+                        btnMusteri.Soyadi = musteri.Soyadi;
+                        btnMusteri.MusteriId = musteri.Id;
+                        btnMusteri.MusteriTip = musteri.MusteriTip;
+                        btnMusteri.Load();
+                    }
+                }
+                else
+                {
+                    btnMusteri.Text = "Müşteri Seçilmedi";
+                }
+
+                button.AdisyonId = secilenAdisyon.Id;
+                navigationMain.SelectedPage = PageAdisyonAyrinti;
+                layoutView1.RefreshData();
+                UrunHareketToplamGetir();
+           
         }
     }
 }

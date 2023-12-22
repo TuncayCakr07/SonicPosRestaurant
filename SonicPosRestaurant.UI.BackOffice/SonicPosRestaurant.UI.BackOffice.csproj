@@ -280,6 +280,10 @@
       <Project>{29940298-0a06-4806-9e73-58de84f9e88c}</Project>
       <Name>SonicPosRestaurant.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SonicPosRestaurant.Components\SonicPosRestaurant.Components.csproj">
+      <Project>{445673AE-4895-41B9-9B9D-F67ADDF51612}</Project>
+      <Name>SonicPosRestaurant.Components</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SonicPosRestaurant.Core\SonicPosRestaurant.Core.csproj">
       <Project>{a5cc06fc-be85-4db6-866d-95114d415510}</Project>
       <Name>SonicPosRestaurant.Core</Name>
