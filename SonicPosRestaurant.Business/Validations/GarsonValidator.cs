@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SonicPosRestaurant.Business.Validations
 {
-    public class GarsonValidator:AbstractValidator<Garson>
+    public class GarsonValidator:AbstractValidator<Personel>
     {
         public GarsonValidator()
         {

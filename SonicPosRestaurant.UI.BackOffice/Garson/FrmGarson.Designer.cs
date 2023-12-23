@@ -37,6 +37,7 @@
             this.colAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoyadi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPersonelTipi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGarson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGarson)).BeginInit();
@@ -67,7 +68,6 @@
             this.controlMenu.ButtonSil += new System.EventHandler(this.controlMenu_ButtonSil);
             this.controlMenu.ButtonGuncelle += new System.EventHandler(this.controlMenu_ButtonGuncelle);
             this.controlMenu.ButtonKapat += new System.EventHandler(this.controlMenu_ButtonKapat);
-            this.controlMenu.Load += new System.EventHandler(this.controlMenu_Load);
             // 
             // labelControl1
             // 
@@ -100,7 +100,8 @@
             this.gridGarson.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colAdi,
             this.colSoyadi,
-            this.colAciklama});
+            this.colAciklama,
+            this.colPersonelTipi});
             this.gridGarson.GridControl = this.gridControlGarson;
             this.gridGarson.Name = "gridGarson";
             // 
@@ -111,8 +112,8 @@
             this.colAdi.MinWidth = 25;
             this.colAdi.Name = "colAdi";
             this.colAdi.Visible = true;
-            this.colAdi.VisibleIndex = 0;
-            this.colAdi.Width = 94;
+            this.colAdi.VisibleIndex = 1;
+            this.colAdi.Width = 362;
             // 
             // colSoyadi
             // 
@@ -121,8 +122,8 @@
             this.colSoyadi.MinWidth = 25;
             this.colSoyadi.Name = "colSoyadi";
             this.colSoyadi.Visible = true;
-            this.colSoyadi.VisibleIndex = 1;
-            this.colSoyadi.Width = 94;
+            this.colSoyadi.VisibleIndex = 2;
+            this.colSoyadi.Width = 362;
             // 
             // colAciklama
             // 
@@ -131,8 +132,19 @@
             this.colAciklama.MinWidth = 25;
             this.colAciklama.Name = "colAciklama";
             this.colAciklama.Visible = true;
-            this.colAciklama.VisibleIndex = 2;
-            this.colAciklama.Width = 94;
+            this.colAciklama.VisibleIndex = 3;
+            this.colAciklama.Width = 366;
+            // 
+            // colPersonelTipi
+            // 
+            this.colPersonelTipi.Caption = "Personel Tipi";
+            this.colPersonelTipi.FieldName = "PersonelTipi";
+            this.colPersonelTipi.MinWidth = 25;
+            this.colPersonelTipi.Name = "colPersonelTipi";
+            this.colPersonelTipi.OptionsColumn.AllowEdit = false;
+            this.colPersonelTipi.Visible = true;
+            this.colPersonelTipi.VisibleIndex = 0;
+            this.colPersonelTipi.Width = 189;
             // 
             // FrmGarson
             // 
@@ -161,5 +173,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colSoyadi;
         private DevExpress.XtraGrid.Columns.GridColumn colAciklama;
+        private DevExpress.XtraGrid.Columns.GridColumn colPersonelTipi;
     }
 }

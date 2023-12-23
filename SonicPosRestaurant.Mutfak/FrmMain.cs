@@ -79,7 +79,7 @@ namespace SonicPosRestaurant.Mutfak
         {
             GridView view = (GridView)sender;
             MutfakAdisyonHareketDto entity = (MutfakAdisyonHareketDto)view.GetRow(e.RowHandle);
-            e.ChildList = worker.AdisyonService.MutfakUrunHareketGetir(entity.AdisyonId);
+            e.ChildList = worker.AdisyonService.MutfakUrunHareketGetir(c=>c.AdisyonId==entity.AdisyonId);
         }
 
         private void repoUrunHareketServiseHazir_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

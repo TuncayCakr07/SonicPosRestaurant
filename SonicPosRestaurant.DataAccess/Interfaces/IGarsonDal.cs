@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SonicPosRestaurant.DataAccess.Interfaces
 {
-    public interface IGarsonDal:IRepository<Garson>
+    public interface IGarsonDal:IRepository<Personel>
     {
     }
 }

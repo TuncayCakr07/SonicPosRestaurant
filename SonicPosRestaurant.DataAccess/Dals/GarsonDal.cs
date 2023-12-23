@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SonicPosRestaurant.DataAccess.Dals
 {
-    public class GarsonDal : Repository<Garson>, IGarsonDal
+    public class GarsonDal : Repository<Personel>, IGarsonDal
     {
         public GarsonDal(DbContext context) : base(context)
         {

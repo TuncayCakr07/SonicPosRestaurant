@@ -5,6 +5,7 @@ using DevExpress.XtraGrid.Views.Layout;
 using DevExpress.XtraPrinting.Native;
 using SonicPosRestaurant.Business.Workers;
 using SonicPosRestaurant.Core.Extensions;
+using SonicPosRestaurant.Core.Monitors;
 using SonicPosRestaurant.Entities.Dtos;
 using SonicPosRestaurant.Entities.Enums;
 using SonicPosRestaurant.Entities.Tables;
@@ -38,15 +39,24 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private Adisyon secilenAdisyon;
         private Masa secilenMasa;
         private KeyPadIslem keyPadIslem = KeyPadIslem.Yok;
-
+        private SqlMonitor<UrunHareket> urunHareketMonitor = new SqlMonitor<UrunHareket>("UrunHareketleri", c => c.SiparisDurum == SiparisDurum.ServiseHazir,TableDependency.SqlClient.Base.Enums.DmlTriggerType.All);
         public FrmMain()
         {
             InitializeComponent();
             KategoriButtonOlustur();
             MasaButonOlustur();
-            GarsonButtonOlustur();
+            SiparisButtonOlustur();
             MusteriButtonOlustur();
             OdemeTuruButtonOlustur();
+            urunHareketMonitor.OnChange += UrunHareketChanged;
+        }
+
+        private void UrunHareketChanged()
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                gridControlBildirim.DataSource = worker.AdisyonService.MutfakUrunHareketGetir(c => c.SiparisDurum == SiparisDurum.ServiseHazir);
+            });
         }
 
         void OdemeTuruButtonOlustur()
@@ -127,10 +137,11 @@ namespace SonicPosRestaurant.UI.FrontOffice
             navigationKategori.SelectedPage = PagesKategoriUrunler;
         }
 
-        void GarsonButtonOlustur()
+        void GarsonButtonOlustur(PersonelTipi personelTipi)
         {
-            foreach (var garson in worker.GarsonService.GetList(null))
+            foreach (var garson in worker.GarsonService.GetList(c=>c.PersonelTipi==personelTipi))
             {
+                flowGarson.Controls.Clear();
                 ControlGarsonCheckButton button = new ControlGarsonCheckButton
                 {
                     Name = garson.Id.ToString(),
@@ -177,6 +188,24 @@ namespace SonicPosRestaurant.UI.FrontOffice
             }
         }
 
+        void SiparisButtonOlustur()
+        {
+            foreach (var siparis in worker.AdisyonService.GetList(c => c.AdisyonTipi == AdisyonTipi.Siparis && c.AdisyonDurum == AdisyonDurum.Acik))
+            {
+                ControlSiparisButton siparisbutton = new ControlSiparisButton
+                {
+                    Name = siparis.Id.ToString(),
+                    AdisyonId = siparis.Id,
+                    Width = 200,
+                    Height = 150,
+                    Text = "Sipariş",
+                    Font = new Font("Century Gothic", 12, FontStyle.Bold),
+                };
+                siparisbutton.Click += SiparisSec;
+                flowSiparis.Controls.Add(siparisbutton);
+            }
+        }
+
         private void KonumSecim(object sender, EventArgs e)
         {
             ControlKonumButton button = (ControlKonumButton)sender;
@@ -213,6 +242,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             btnMusteri.Visible = true;
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             gridControlOdeme.DataSource = worker.OdemeHareketService.BindingList();
+            GarsonButtonOlustur(PersonelTipi.Garson);
             navigationKategori.SelectedPage = PagesKategoriUrunler;
 
             if (button.MasaDurum == MasaDurum.Bos)
@@ -222,7 +252,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 secilenAdisyon.AdisyonTipi = AdisyonTipi.Masa;
                 secilenMasa = worker.MasaService.Get(c => c.Id == button.MasaId);
                 secilenAdisyon.MasaId = button.MasaId;
-                btnGarsonSecim.Text = "Garson Seçilmedi";
+                btnGarsonSecim.Image = ımageList2.Images[0];
+                btnGarsonSecim.Text = "Personel Seçilmedi";
                 button.AdisyonId = secilenAdisyon.Id;
                 btnMusteri.Load();
                 ToplamlariSifirla();
@@ -238,8 +269,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 worker.EkMalzemeHareketService.Load(null);
                 secilenAdisyon = worker.AdisyonService.Get(c => c.Id == button.AdisyonId);
                 secilenMasa = worker.MasaService.Get(c => c.Id == button.MasaId);
-                Garson garson = worker.GarsonService.Get(c => c.Id == secilenAdisyon.GarsonId);
-
+                Personel garson = worker.GarsonService.Get(c => c.Id == secilenAdisyon.GarsonId);
+                btnGarsonSecim.Image = ımageList2.Images[0];
                 if (garson != null)
                 {
                     btnGarsonSecim.Adi = garson.Adi;
@@ -750,7 +781,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             }
             if (btnGarsonSecim.GarsonId == Guid.Empty)
             {
-                MessageBox.Show("Lütfen Siparişi Kaydetmek İçin Garson Seçiniz!", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Siparişi Kaydetmek İçin Personel Seçiniz!", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1000,21 +1031,24 @@ namespace SonicPosRestaurant.UI.FrontOffice
             btnMusteri.Visible = true;
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             gridControlOdeme.DataSource = worker.OdemeHareketService.BindingList();
+            GarsonButtonOlustur(PersonelTipi.Kurye);
             navigationKategori.SelectedPage = PagesKategoriUrunler;
             secilenAdisyon = new Adisyon();
             secilenAdisyon.Id = Guid.NewGuid();
             secilenAdisyon.AdisyonTipi = AdisyonTipi.Siparis;
             ControlSiparisButton button = new ControlSiparisButton
             {
-                Height = 100,
                 Width = 200,
+                Height = 150,
                 Name = secilenAdisyon.Id.ToString(),
                 AdisyonId = secilenAdisyon.Id,
+                Font = new Font("Century Gothic", 12, FontStyle.Bold),
                 Text = "Sipariş"
             };
             button.Click += SiparisSec;
             flowSiparis.Controls.Add(button);
-            btnGarsonSecim.Text = "Garson Seçilmedi";
+            btnGarsonSecim.Image = ımageList2.Images[1];
+            btnGarsonSecim.Text = "Kurye Seçilmedi";
             btnMusteri.Load();
             ToplamlariSifirla();
             navigationMain.SelectedPage = PageAdisyonAyrinti;
@@ -1027,6 +1061,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             btnMusteri.Visible = true;
             gridControl1.DataSource = worker.UrunHareketService.BindingList();
             gridControlOdeme.DataSource = worker.OdemeHareketService.BindingList();
+            GarsonButtonOlustur(PersonelTipi.Kurye);
             navigationKategori.SelectedPage = PagesKategoriUrunler;
 
                 // Masa dolu ise yapılması gereken işlemler
@@ -1035,8 +1070,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 worker.OdemeHareketService.Load(c => c.AdisyonId == button.AdisyonId, c => c.OdemeTuru);
                 worker.EkMalzemeHareketService.Load(null);
                 secilenAdisyon = worker.AdisyonService.Get(c => c.Id == button.AdisyonId);
-                Garson garson = worker.GarsonService.Get(c => c.Id == secilenAdisyon.GarsonId);
-
+                Personel garson = worker.GarsonService.Get(c => c.Id == secilenAdisyon.GarsonId);
+                 btnGarsonSecim.Image = ımageList2.Images[1];
                 if (garson != null)
                 {
                     btnGarsonSecim.Adi = garson.Adi;
@@ -1045,7 +1080,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 }
                 else
                 {
-                    btnGarsonSecim.Text = "Garson Seçilmedi";
+
+                btnGarsonSecim.Text = "Kurye Seçilmedi";
                 }
 
                 if (secilenAdisyon.MusteriId != Guid.Empty)
@@ -1070,6 +1106,11 @@ namespace SonicPosRestaurant.UI.FrontOffice
                 layoutView1.RefreshData();
                 UrunHareketToplamGetir();
            
+        }
+
+        private void btnBildirim_Click(object sender, EventArgs e)
+        {
+            navigationMain.SelectedPage = PageBildirim;
         }
     }
 }

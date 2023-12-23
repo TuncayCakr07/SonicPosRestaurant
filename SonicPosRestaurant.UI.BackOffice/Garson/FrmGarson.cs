@@ -24,11 +24,12 @@ namespace SonicPosRestaurant.UI.BackOffice.Garson
         {
             worker.GarsonService.Load(null);
             gridControlGarson.DataSource = worker.GarsonService.BindingList();
+            gridControlGarson.Refresh();
         }
 
         private void controlMenu_ButtonEkle(object sender, EventArgs e)
         {
-            FrmGarsonIslem form=new FrmGarsonIslem(new Entities.Tables.Garson());
+            FrmGarsonIslem form=new FrmGarsonIslem(new Entities.Tables.Personel());
             form.ShowDialog();
             if (form.Kaydedildi)
             {
@@ -41,7 +42,7 @@ namespace SonicPosRestaurant.UI.BackOffice.Garson
             {
                 return;
             }
-            FrmGarsonIslem form = new FrmGarsonIslem((Entities.Tables.Garson)gridGarson.GetFocusedRow());
+            FrmGarsonIslem form = new FrmGarsonIslem((Entities.Tables.Personel)gridGarson.GetFocusedRow());
             form.ShowDialog();
             if (form.Kaydedildi)
             {
@@ -71,11 +72,6 @@ namespace SonicPosRestaurant.UI.BackOffice.Garson
         private void controlMenu_ButtonKapat(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void controlMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

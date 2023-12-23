@@ -17,7 +17,7 @@ namespace SonicPosRestaurant.Entities.Tables
         public Guid? MasaId { get; set; }
         public virtual Masa Masa { get; set; }
         public Guid GarsonId { get; set; }
-        public virtual Garson Garson { get; set; }
+        public virtual Personel Garson { get; set; }
         public Guid? MusteriId { get; set; }
         public virtual Musteri Musteri { get; set; }
         public virtual ICollection<UrunHareket> UrunHareketleri{ get; set; }

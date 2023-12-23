@@ -92,7 +92,7 @@
     <Compile Include="Mappings\AdresMap.cs" />
     <Compile Include="Mappings\EkMalzemeHareketMap.cs" />
     <Compile Include="Mappings\EkMalzemeMap.cs" />
-    <Compile Include="Mappings\GarsonMap.cs" />
+    <Compile Include="Mappings\PersonelMap.cs" />
     <Compile Include="Mappings\MasaMap.cs" />
     <Compile Include="Mappings\MusteriMap.cs" />
     <Compile Include="Mappings\OdemeHareketMap.cs" />

@@ -32,7 +32,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
         public DbSet<Adres> Adresler { get; set; }
         public DbSet<Adisyon> Adisyonlar { get; set; }
         public DbSet<EkMalzemeHareket> EkMalzemeHareketleri { get; set; }
-        public DbSet<Garson> Garsonlar { get; set; }
+        public DbSet<Personel> Garsonlar { get; set; }
         public DbSet<Masa> Masalar { get; set; }
         public DbSet<UrunHareket> UrunHareketleri { get; set; }
         public DbSet<OdemeTuru> OdemeTurleri { get; set; }
@@ -96,7 +96,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Configurations.Add(new AdresMap());
             modelBuilder.Configurations.Add(new AdisyonMap());
             modelBuilder.Configurations.Add(new EkMalzemeHareketMap());
-            modelBuilder.Configurations.Add(new GarsonMap());
+            modelBuilder.Configurations.Add(new PersonelMap());
             modelBuilder.Configurations.Add(new MasaMap());
             modelBuilder.Configurations.Add(new UrunHareketMap());
             modelBuilder.Configurations.Add(new OdemeTuruMap());

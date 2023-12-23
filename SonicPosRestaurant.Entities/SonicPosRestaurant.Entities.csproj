@@ -67,6 +67,7 @@
     <Compile Include="Enums\HaftaninGunleri.cs" />
     <Compile Include="Enums\MasaDurum.cs" />
     <Compile Include="Enums\MusteriTip.cs" />
+    <Compile Include="Enums\PersonelTipi.cs" />
     <Compile Include="Enums\SiparisDurum.cs" />
     <Compile Include="Enums\TanimTip.cs" />
     <Compile Include="Enums\TelefonAdresTip.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="Tables\Base\EntityBase.cs" />
     <Compile Include="Tables\EkMalzeme.cs" />
     <Compile Include="Tables\EkMalzemeHareket.cs" />
-    <Compile Include="Tables\Garson.cs" />
+    <Compile Include="Tables\Personel.cs" />
     <Compile Include="Tables\Masa.cs" />
     <Compile Include="Tables\Musteri.cs" />
     <Compile Include="Tables\OdemeHareket.cs" />
