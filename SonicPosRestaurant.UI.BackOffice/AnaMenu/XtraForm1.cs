@@ -20,5 +20,10 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
             InitializeComponent();
             callerId = new CallerId(this);
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            controlBadgeButton1.Count++;
+        }
     }
 }

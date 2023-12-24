@@ -61,6 +61,9 @@
     <Compile Include="ControlAnaMenuAlt.Designer.cs">
       <DependentUpon>ControlAnaMenuAlt.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlBadgeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ControlEkMalzemeButton.cs">
       <SubType>Component</SubType>
     </Compile>
