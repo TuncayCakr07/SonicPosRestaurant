@@ -55,7 +55,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
         {
             Invoke((MethodInvoker)delegate
             {
-                gridControlBildirim.DataSource = worker.AdisyonService.MutfakUrunHareketGetir(c => c.SiparisDurum == SiparisDurum.ServiseHazir);
+                controlBadgeButton1.Count++;
+                gridControlBildirim.DataSource = worker.AdisyonService.MutfakUrunHareketGetir(c => c.SiparisDurum == SiparisDurum.ServiseHazir && DbFunctions.TruncateTime(c.EklenmeTarihi)==DateTime.Now.Date);
             });
         }
 
@@ -1108,7 +1109,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
            
         }
 
-        private void btnBildirim_Click(object sender, EventArgs e)
+        private void controlBadgeButton1_Click(object sender, EventArgs e)
         {
             navigationMain.SelectedPage = PageBildirim;
         }

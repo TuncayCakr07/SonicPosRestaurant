@@ -38,6 +38,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
         public DbSet<OdemeTuru> OdemeTurleri { get; set; }
         public DbSet<OdemeHareket> OdemeHareketleri { get; set; }
         public DbSet<UrunNot> UrunNotlari { get; set; }
+        public DbSet<Kullanici> Kullanicilar { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -102,6 +103,7 @@ namespace SonicPosRestaurant.DataAccess.Contexts.Restaurant
             modelBuilder.Configurations.Add(new OdemeTuruMap());
             modelBuilder.Configurations.Add(new OdemeHareketMap());
             modelBuilder.Configurations.Add(new UrunNotMap());
+            modelBuilder.Configurations.Add(new KullaniciMap());
 
         }
     }

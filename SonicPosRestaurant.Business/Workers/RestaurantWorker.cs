@@ -27,6 +27,7 @@ namespace SonicPosRestaurant.Business.Workers
         public IOdemeTuruService OdemeTuruService { get; set; }
         public IOdemeHareketService OdemeHareketService { get; set; }
         public IUrunNotService UrunNotService { get; set; }
+        public IKullaniciService KullaniciService { get; set; }
         public RestaurantWorker(string connectionString=null)
         {
             _uow=new RestaurantUnitOfWork(connectionString);
@@ -45,6 +46,7 @@ namespace SonicPosRestaurant.Business.Workers
             OdemeTuruService=new OdemeTuruManager(_uow);
             OdemeHareketService = new OdemeHareketManager(_uow);
             UrunNotService=new UrunNotManager(_uow);
+            KullaniciService=new KullaniciManager(_uow);
         }
 
         private bool disposedValue;

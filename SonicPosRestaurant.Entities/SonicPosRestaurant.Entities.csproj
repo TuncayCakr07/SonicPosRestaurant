@@ -65,6 +65,7 @@
     <Compile Include="Enums\AdisyonTipi.cs" />
     <Compile Include="Enums\Aylar.cs" />
     <Compile Include="Enums\HaftaninGunleri.cs" />
+    <Compile Include="Enums\KullaniciRol.cs" />
     <Compile Include="Enums\MasaDurum.cs" />
     <Compile Include="Enums\MusteriTip.cs" />
     <Compile Include="Enums\PersonelTipi.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Tables\Base\EntityBase.cs" />
     <Compile Include="Tables\EkMalzeme.cs" />
     <Compile Include="Tables\EkMalzemeHareket.cs" />
+    <Compile Include="Tables\Kullanici.cs" />
     <Compile Include="Tables\Personel.cs" />
     <Compile Include="Tables\Masa.cs" />
     <Compile Include="Tables\Musteri.cs" />

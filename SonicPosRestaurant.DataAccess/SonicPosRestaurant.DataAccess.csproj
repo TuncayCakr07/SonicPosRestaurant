@@ -61,6 +61,7 @@
     <Compile Include="Dals\EkMalzemeDal.cs" />
     <Compile Include="Dals\EkMalzemeHareketDal.cs" />
     <Compile Include="Dals\GarsonDal.cs" />
+    <Compile Include="Dals\KullaniciDal.cs" />
     <Compile Include="Dals\MasaDal.cs" />
     <Compile Include="Dals\MusteriDal.cs" />
     <Compile Include="Dals\OdemeHareketDal.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Interfaces\IEkMalzemeDal.cs" />
     <Compile Include="Interfaces\IEkMalzemeHareketDal.cs" />
     <Compile Include="Interfaces\IGarsonDal.cs" />
+    <Compile Include="Interfaces\IKullaniciDal.cs" />
     <Compile Include="Interfaces\IMasaDal.cs" />
     <Compile Include="Interfaces\IMusteriDal.cs" />
     <Compile Include="Interfaces\IOdemeHareketDal.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Mappings\AdresMap.cs" />
     <Compile Include="Mappings\EkMalzemeHareketMap.cs" />
     <Compile Include="Mappings\EkMalzemeMap.cs" />
+    <Compile Include="Mappings\KullaniciMap.cs" />
     <Compile Include="Mappings\PersonelMap.cs" />
     <Compile Include="Mappings\MasaMap.cs" />
     <Compile Include="Mappings\MusteriMap.cs" />
