@@ -200,6 +200,7 @@
             this.Controls.Add(this.gridControlUrunler);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmUrun.IconOptions.Image")));
             this.Name = "FrmUrun";
             this.Text = "Ürünler";
             ((System.ComponentModel.ISupportInitialize)(this.gridControlUrunler)).EndInit();

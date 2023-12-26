@@ -279,6 +279,7 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.controlMenu);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmOdemeHareketleri.IconOptions.Image")));
             this.Name = "FrmOdemeHareketleri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ödeme Hareketleri";

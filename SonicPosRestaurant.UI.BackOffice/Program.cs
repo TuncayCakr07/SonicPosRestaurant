@@ -18,7 +18,7 @@ namespace SonicPosRestaurant.UI.BackOffice
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAnaMenu());
+            Application.Run(new FrmLogin());
         }
     }
 }

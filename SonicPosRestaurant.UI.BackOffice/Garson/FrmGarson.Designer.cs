@@ -82,7 +82,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(1309, 75);
             this.labelControl1.TabIndex = 7;
-            this.labelControl1.Text = "Garsonlar";
+            this.labelControl1.Text = "Personeller";
             // 
             // gridControlGarson
             // 
@@ -154,8 +154,9 @@
             this.Controls.Add(this.gridControlGarson);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmGarson.IconOptions.Image")));
             this.Name = "FrmGarson";
-            this.Text = "Garsonlar";
+            this.Text = "Personeller";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGarson)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGarson)).EndInit();

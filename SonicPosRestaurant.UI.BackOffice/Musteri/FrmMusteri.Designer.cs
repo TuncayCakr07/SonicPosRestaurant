@@ -141,6 +141,7 @@
             this.Controls.Add(this.gridControlMusteri);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmMusteri.IconOptions.Image")));
             this.Name = "FrmMusteri";
             this.Text = "Müşteriler";
             this.groupBox1.ResumeLayout(false);

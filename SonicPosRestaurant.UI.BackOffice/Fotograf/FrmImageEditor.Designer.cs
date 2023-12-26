@@ -210,11 +210,12 @@
             this.ClientSize = new System.Drawing.Size(1057, 681);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmImageEditor.IconOptions.Image")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmImageEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmImageEditor";
+            this.Text = "SonicPos Cafe-Restaurant Otomasyonu - Image Editor";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();

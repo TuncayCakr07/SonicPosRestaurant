@@ -64,9 +64,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="SonicPosRestaurant.UserControls">
-      <HintPath>..\SonicPosRestaurant.UserControls\obj\Debug\SonicPosRestaurant.UserControls.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -98,11 +95,11 @@
     <Compile Include="AnaMenu\FrmAnaMenuBilgi.Designer.cs">
       <DependentUpon>FrmAnaMenuBilgi.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnaMenu\XtraForm1.cs">
+    <Compile Include="AnaMenu\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnaMenu\XtraForm1.Designer.cs">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <Compile Include="AnaMenu\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Fotograf\FrmImageEditor.cs">
       <SubType>Form</SubType>
@@ -127,6 +124,12 @@
     </Compile>
     <Compile Include="Garson\FrmGarsonIslem.Designer.cs">
       <DependentUpon>FrmGarsonIslem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanici\FrmKullanicilar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kullanici\FrmKullanicilar.Designer.cs">
+      <DependentUpon>FrmKullanicilar.cs</DependentUpon>
     </Compile>
     <Compile Include="Masa\FrmMasa.cs">
       <SubType>Form</SubType>
@@ -205,8 +208,8 @@
     <EmbeddedResource Include="AnaMenu\FrmAnaMenuBilgi.resx">
       <DependentUpon>FrmAnaMenuBilgi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnaMenu\XtraForm1.resx">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <EmbeddedResource Include="AnaMenu\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fotograf\FrmImageEditor.resx">
       <DependentUpon>FrmImageEditor.cs</DependentUpon>
@@ -219,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Garson\FrmGarsonIslem.resx">
       <DependentUpon>FrmGarsonIslem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kullanici\FrmKullanicilar.resx">
+      <DependentUpon>FrmKullanicilar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Masa\FrmMasa.resx">
       <DependentUpon>FrmMasa.cs</DependentUpon>
@@ -291,6 +297,10 @@
     <ProjectReference Include="..\SonicPosRestaurant.Entities\SonicPosRestaurant.Entities.csproj">
       <Project>{2a932c29-453a-429c-ac94-5512c6926226}</Project>
       <Name>SonicPosRestaurant.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SonicPosRestaurant.UserControls\SonicPosRestaurant.UserControls.csproj">
+      <Project>{72a23a76-5f39-402c-8e12-9a0076949d62}</Project>
+      <Name>SonicPosRestaurant.UserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

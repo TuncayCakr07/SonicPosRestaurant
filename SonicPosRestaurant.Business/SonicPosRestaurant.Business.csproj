@@ -121,6 +121,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SonicPosRestaurant.Core\SonicPosRestaurant.Core.csproj">
+      <Project>{a5cc06fc-be85-4db6-866d-95114d415510}</Project>
+      <Name>SonicPosRestaurant.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SonicPosRestaurant.DataAccess\SonicPosRestaurant.DataAccess.csproj">
       <Project>{efd4821b-0aa4-4e37-b586-254a7243fe45}</Project>
       <Name>SonicPosRestaurant.DataAccess</Name>

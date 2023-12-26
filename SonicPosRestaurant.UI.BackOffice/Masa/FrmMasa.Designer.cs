@@ -153,6 +153,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridControlMasa);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmMasa.IconOptions.Image")));
             this.Name = "FrmMasa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Masalar";

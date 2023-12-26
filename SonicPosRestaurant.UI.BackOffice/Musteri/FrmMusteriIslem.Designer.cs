@@ -732,6 +732,7 @@
             this.Controls.Add(this.tabPane1);
             this.Controls.Add(this.groupAltMenu);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmMusteriIslem.IconOptions.Image")));
             this.Name = "FrmMusteriIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Müşteri İşlemleri ";

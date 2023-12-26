@@ -926,6 +926,7 @@
             this.Controls.Add(this.groupAltMenu);
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmUrunIslem.IconOptions.Image")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUrunIslem";

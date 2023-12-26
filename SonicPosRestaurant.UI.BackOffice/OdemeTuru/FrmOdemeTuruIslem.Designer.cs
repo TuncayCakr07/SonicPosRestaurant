@@ -194,6 +194,7 @@
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.groupAltMenu);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmOdemeTuruIslem.IconOptions.Image")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmOdemeTuruIslem";

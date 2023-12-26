@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SonicPosRestaurant.Business.Workers;
+using SonicPosRestaurant.UserControls;
 
 namespace SonicPosRestaurant.UI.BackOffice.Garson
 {

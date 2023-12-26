@@ -2,6 +2,7 @@
 using SonicPosRestaurant.Core.Functions;
 using SonicPosRestaurant.UI.BackOffice.Adisyon;
 using SonicPosRestaurant.UI.BackOffice.Garson;
+using SonicPosRestaurant.UI.BackOffice.Kullanici;
 using SonicPosRestaurant.UI.BackOffice.Masa;
 using SonicPosRestaurant.UI.BackOffice.Musteri;
 using SonicPosRestaurant.UI.BackOffice.OdemeTuru;
@@ -89,10 +90,10 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
             form.Show();
         }
 
-        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnKullanicilar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           XtraForm1 form=new XtraForm1();
-           form.Show();
+            FrmKullanicilar form=new FrmKullanicilar();
+            form.ShowDialog();
         }
     }
 }

@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DevExpress.XtraEditors.RoundedSkinPanel;
 
@@ -49,6 +50,38 @@ namespace SonicPosRestaurant.UI.FrontOffice
             MusteriButtonOlustur();
             OdemeTuruButtonOlustur();
             urunHareketMonitor.OnChange += UrunHareketChanged;
+            controlKullaniciGiris1.KapatButton += KullaniciGirisKapat;
+            controlKullaniciGiris1.KullaniciKontrolEvent += KullaniciGirisButonu;
+        }
+
+        private void KullaniciGirisButonu(object sender, KullaniciKontrolEventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                if (e.Kullanici == null)
+                {
+                    MessageBox.Show("Girilen Kullanıcı Bilgileri Hatalıdır!", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Kullanıcı Girişi Başarılı!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    navigationMain.SelectedPage = PageMasalar;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+        private void KullaniciGirisKapat()
+        {
+           Application.Exit();
         }
 
         private void UrunHareketChanged()
@@ -1016,7 +1049,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
 
         private void navigationMain_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
         {
-            if (e.Page==PageAdisyonAyrinti)
+            if (e.Page==PageAdisyonAyrinti || e.Page==pageKullaniciGiris)
             {
                 panelAnaSolMenu.Visible = false;
             }

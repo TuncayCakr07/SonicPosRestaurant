@@ -141,6 +141,7 @@
             this.Controls.Add(this.gridControlOdemeTuru);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.groupBox1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmOdemeTuru.IconOptions.Image")));
             this.Name = "FrmOdemeTuru";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ödeme Türleri";

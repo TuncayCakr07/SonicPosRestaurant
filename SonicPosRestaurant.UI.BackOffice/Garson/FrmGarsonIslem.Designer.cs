@@ -30,26 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGarsonIslem));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lookTelefonTip = new DevExpress.XtraEditors.LookUpEdit();
             this.TxtAciklama = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtSoyadi = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.TxtAdi = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupAltMenu = new DevExpress.XtraEditors.GroupControl();
             this.BtnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.BtnKapat = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.lookTelefonTip = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).BeginInit();
             this.groupAltMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -67,7 +67,18 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(779, 365);
             this.groupControl1.TabIndex = 10;
-            this.groupControl1.Text = "Garson Bilgileri";
+            this.groupControl1.Text = "Personel Bilgileri";
+            // 
+            // lookTelefonTip
+            // 
+            this.lookTelefonTip.Location = new System.Drawing.Point(125, 34);
+            this.lookTelefonTip.Name = "lookTelefonTip";
+            this.lookTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookTelefonTip.Properties.NullText = "Lütfen Bir Personel Tipi Seçiniz..";
+            this.lookTelefonTip.Properties.ShowFooter = false;
+            this.lookTelefonTip.Size = new System.Drawing.Size(642, 22);
+            this.lookTelefonTip.TabIndex = 7;
             // 
             // TxtAciklama
             // 
@@ -112,6 +123,20 @@
             this.txtSoyadi.Properties.Appearance.Options.UseFont = true;
             this.txtSoyadi.Size = new System.Drawing.Size(644, 24);
             this.txtSoyadi.TabIndex = 1;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Appearance.Options.UseTextOptions = true;
+            this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.labelControl4.Location = new System.Drawing.Point(10, 34);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(109, 20);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "Personel Tipi:";
             // 
             // TxtAdi
             // 
@@ -188,32 +213,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(779, 69);
             this.labelControl1.TabIndex = 8;
-            this.labelControl1.Text = "Garson İşlemleri";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseTextOptions = true;
-            this.labelControl4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl4.Location = new System.Drawing.Point(10, 34);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(109, 20);
-            this.labelControl4.TabIndex = 2;
-            this.labelControl4.Text = "Personel Tipi:";
-            // 
-            // lookTelefonTip
-            // 
-            this.lookTelefonTip.Location = new System.Drawing.Point(125, 34);
-            this.lookTelefonTip.Name = "lookTelefonTip";
-            this.lookTelefonTip.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookTelefonTip.Properties.NullText = "Lütfen Bir Personel Tipi Seçiniz..";
-            this.lookTelefonTip.Properties.ShowFooter = false;
-            this.lookTelefonTip.Size = new System.Drawing.Size(642, 22);
-            this.lookTelefonTip.TabIndex = 7;
+            this.labelControl1.Text = "Personel İşlemleri";
             // 
             // FrmGarsonIslem
             // 
@@ -224,19 +224,20 @@
             this.Controls.Add(this.groupAltMenu);
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmGarsonIslem.IconOptions.Image")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmGarsonIslem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Garson İşlemleri";
+            this.Text = "Personel İşlemleri";
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupAltMenu)).EndInit();
             this.groupAltMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lookTelefonTip.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -203,6 +203,7 @@
             this.Controls.Add(this.groupTanimBilgi);
             this.Controls.Add(this.labelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmTanim.IconOptions.Image")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTanim";

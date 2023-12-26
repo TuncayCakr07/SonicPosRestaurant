@@ -203,12 +203,14 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.colBildirimMiktar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBildirimEkMalzeme = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBildirimMasaAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pageKullaniciGiris = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.controlKullaniciGiris1 = new SonicPosRestaurant.UserControls.controlKullaniciGiris();
             this.txtToplamUrunHareketTutar = new DevExpress.XtraEditors.CalcEdit();
             this.panelAnaSolMenu = new DevExpress.XtraEditors.PanelControl();
+            this.controlBadgeButton1 = new SonicPosRestaurant.UserControls.ControlBadgeButton();
             this.btnSiparisler = new DevExpress.XtraEditors.SimpleButton();
             this.btnMasalar = new DevExpress.XtraEditors.SimpleButton();
             this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.controlBadgeButton1 = new SonicPosRestaurant.UserControls.ControlBadgeButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navigationMain)).BeginInit();
@@ -324,6 +326,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageBildirim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBildirim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridBildirim)).BeginInit();
+            this.pageKullaniciGiris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelAnaSolMenu)).BeginInit();
             this.panelAnaSolMenu.SuspendLayout();
@@ -410,15 +413,17 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.navigationMain.Controls.Add(this.PageMasalar);
             this.navigationMain.Controls.Add(this.PageSiparis);
             this.navigationMain.Controls.Add(this.PageBildirim);
+            this.navigationMain.Controls.Add(this.pageKullaniciGiris);
             this.navigationMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationMain.Location = new System.Drawing.Point(126, 57);
             this.navigationMain.Name = "navigationMain";
             this.navigationMain.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.pageKullaniciGiris,
             this.PageSiparis,
             this.PageMasalar,
             this.PageAdisyonAyrinti,
             this.PageBildirim});
-            this.navigationMain.SelectedPage = this.PageSiparis;
+            this.navigationMain.SelectedPage = this.pageKullaniciGiris;
             this.navigationMain.Size = new System.Drawing.Size(1496, 728);
             this.navigationMain.TabIndex = 1;
             this.navigationMain.Text = "navigationFrame1";
@@ -2401,6 +2406,21 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.colBildirimMasaAdi.VisibleIndex = 4;
             this.colBildirimMasaAdi.Width = 94;
             // 
+            // pageKullaniciGiris
+            // 
+            this.pageKullaniciGiris.Caption = "pageKullaniciGiris";
+            this.pageKullaniciGiris.Controls.Add(this.controlKullaniciGiris1);
+            this.pageKullaniciGiris.Name = "pageKullaniciGiris";
+            this.pageKullaniciGiris.Size = new System.Drawing.Size(1496, 728);
+            // 
+            // controlKullaniciGiris1
+            // 
+            this.controlKullaniciGiris1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlKullaniciGiris1.Location = new System.Drawing.Point(0, 0);
+            this.controlKullaniciGiris1.Name = "controlKullaniciGiris1";
+            this.controlKullaniciGiris1.Size = new System.Drawing.Size(1496, 728);
+            this.controlKullaniciGiris1.TabIndex = 0;
+            // 
             // txtToplamUrunHareketTutar
             // 
             this.txtToplamUrunHareketTutar.Location = new System.Drawing.Point(318, 12);
@@ -2421,6 +2441,27 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.panelAnaSolMenu.Name = "panelAnaSolMenu";
             this.panelAnaSolMenu.Size = new System.Drawing.Size(126, 728);
             this.panelAnaSolMenu.TabIndex = 2;
+            this.panelAnaSolMenu.Visible = false;
+            // 
+            // controlBadgeButton1
+            // 
+            this.controlBadgeButton1.Appearance.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold);
+            this.controlBadgeButton1.Appearance.Options.UseFont = true;
+            this.controlBadgeButton1.BadgeAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.controlBadgeButton1.BadgeBackColor = System.Drawing.Color.Red;
+            this.controlBadgeButton1.BadgeFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.controlBadgeButton1.BadgeForeColor = System.Drawing.Color.White;
+            this.controlBadgeButton1.ContainerControl = this;
+            this.controlBadgeButton1.Count = 0;
+            this.controlBadgeButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.controlBadgeButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("controlBadgeButton1.ImageOptions.Image")));
+            this.controlBadgeButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.controlBadgeButton1.Location = new System.Drawing.Point(2, 177);
+            this.controlBadgeButton1.Name = "controlBadgeButton1";
+            this.controlBadgeButton1.Size = new System.Drawing.Size(122, 96);
+            this.controlBadgeButton1.TabIndex = 2;
+            this.controlBadgeButton1.Text = "Bildirimler";
+            this.controlBadgeButton1.Click += new System.EventHandler(this.controlBadgeButton1_Click);
             // 
             // btnSiparisler
             // 
@@ -2456,26 +2497,6 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.ımageList2.Images.SetKeyName(0, "icons8-person-64.png");
             this.ımageList2.Images.SetKeyName(1, "service_bell.png");
-            // 
-            // controlBadgeButton1
-            // 
-            this.controlBadgeButton1.Appearance.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold);
-            this.controlBadgeButton1.Appearance.Options.UseFont = true;
-            this.controlBadgeButton1.BadgeAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.controlBadgeButton1.BadgeBackColor = System.Drawing.Color.Red;
-            this.controlBadgeButton1.BadgeFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.controlBadgeButton1.BadgeForeColor = System.Drawing.Color.White;
-            this.controlBadgeButton1.ContainerControl = this;
-            this.controlBadgeButton1.Count = 0;
-            this.controlBadgeButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.controlBadgeButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("controlBadgeButton1.ImageOptions.Image")));
-            this.controlBadgeButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.controlBadgeButton1.Location = new System.Drawing.Point(2, 177);
-            this.controlBadgeButton1.Name = "controlBadgeButton1";
-            this.controlBadgeButton1.Size = new System.Drawing.Size(122, 96);
-            this.controlBadgeButton1.TabIndex = 2;
-            this.controlBadgeButton1.Text = "Bildirimler";
-            this.controlBadgeButton1.Click += new System.EventHandler(this.controlBadgeButton1_Click);
             // 
             // FrmMain
             // 
@@ -2606,6 +2627,7 @@ namespace SonicPosRestaurant.UI.FrontOffice
             this.PageBildirim.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBildirim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridBildirim)).EndInit();
+            this.pageKullaniciGiris.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtToplamUrunHareketTutar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelAnaSolMenu)).EndInit();
             this.panelAnaSolMenu.ResumeLayout(false);
@@ -2781,6 +2803,8 @@ namespace SonicPosRestaurant.UI.FrontOffice
         private DevExpress.XtraGrid.Columns.GridColumn colBildirimEkMalzeme;
         private DevExpress.XtraGrid.Columns.GridColumn colBildirimMasaAdi;
         private ControlBadgeButton controlBadgeButton1;
+        private DevExpress.XtraBars.Navigation.NavigationPage pageKullaniciGiris;
+        private controlKullaniciGiris controlKullaniciGiris1;
     }
 }
 

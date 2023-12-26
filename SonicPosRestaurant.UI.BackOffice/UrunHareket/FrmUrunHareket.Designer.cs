@@ -38,20 +38,20 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridControlUrunHareket = new DevExpress.XtraGrid.GridControl();
             this.gridUrunHareket = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.controlMenu = new SonicPosRestaurant.UserControls.ControlAnaMenuAlt();
+            this.colUrunHareketTip = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunAdi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPorsiyon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBirim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTarih = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSaat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUrunHareketTip = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMiktar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBirimFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEkMalzemeTutar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEkMalzemeliFiyat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIndirim = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colToplamTutar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEkMalzemeTutar = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.controlMenu = new SonicPosRestaurant.UserControls.ControlAnaMenuAlt();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateGunSecim2.Properties)).BeginInit();
@@ -191,26 +191,16 @@
             this.gridUrunHareket.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colUrunAdi, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // groupBox1
+            // colUrunHareketTip
             // 
-            this.groupBox1.Controls.Add(this.controlMenu);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 670);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1309, 100);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Menü:";
-            // 
-            // controlMenu
-            // 
-            this.controlMenu.ButtonFont = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlMenu.Location = new System.Drawing.Point(3, 32);
-            this.controlMenu.Name = "controlMenu";
-            this.controlMenu.Size = new System.Drawing.Size(1303, 65);
-            this.controlMenu.TabIndex = 0;
+            this.colUrunHareketTip.Caption = "Hareket Tipi";
+            this.colUrunHareketTip.FieldName = "UrunHareketTip";
+            this.colUrunHareketTip.MinWidth = 25;
+            this.colUrunHareketTip.Name = "colUrunHareketTip";
+            this.colUrunHareketTip.OptionsColumn.AllowEdit = false;
+            this.colUrunHareketTip.Visible = true;
+            this.colUrunHareketTip.VisibleIndex = 0;
+            this.colUrunHareketTip.Width = 103;
             // 
             // colUrunAdi
             // 
@@ -271,17 +261,6 @@
             this.colSaat.VisibleIndex = 4;
             this.colSaat.Width = 99;
             // 
-            // colUrunHareketTip
-            // 
-            this.colUrunHareketTip.Caption = "Hareket Tipi";
-            this.colUrunHareketTip.FieldName = "UrunHareketTip";
-            this.colUrunHareketTip.MinWidth = 25;
-            this.colUrunHareketTip.Name = "colUrunHareketTip";
-            this.colUrunHareketTip.OptionsColumn.AllowEdit = false;
-            this.colUrunHareketTip.Visible = true;
-            this.colUrunHareketTip.VisibleIndex = 0;
-            this.colUrunHareketTip.Width = 103;
-            // 
             // colMiktar
             // 
             this.colMiktar.Caption = "Miktar";
@@ -307,6 +286,17 @@
             this.colBirimFiyat.Visible = true;
             this.colBirimFiyat.VisibleIndex = 6;
             this.colBirimFiyat.Width = 99;
+            // 
+            // colEkMalzemeTutar
+            // 
+            this.colEkMalzemeTutar.Caption = "Ek Malzeme Tutarı";
+            this.colEkMalzemeTutar.FieldName = "EkMalzemeFiyat";
+            this.colEkMalzemeTutar.MinWidth = 25;
+            this.colEkMalzemeTutar.Name = "colEkMalzemeTutar";
+            this.colEkMalzemeTutar.OptionsColumn.AllowEdit = false;
+            this.colEkMalzemeTutar.Visible = true;
+            this.colEkMalzemeTutar.VisibleIndex = 8;
+            this.colEkMalzemeTutar.Width = 94;
             // 
             // colEkMalzemeliFiyat
             // 
@@ -347,16 +337,26 @@
             this.colToplamTutar.VisibleIndex = 10;
             this.colToplamTutar.Width = 108;
             // 
-            // colEkMalzemeTutar
+            // groupBox1
             // 
-            this.colEkMalzemeTutar.Caption = "Ek Malzeme Tutarı";
-            this.colEkMalzemeTutar.FieldName = "EkMalzemeFiyat";
-            this.colEkMalzemeTutar.MinWidth = 25;
-            this.colEkMalzemeTutar.Name = "colEkMalzemeTutar";
-            this.colEkMalzemeTutar.OptionsColumn.AllowEdit = false;
-            this.colEkMalzemeTutar.Visible = true;
-            this.colEkMalzemeTutar.VisibleIndex = 8;
-            this.colEkMalzemeTutar.Width = 94;
+            this.groupBox1.Controls.Add(this.controlMenu);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 670);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1309, 100);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Menü:";
+            // 
+            // controlMenu
+            // 
+            this.controlMenu.ButtonFont = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.controlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlMenu.Location = new System.Drawing.Point(3, 32);
+            this.controlMenu.Name = "controlMenu";
+            this.controlMenu.Size = new System.Drawing.Size(1303, 65);
+            this.controlMenu.TabIndex = 0;
             // 
             // FrmUrunHareket
             // 
@@ -367,6 +367,7 @@
             this.Controls.Add(this.gridControlUrunHareket);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.labelControl1);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("FrmUrunHareket.IconOptions.Image")));
             this.Name = "FrmUrunHareket";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ürün Hareketleri";
