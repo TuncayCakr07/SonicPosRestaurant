@@ -1,6 +1,7 @@
 ﻿using DevExpress.Data.Entity;
 using SonicPosRestaurant.Core.Functions;
 using SonicPosRestaurant.UI.BackOffice.Adisyon;
+using SonicPosRestaurant.UI.BackOffice.Araclar;
 using SonicPosRestaurant.UI.BackOffice.Garson;
 using SonicPosRestaurant.UI.BackOffice.Kullanici;
 using SonicPosRestaurant.UI.BackOffice.Masa;
@@ -93,6 +94,24 @@ namespace SonicPosRestaurant.UI.BackOffice.AnaMenu
         private void btnKullanicilar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmKullanicilar form=new FrmKullanicilar();
+            form.ShowDialog();
+        }
+
+        private void btnYardim_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmYardim form=new FrmYardim();
+            form.ShowDialog();
+        }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmHakkinda form=new FrmHakkinda();
+            form.ShowDialog();
+        }
+
+        private void btnYedekleme_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmYedek form=new FrmYedek();
             form.ShowDialog();
         }
     }

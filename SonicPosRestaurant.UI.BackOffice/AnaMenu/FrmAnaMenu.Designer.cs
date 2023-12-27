@@ -43,6 +43,8 @@
             this.skinPaletteRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnKullanicilar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnYardim = new DevExpress.XtraBars.BarButtonItem();
+            this.btnYedekleme = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,10 +71,12 @@
             this.barButtonItem4,
             this.skinPaletteRibbonGalleryBarItem1,
             this.barButtonItem1,
-            this.btnKullanicilar});
+            this.btnKullanicilar,
+            this.btnYardim,
+            this.btnYedekleme});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 14;
+            this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 385;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -152,6 +156,7 @@
             this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
             this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
             this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // skinPaletteRibbonGalleryBarItem1
             // 
@@ -172,6 +177,24 @@
             this.btnKullanicilar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKullanicilar.ImageOptions.LargeImage")));
             this.btnKullanicilar.Name = "btnKullanicilar";
             this.btnKullanicilar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKullanicilar_ItemClick);
+            // 
+            // btnYardim
+            // 
+            this.btnYardim.Caption = "Yardım!";
+            this.btnYardim.Id = 14;
+            this.btnYardim.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYardim.ImageOptions.Image")));
+            this.btnYardim.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnYardim.ImageOptions.LargeImage")));
+            this.btnYardim.Name = "btnYardim";
+            this.btnYardim.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnYardim_ItemClick);
+            // 
+            // btnYedekleme
+            // 
+            this.btnYedekleme.Caption = "Yedekleme";
+            this.btnYedekleme.Id = 15;
+            this.btnYedekleme.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnYedekleme.ImageOptions.Image")));
+            this.btnYedekleme.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnYedekleme.ImageOptions.LargeImage")));
+            this.btnYedekleme.Name = "btnYedekleme";
+            this.btnYedekleme.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnYedekleme_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -202,8 +225,10 @@
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem4);
             this.ribbonPageGroup3.ItemLinks.Add(this.btnKullanicilar);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnYedekleme);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnYardim);
             this.ribbonPageGroup3.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem1);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
@@ -252,6 +277,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnKullanicilar;
+        private DevExpress.XtraBars.BarButtonItem btnYardim;
+        private DevExpress.XtraBars.BarButtonItem btnYedekleme;
     }
 }
 
